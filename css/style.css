@@ -19,3 +19,14 @@ a:hover {
     color: #00a897;
     text-decoration: none;
 }
+
+.btn-custom {
+    background-color: #1f1f1f;
+    color: #ffffff;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #1f1f1f; 
+    color: #ffffff; 
+}
