@@ -8,4 +8,27 @@
     padding: 15px 30px;
     background-color: #D9D9D9;
 }
+/* .content-title img{
+    text-align: center;
+} */
+
+#iphone16-title{
+    text-align: center;
+}
+.content-title h4{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 300;
+    font-style: normal;
+}
+.iphone16-rear-cam-big{
+    background: linear-gradient(360deg, #F2BCDF 7.49%, #FFF 96.88%);
+    height: 368px;
+}
+.iphone16-rear-cam-big h2{
+    text-align: center;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+}
 
