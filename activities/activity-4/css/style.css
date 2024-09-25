@@ -6,7 +6,7 @@
 }
 
 body {
-    margin: 0;         
+    margin: 0;
     overflow-x: hidden;
 }
 
@@ -15,6 +15,15 @@ body {
     align-items: center;
     padding: 15px 30px;
     background-color: #D9D9D9;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 50px;
 }
 
 .content-title {
@@ -35,26 +44,35 @@ body {
     font-size: 24px;
     font-weight: 300;
     font-style: normal;
-    margin-top: 50px;
 }
 
-.iphone16-rear-cam-big {
+.iphone16-side-mock {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(360deg, #F2BCDF 7.49%, #FFF 96.88%);
+    background: linear-gradient(358deg, #FFF 9.02%, #133297 98.42%);
     height: 416px;
     flex-wrap: wrap;
+    margin-bottom: 50px;
 }
 
-.iphone16-rear-cam-big img {
-    margin-top: 48px;
-    margin-right: 846px;
+.iphone16-side-mock h1 {
+    color: #FFF;
+    font-size: 128px;
+    font-style: normal;
+    font-weight: 500;
+    display: flex;
+
+}
+
+.iphone16-side-mock img {
+    margin-bottom: 100px;
+
 }
 
 .camera-showcase {
 
-    margin-top: 140px;
+    margin-top: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,51 +94,52 @@ body {
     height: auto;
 }
 
-#selfie{
-    
-    margin-left:150px;
+#selfie {
+
+    margin-left: 150px;
     align-self: flex-start;
     text-align: center;
     font-size: 38px;
     font-weight: 300;
-    
+
 
 }
-#rear{
 
-    margin-left:1000px;
+#rear {
+
+    margin-left: 1000px;
     align-self: flex-start;
     text-align: center;
     font-size: 38px;
     font-weight: 300;
-    
+
 }
 
-.apple-intelligence{
+.apple-intelligence {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 140px;
+    margin-top: 100px;
 }
 
-.apple-intelligence h1{
+.apple-intelligence h1 {
     text-align: center;
     font-size: 80px;
-    font-style:normal;
+    font-style: normal;
     font-weight: 500;
 
-    background: linear-gradient(
-        270deg, 
-        #E30000 24.49%, 
-        #D99000 40.09%, 
-        rgba(244, 0, 117, 0.56) 53.22%, 
-        #F500FA 68.62%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+    background: linear-gradient(270deg,
+            #E30000 24.49%,
+            #D99000 40.09%,
+            rgba(244, 0, 117, 0.56) 53.22%,
+            #F500FA 68.62%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
-.apple-intelligence p{
+
+.apple-intelligence p {
     margin-top: 50px;
     text-align: center;
     font-size: 38px;
@@ -128,13 +147,139 @@ body {
     font-weight: 300;
     line-height: normal;
 }
-.a18-showcase{
-    
+
+.a18-showcase {
+
     position: relative;
-    width: 100%;      
-    height: auto;      
-    object-fit: cover; 
-    display: block;     
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
     overflow: hidden;
 
+}
+
+.a18-showcase-2 {
+
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.a18-showcase-2 img {
+    margin-top: 100px;
+}
+
+.a18-showcase-2 h1 {
+    color: #D55FFF;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+#showcase-p1 {
+    color: #ffffff;
+    text-align: center;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 500;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#showcase-p2 {
+    color: #ffffff;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 200px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.buttons-showcase {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.buttons-showcase h1 {
+    color: #717171;
+    text-align: center;
+    font-size: 5vw;
+    font-style: normal;
+    font-weight: 500;
+    margin-bottom: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.full-specs,
+.display-specs,
+.chip-class,
+.os-specs,
+.capacity,
+.sensors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.full-specs h1 {
+    text-align: center;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 500;
+    margin-top: 100px;
+}
+
+.full-specs h2,
+.display-specs h1,
+.chip-class h1,
+.os-specs h1,
+.capacity h1,
+.sensors h1 {
+    text-align: center;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 300;
+    margin-top: 50px;
+}
+
+.full-specs p,
+.display-specs p,
+.chip-class p,
+.os-specs p,
+.capacity p,
+.sensors p {
+
+    color: #5D5D5D;
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.sensors p {
+    text-align: center;
+}
+
+.os-specs h2 {
+    color: #5D5D5D;
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+   
+    margin-top: 40px;
+   
 }
