@@ -33,7 +33,6 @@ footer {
     align-items: center;
     flex-direction: column;
     margin-top: 56px;
-    /* margin-bottom: 50px; */
 }
 
 #iphone16-title {
@@ -55,7 +54,6 @@ footer {
     background: linear-gradient(358deg, #FFF 9.24%, #A0AFE0 31.56%, #313D88 62.37%, #0E144A 98.03%);
     height: 831px;
     flex-wrap: wrap;
-    /* margin-bottom: 50px; */
 }
 
 .iphone16-side-mock h1 {
