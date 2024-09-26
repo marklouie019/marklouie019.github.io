@@ -1,3 +1,4 @@
+
 * {
     font-family: 'SF Pro Display', sans-serif;
     margin: 0;
@@ -32,16 +33,17 @@ footer {
     align-items: center;
     flex-direction: column;
     margin-top: 56px;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
 }
 
 #iphone16-title {
     text-align: center;
+    transform: translateY(-150px);
 }
 
 .content-title h4 {
     text-align: center;
-    font-size: 24px;
+    font-size: 40px;
     font-weight: 300;
     font-style: normal;
 }
@@ -50,10 +52,10 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(358deg, #FFF 9.02%, #133297 98.42%);
-    height: 416px;
+    background: linear-gradient(358deg, #FFF 9.24%, #A0AFE0 31.56%, #313D88 62.37%, #0E144A 98.03%);
+    height: 831px;
     flex-wrap: wrap;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
 }
 
 .iphone16-side-mock h1 {
@@ -72,7 +74,7 @@ footer {
 
 .camera-showcase {
 
-    margin-top: 500px;
+    margin-top: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,7 +82,7 @@ footer {
 }
 
 .camera-showcase h1 {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     color: #6E81D4;
     text-align: center;
     font-size: 80px;
@@ -94,25 +96,15 @@ footer {
     height: auto;
 }
 
-#selfie {
 
-    margin-left: 150px;
-    align-self: flex-start;
+.camera-showcase p{
+    align-self: center;
     text-align: center;
-    font-size: 38px;
+    font-size: 32px;
     font-weight: 300;
-
-
-}
-
-#rear {
-
-    margin-left: 1000px;
-    align-self: flex-start;
-    text-align: center;
-    font-size: 38px;
-    font-weight: 300;
-
+    margin-bottom: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .apple-intelligence {
@@ -221,6 +213,14 @@ footer {
     margin-right: 20px;
 }
 
+hr {
+    margin-top: 10%;
+    margin-bottom: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #000;
+}
+
 .full-specs,
 .display-specs,
 .chip-class,
@@ -279,7 +279,109 @@ footer {
     text-align: center;
     font-size: 32px;
     font-style: normal;
-
     margin-top: 40px;
 
+}
+
+/* DEFAULT FONT SIZES */
+h1 {
+    font-size: 96px;
+}
+
+h2 {
+    font-size: 80px;
+}
+
+p {
+    font-size: 32px;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 48px;
+    }
+    h2 {
+        font-size: 40px;
+    }
+    p {
+        font-size: 16px;
+    }
+
+    #iphone16-title {
+
+        transform: translateY(-100px);
+    }
+
+    .content-title h4{
+        font-size: 20px;
+    }
+
+    .iphone16-side-mock{
+        height: 600px;
+    }
+
+    .iphone16-side-mock h1 {
+        font-size: 64px; 
+    }
+
+    .camera-showcase{
+        margin-top: 100px;
+    }
+
+    .camera-showcase h1 {
+        font-size: 40px;
+    }
+
+    .camera-showcase p {
+        font-size: 20px;
+    }
+
+    .apple-intelligence h1 {
+        font-size: 48px;
+    }
+
+    .apple-intelligence p{
+        font-size: 20px;
+    }
+
+    .a18-showcase-2 h1,
+    #showcase-p1 {
+        font-size: 30px;
+    }
+
+    #showcase-p2 {
+        font-size: 20px;
+    }
+
+    .buttons-showcase h1 {
+        font-size: 40px;
+    }
+
+    .full-specs h1{
+        font-size: 48px;
+    }
+
+    .full-specs h2,
+    .display-specs h1,
+    .chip-class h1,
+    .os-specs h1,
+    .capacity h1,
+    .sensors h1 {
+        font-size: 40px;
+    }
+
+    .full-specs p,
+    .display-specs p,
+    .chip-class p,
+    .os-specs p,
+    .capacity p,
+    .sensors p {
+        font-size: 20px;
+    }
+
+    .os-specs h2 {
+        font-size: 24px;
+    }
 }
