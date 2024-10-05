@@ -8,6 +8,7 @@ body {
 }
 
 .frame {
+    display: block;
     position: fixed;
     z-index: 10;
     left: var(--pad);
@@ -68,6 +69,7 @@ body {
 }
 
 .theme {
+    display: block;
     position: fixed;
     z-index: 10;
     right: calc(var(--pad) - 15.9em);
@@ -93,7 +95,7 @@ body {
     font-weight: 400;
     text-transform: uppercase;
     font-size: 90%;
-    
+
 }
 
 .theme_btn ._box::before {
@@ -122,7 +124,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+
 }
 
 body {
@@ -187,7 +189,7 @@ body {
     background-position: center;
     background-repeat: no-repeat; */
     position: relative;
-    
+
 }
 
 .foreground img {
@@ -241,16 +243,23 @@ body {
 }
 
 @media (max-width: 576px) {
+
+    .frame {
+        display: none;
+    }
+
+    .theme {
+        display: none;
+    }
+
     .activities-tab {
         flex-direction: column;
-       
-
     }
 
     .foreground img {
         width: auto;
         height: 250px;
-        
+
     }
 
     .panel1,
@@ -265,10 +274,14 @@ body {
 }
 
 /*HOVER*/
-.panel1:hover, .panel2:hover, .panel3:hover, .panel4:hover, .panel5:hover, .panel6:hover{
+.panel1:hover,
+.panel2:hover,
+.panel3:hover,
+.panel4:hover,
+.panel5:hover,
+.panel6:hover {
     background-color: var(--lime);
     transition: all 0.6s ease;
     flex-grow: 3;
 
 }
-
