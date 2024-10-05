@@ -1,0 +1,274 @@
+body {
+    background-color: black;
+
+}
+
+:root {
+    --pad: max(20px, 4vmin);
+}
+
+.frame {
+    position: fixed;
+    z-index: 10;
+    left: var(--pad);
+    right: var(--pad);
+    top: var(--pad);
+    bottom: var(--pad);
+    mix-blend-mode: difference;
+    pointer-events: none
+}
+
+.frame_line {
+    position: absolute;
+    background-color: #ffffff;
+    opacity: .5
+}
+
+.frame_line-left {
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100%
+}
+
+.frame_line-right {
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 100%
+}
+
+.frame_line-top {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px
+}
+
+.frame_line-bottom {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px
+}
+
+#copyright {
+    position: fixed;
+    z-index: 10;
+    left: var(--pad);
+    bottom: calc(var(--pad)*.5 - 0.5em);
+    font-size: 80%;
+    opacity: .5;
+    mix-blend-mode: difference;
+    color: #ffffff;
+    font-family: 'Roboto', serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.theme {
+    position: fixed;
+    z-index: 10;
+    right: calc(var(--pad) - 15.9em);
+    top: calc(var(--pad) - 1em);
+    transform-origin: left bottom;
+    transform: rotate(90deg);
+    white-space: nowrap;
+    mix-blend-mode: difference;
+    display: flex;
+    column-gap: 15px;
+    cursor: pointer
+}
+
+.theme_colors {
+    display: flex;
+    column-gap: 15px;
+    color: white;
+}
+
+.theme_btn {
+    display: flex;
+    column-gap: 3px;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 90%;
+    
+}
+
+.theme_btn ._box::before {
+    content: "□"
+}
+
+.theme_btn.is-selected ._box::before {
+    content: "■"
+}
+
+/*ORIGINAL*/
+
+:root {
+    --white: #FFF;
+    --black: #111111;
+    --gray: #676767;
+    --lime: #48BB00;
+}
+
+.container-main {
+    display: flex;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: var(--black);
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid var(--gray);
+}
+
+.row {
+    display: flex;
+}
+
+.top-row,
+.bottom-row {
+    height: 35px;
+
+}
+
+.middle-row {
+    flex: 1;
+    display: flex;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top,
+.bottom {
+    width: 100%;
+    background-color: var(--black);
+}
+
+.left,
+.right {
+    width: 35px;
+    background-color: var(--black);
+}
+
+.center {
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    /* background-color: var(--black);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+    position: relative;
+    
+}
+
+.foreground img {
+    max-width: 780px;
+    max-height: 568px;
+}
+
+.activities-tab {
+
+    display: flex;
+
+    flex-direction: row;
+    flex: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    /* border: 2px solid var(--gray); */
+    padding: 10px;
+    margin-bottom: 24px;
+
+    width: 95%;
+    height: auto;
+
+}
+
+.panel1,
+.panel2,
+.panel3,
+.panel4,
+.panel5,
+.panel6 {
+    background-color: var(--gray);
+    /* width: 189px; */
+    height: 100%;
+    color: var(--black);
+    text-align: center;
+    font-family: "Alumni Sans";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+
+}
+
+@media (max-width: 576px) {
+    .activities-tab {
+        flex-direction: column;
+       
+
+    }
+
+    .foreground img {
+        width: auto;
+        height: 250px;
+        
+    }
+
+    .panel1,
+    .panel2,
+    .panel3,
+    .panel4,
+    .panel5,
+    .panel6 {
+        width: 100%;
+
+    }
+}
+
+/*HOVER*/
+.panel1:hover, .panel2:hover, .panel3:hover, .panel4:hover, .panel5:hover, .panel6:hover{
+    background-color: var(--lime);
+    transition: all 0.6s ease;
+    flex-grow: 3;
+
+}
+
