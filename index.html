@@ -71,10 +71,10 @@
                 </div>
 
                 <div class="activities-tab">
-                    <div class="panel1" onclick="gotoLink()">
+                    <div class="panel1" onclick="gotoLink('4')">
                         <h3>ACTIVITY 4</h3>
                     </div>
-                    <div class="panel2" onclick="underConstruction()">
+                    <div class="panel2" onclick="gotoLink('5')">
                         <h3>ACTIVITY 5</h3>
                     </div>
                     <div class="panel3" onclick="underConstruction()">
@@ -118,9 +118,14 @@
 
     <!-- JavaScript -->
     <script>
-        function gotoLink(){
-            window.location.href = "activities/activity-4/act4.html";
+        function gotoLink(activity) {
+            if (activity === '4') {
+                window.location.href = "activities/activity-4/act4.html";
+            } else if (activity === '5') {
+                window.location.href = "activities/activity-5/index.html";
+            }
         }
+        
         function underConstruction(){
             window.location.href = "pending.html";
         }
