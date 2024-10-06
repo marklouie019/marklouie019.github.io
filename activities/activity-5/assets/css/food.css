@@ -1,0 +1,142 @@
+:root {
+    --black: #000;
+    --black2: #1A1919;
+    --red: #F33A3A;
+    --white: #FFF;
+
+}
+
+* {
+    background-color: black;
+    color: var(--white);
+    font-family: 'Balto';
+
+}
+
+.contents{
+    padding-inline: 20px;
+}
+
+h3 {
+    padding-inline: 20px;
+
+}
+
+.food h3 {
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: #ffffff;
+}
+
+.food {
+    padding-block: 50px;
+}
+
+.custom-navbar {
+
+    padding: 0 !important;
+    color: var(--white) !important;
+}
+
+.nav-item {
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color: var(--white);
+}
+
+.custom-navbar .nav-link {
+    color: var(--white) !important;
+}
+
+.title h1 {
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 20px;
+    padding-bottom: 50px;
+    padding-top:150px;
+
+}
+
+p {
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-inline: 1em;
+    padding-bottom: 50px;
+}
+
+.food img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pic {
+    padding-left: 20px;
+}
+
+.nav-item-dark.dropdown:hover .dropdown-menu-dark {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.dropdown-menu-dark {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 1000;
+}
+
+.navbar .dropdown-menu-dark {
+    position: absolute;
+    left: 0;
+    transform: translate(0, 0%);
+    z-index: 1000;
+    list-style: none; 
+}
+
+.dropdown-item-dark {
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffffff; 
+    padding: 10px 20px;
+    background-color: transparent; 
+    text-align: left;
+}
+
+.dropdown-item-dark:hover,
+.dropdown-item-dark:focus {
+    background-color: #F33A3A !important; 
+    color: #fff !important;
+}
+
+.dropdown-item-dark.active {
+    background-color: #000000 !important; 
+    color: #fff !important;
+}
+.nav-item-dark {
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.nav-link:hover{
+    color:#F33A3A !important;
+    
+}
