@@ -13,7 +13,7 @@
 
 }
 
-.contents{
+.contents {
     padding-inline: 20px;
 }
 
@@ -63,7 +63,7 @@ h3 {
     align-items: center;
     padding-inline: 20px;
     padding-bottom: 50px;
-    padding-top:150px;
+    padding-top: 150px;
 
 }
 
@@ -106,28 +106,29 @@ p {
     left: 0;
     transform: translate(0, 0%);
     z-index: 1000;
-    list-style: none; 
+    list-style: none;
 }
 
 .dropdown-item-dark {
     font-size: 18px;
     font-weight: 500;
-    color: #ffffff; 
+    color: #ffffff;
     padding: 10px 20px;
-    background-color: transparent; 
+    background-color: transparent;
     text-align: left;
 }
 
 .dropdown-item-dark:hover,
 .dropdown-item-dark:focus {
-    background-color: #F33A3A !important; 
+    background-color: #F33A3A !important;
     color: #fff !important;
 }
 
 .dropdown-item-dark.active {
-    background-color: #000000 !important; 
+    background-color: #000000 !important;
     color: #fff !important;
 }
+
 .nav-item-dark {
     text-align: center;
     font-size: 24px;
@@ -136,7 +137,59 @@ p {
     line-height: normal;
 }
 
-.nav-link:hover{
-    color:#F33A3A !important;
-    
+.nav-link:hover {
+    color: #F33A3A !important;
+
+}
+
+.navbar-toggler {
+    border-color: var(--white) !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+@media (max-width: 768px) {
+    .title h1 {
+        font-size: 50px;
+    }
+
+    .food h3 {
+        font-size: 40px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .nav-item {
+        font-size: 20px;
+    }
+
+    .dropdown-item-dark {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .title h1 {
+        font-size: 40px;
+    }
+
+    .food h3 {
+        font-size: 30px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .nav-item {
+        font-size: 18px;
+    }
+
+    .dropdown-item-dark {
+        font-size: 14px;
+    }
 }

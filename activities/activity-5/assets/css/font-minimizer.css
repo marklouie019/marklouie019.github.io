@@ -1,0 +1,45 @@
+@media (max-width: 768px) {
+    .nav-item {
+        font-size: 20px;
+    }
+
+    footer p,
+    p {
+        font-size: 18px;
+    }
+
+    .title-logo {
+        font-size: 50px;
+    }
+
+    #culture h3 {
+        font-size: 30px;
+    }
+
+    .btnLearnMore {
+        font-size: 16px;/
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-item {
+        font-size: 16px;
+    }
+
+    footer p,
+    p {
+        font-size: 16px;
+    }
+
+    .title-logo {
+        font-size: 40px;
+    }
+
+    #culture h3 {
+        font-size: 24px;
+    }
+
+    .btnLearnMore {
+        font-size: 14px;
+    }
+}

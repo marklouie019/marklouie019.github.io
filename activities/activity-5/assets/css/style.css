@@ -56,22 +56,13 @@ footer p {
     text-align: center;
 }
 
-.word1 {
+.title-logo {
     text-align: center;
     font-size: 70px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    margin-right: 20px;
-}
-
-.word2 {
-    color: var(--red);
-    text-align: center;
-    font-size: 70px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+    padding-inline: 20px;
 }
 
 #culture h3 {
@@ -79,6 +70,11 @@ footer p {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    padding-inline: 20px;
+    padding-block: 20px;
+}
+
+.culture-home img{
     padding-inline: 20px;
 }
 
@@ -103,6 +99,24 @@ p {
     display: flex;
     gap: 1em;
 
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+    align-items: start; 
+}
+
+.culture-home img, .grid-column img {
+    width: 100%;
+    
+}
+
+.grid-column {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 20px;
 }
 
 .col-left {
@@ -160,7 +174,7 @@ p {
 
 .image-slider .img-list{
     display: grid;
-    gap:1em;
+    gap:5px;
     margin-bottom:30px;
 
     grid-template-columns: repeat(10, 1fr);
