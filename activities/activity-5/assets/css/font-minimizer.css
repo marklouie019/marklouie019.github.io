@@ -1,11 +1,7 @@
 @media (max-width: 768px) {
-    .nav-item {
-        font-size: 20px;
-    }
 
-    footer p,
-    p {
-        font-size: 18px;
+    footer p{
+        font-size: 14px !important;
     }
 
     .title-logo {
@@ -19,16 +15,18 @@
     .btnLearnMore {
         font-size: 16px;/
     }
+
+    .image-slider .img-list .image{
+        object-fit: cover;
+        width:738px;
+        height:300px;
+    }
 }
 
 @media (max-width: 576px) {
-    .nav-item {
-        font-size: 16px;
-    }
 
-    footer p,
-    p {
-        font-size: 16px;
+    footer p{
+        font-size: 12px !important;
     }
 
     .title-logo {
@@ -41,5 +39,11 @@
 
     .btnLearnMore {
         font-size: 14px;
+    }
+
+    .image-slider .img-list .image{
+        object-fit: cover;
+        width:85vw;
+        height:200px;
     }
 }

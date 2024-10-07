@@ -102,6 +102,10 @@ hr {
     .top img {
         height: 300px;
     }
+
+    footer p{
+        font-size: 14px !important;
+    }
 }
 
 @media (max-width: 576px) {
@@ -123,5 +127,9 @@ hr {
 
     .top img {
         height: 200px; 
+    }
+
+    footer p{
+        font-size: 12px !important;
     }
 }
