@@ -133,7 +133,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
-    background-color: var(--black);
+    background-color: black;
 }
 
 .container {
