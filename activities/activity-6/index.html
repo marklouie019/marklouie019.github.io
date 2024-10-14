@@ -32,63 +32,76 @@
                             perferendis placeat nostrum distinctio fugit quaerat similique! Quo, minus! A laudantium
                             possimus incidunt hic? Maiores voluptatibus molestias sequi.</p>
                     </div>
+                    <div class="pic-container">
+                        <div class="row" id="fineArtsGallery">
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- GALLERY -->
+            <!-- FINE ARTS -->
             <div class="pic-container">
-                <div class="row" id="fineArtsGallery">
+                <div class="row" id="fineAtsGallery">
                 </div>
             </div>
+            <div class="container my-5 text-center">
+                <a href="sculpture.html" target="_blank">
+                    <button class="btnLearnMore" onmouseenter="btnHoverEffect(this)"
+                        onmouseleave="btnHoverEffectExit(this)">Learn more</button>
+                </a>
+            </div>
+             <!-- SCULPTURE -->
             <div class="row">
-                <div class="col">
+                <div class="col-lg-6">
+                    <div class="arts sculpture">
+                        <img src="assets/img/david.gif" alt="david sculpture" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6">
                     <div class="arts sculpture">
                         <h1>SCULPTURE</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam iste tempore temporibus
                             deleniti optio, error porro quos nostrum. Perspiciatis quis commodi error veniam explicabo
                             saepe minus pariatur, blanditiis harum minima.</p>
                     </div>
+                    <div class="my-5 mx-0">
+                        <a href="sculpture.html" target="_blank">
+                            <button class="btnLearnMore" onmouseenter="btnHoverEffect(this)"
+                                onmouseleave="btnHoverEffectExit(this)">Learn more</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- PHOTOGRAPHY -->
+            <div class="row">
+                <div class="col">
+                    <div class="arts photography">
+                        <div class="photography bgImage">
+                            <img src="assets/img/grayscale-male.jpg" alt="grayscale male" class="img-fluid">
+                        </div>
+                        <div class="photography overlayText">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="arts photography">
+                                        <h1>PHOTOGRAPHY</h1>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam iste tempore temporibus
+                                            deleniti optio, error porro quos nostrum. Perspiciatis quis commodi error veniam explicabo
+                                            saepe minus pariatur, blanditiis harum minima.</p>
+                                    </div>
+                                    <div class="my-5 mx-0">
+                                        <a href="photography.html" target="_blank">
+                                            <button class="btnLearnMore" onmouseenter="btnHoverEffect(this)"
+                                                onmouseleave="btnHoverEffectExit(this)">Learn more</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        var images = [
-            'impression-sunrise.jpg',
-            'weeping-woman.jpg',
-            'san-giorgio.jpg',
-            'school-of-athens.jpg',
-            'the-creation-of-adam.jpg',
-            'starry-night.jpg',
-        ];
-
-        var names = [
-            'Impression Sunrise',
-            'Weeping Woman',
-            'San Giorgio',
-            'School of Athens',
-            'The Creation of Adam',
-            'Starry Night'
-        ];
-
-        for (var i = 0; i < images.length; i++) {
-            var fineArtsContainer = document.getElementById("fineArtsGallery");
-            fineArtsContainer.innerHTML += "<div class=\"col-lg-4 col-sm-6\"><div class=\"thumbnail\" id=\"img"+i+"\" onmouseenter=\"grayScaleEffect('img"+i+"')\" onmouseleave=\"noGrayScaleEffect('img"+i+"')\"/><div class=\"img-container\"><img src=\"" + "assets/img/" + images[i] + "\" class=\"image\" alt=\"" + names[i] + "\"><div class=\"overlay\"><p class=\"caption\">" + names[i] + "</p></div></div></div></div>"
-        }
-
-        function grayScaleEffect(id){
-            var image = document.getElementById(id);
-            image.style.filter = 'grayscale(100%)';
-            image.style.transition = ".5s ease";
-            image.style.transform = "translateY(-2px)";
-        }
-
-        function noGrayScaleEffect(id){
-            var image = document.getElementById(id);
-            image.style.filter = 'grayscale(0%)';
-            image.style.transform = "translateY(2px)";
-        }
-
-    </script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
