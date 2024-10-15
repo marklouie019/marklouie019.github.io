@@ -46,7 +46,7 @@ for (var i = 0; i < images.length; i++) {
 
 function grayScaleEffect(id) {
     var image = document.getElementById(id);
-    image.style.filter = 'grayscale(100%)';
+    image.style.filter = 'grayscale(0%)';
     image.style.transition = ".5s ease";
     image.style.transform = "translateY(-2px)";
     image.style.cursor = 'pointer';
@@ -55,7 +55,7 @@ function grayScaleEffect(id) {
 
 function noGrayScaleEffect(id) {
     var image = document.getElementById(id);
-    image.style.filter = 'grayscale(0%)';
+    image.style.filter = 'grayscale(100%)';
     image.style.transform = "translateY(2px)";
    
 }

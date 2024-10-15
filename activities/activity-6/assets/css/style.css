@@ -73,11 +73,15 @@ body {
     position: relative;
 }
 
-.arts {
+.arts,
+.main-photography {
     background-color: var(--black);
     color: var(--white);
-    padding-top: 100px;
     font-family: var(--pfont);
+}
+
+.arts {
+    padding-top: 100px;
 }
 
 .arts h1 {
@@ -177,16 +181,88 @@ body {
     padding-left: 100px;
 }
 
-.photography{
+.photography {
     position: relative;
     background-color: transparent;
 }
 
-.photography .overlayText{
+.photography .overlayText {
     position: absolute;
     top: 36%;
-    left: 20%; 
-    
+    left: 20%;
+
+}
+
+/*PHOTOGRAPHY PAGE STYLING*/
+/* Other styling like the bg & theme is coded together with other html pages above */
+
+.main-photography .hero img {
+    width: 100%;
+    height: 450px;
+    max-width: 100vw;
+    object-fit: cover;
+}
+
+.main-photography .first {
+    color: var(--white);
+    font-family: var(--h1Font);
+    font-size: 80px;
+    font-weight: 600;
+}
+
+.main-photography .second {
+    color: var(--yellow);
+    font-family: var(--h1Font);
+    font-size: 80px;
+    font-weight: 600;
+}
+
+.main-photography .photo p {
+    font-family: var(--pFont);
+    font-size: 20px;
+    font-weight: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-photography .photo h1 {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 100px;
+    padding-top: 50px;
+}
+
+.main-photography .photo p {
+    padding-inline: 100px;
+    text-align: left;
+}
+
+.gallery-container {
+    max-width: 85%;
+    margin: 20px auto;
+}
+
+.gallery-container .title {
+    font-size: 25px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 15px;
+}
+
+.gallery-container .image-container {
+    columns: 3 250px;
+    gap: 15px;
+}
+
+.gallery-container .image-container img {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 100%;
 }
 
 /* .image-slider .slide-btn {
