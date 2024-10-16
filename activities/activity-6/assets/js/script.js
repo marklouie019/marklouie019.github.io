@@ -74,3 +74,31 @@ function btnHoverEffectExit(btn) {
     btn.style.borderRadius = '50px';
     btn.style.border = `2px solid var(--white)`;
 }
+
+const navEl = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+    var logo = document.getElementById('webLogo');
+
+    if (window.scrollY >= 700) {
+        navEl.classList.add('navbar-scrolled');
+        var navItems = document.getElementsByClassName('nav-item');
+        
+        navEl.style.backgroundColor = 'rgba(255, 255, 255, 1)';
+
+        logo.src = 'assets/img/logo-dark.svg';
+       
+        for (let i = 0; i < navItems.length; i++) {
+            navItems[i].querySelector('.nav-link').style.color = 'white';
+        }
+    } else if (window.scrollY < 700) {
+        navEl.classList.remove('navbar-scrolled');
+        const navItems = document.getElementsByClassName('nav-item');
+
+        logo.src = 'assets/img/logo-light.svg';
+
+        for (let i = 0; i < navItems.length; i++) {
+            navItems[i].querySelector('.nav-link').style.color = '';
+        }
+    }
+});
