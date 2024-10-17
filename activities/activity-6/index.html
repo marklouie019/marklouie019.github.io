@@ -5,6 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esthetiques</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/le-murmure" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/892e371be6f395d2e7c85a3a964f209a?family=FSP+DEMO+-+Neogrotesk+Ess+Alt"
+        rel="stylesheet">
+
+    <link rel="icon" href="assets/img/fav-logo.svg" type="image/svg+xml">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -13,29 +23,31 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div class="container-fluid">
-            <a href="#"><img src="assets/img/logo-light.svg" alt="esthetique logo" id="webLogo"></a>
+            <a href="#"><img src="assets/img/logo-dark.svg" alt="esthetique logo" id="webLogo"
+                    class="nav-web-logo ps-5"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active me-5" aria-current="page" href="index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle me-5" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Arts
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="paintings.html">Paintings</a></li>
+                            <li><a class="dropdown-item" href="sculpture.html">Sculpture</a></li>
+                            <li><a class="dropdown-item" href="photography.html">Photography</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">About</a>
+                    <li>
+                        <button class="btn btn-outline-primary me-5 mt-1" onclick="setColorMode()"
+                            id="btnColorMode">Mode</button>
                     </li>
                 </ul>
             </div>
@@ -59,10 +71,11 @@
                 <div class="row">
                     <div class="col">
                         <div class="arts fine-arts">
-                            <h1>2D FINE ARTS</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum deserunt quia sint
-                                perferendis placeat nostrum distinctio fugit quaerat similique! Quo, minus! A laudantium
-                                possimus incidunt hic? Maiores voluptatibus molestias sequi.</p>
+                            <h1>PAINTINGS</h1>
+                            <p>Explore a world filled with color and imagination through paintings that ignite the
+                                senses. Each canvas tells a unique story, inviting you to experience the artist's
+                                vision. From bold, expressive strokes to gentle, detailed scenes, every piece captures
+                                emotions that draw you in and inspire your thoughts.</p>
                         </div>
                         <div class="pic-container">
                             <div class="row" id="fineArtsGallery">
@@ -75,8 +88,8 @@
                     <div class="row" id="fineAtsGallery">
                     </div>
                 </div>
-                <div class="container my-5 text-center">
-                    <a href="sculpture.html" target="_blank">
+                <div class="container text-center">
+                    <a href="paintings.html">
                         <button class="btnLearnMore" onmouseenter="btnHoverEffect(this)"
                             onmouseleave="btnHoverEffectExit(this)">Learn more</button>
                     </a>
@@ -91,15 +104,15 @@
                     <div class="col-lg-6">
                         <div class="arts sculpture">
                             <h1>SCULPTURE</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam iste tempore temporibus
-                                deleniti optio, error porro quos nostrum. Perspiciatis quis commodi error veniam
-                                explicabo
-                                saepe minus pariatur, blanditiis harum minima.</p>
+                            <p>Enter the world of sculpture, where art comes to life in three dimensions.
+                                These pieces transform everyday materials into beautiful forms that you can see and
+                                touch. Whether it’s a modern abstract design or a realistic figure, sculptures invite
+                                you to appreciate their shapes and the stories they represent.</p>
                         </div>
                         <div class="my-5 mx-0">
-                            <a href="sculpture.html" target="_blank">
+                            <a href="sculpture.html">
                                 <button class="btnLearnMore" onmouseenter="btnHoverEffect(this)"
-                                    onmouseleave="btnHoverEffectExit(this)">Learn more</button>
+                                    onmouseleave="btnHoverEffectExit(this)" id="btnLearnMore2">Learn more</button>
                             </a>
                         </div>
                     </div>
@@ -116,15 +129,15 @@
                                     <div class="col-lg-6">
                                         <div class="arts photography">
                                             <h1>PHOTOGRAPHY</h1>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam iste
-                                                tempore temporibus
-                                                deleniti optio, error porro quos nostrum. Perspiciatis quis commodi
-                                                error veniam explicabo
-                                                saepe minus pariatur, blanditiis harum minima.</p>
+                                            <p>Experience the aesthetics of photography art. From stunning landscapes
+                                                that take your breath away to
+                                                heartfelt portraits that reveal emotions, photography lets you see the
+                                                world from a different perspective. </p>
                                         </div>
                                         <div class="my-5 mx-0">
-                                            <a href="photography.html" target="_blank">
-                                                <button class="btnLearnMore" onmouseenter="btnHoverEffect(this)"
+                                            <a href="photography.html">
+                                                <button class="btnLearnMore-photography"
+                                                    onmouseenter="btnHoverEffect(this)"
                                                     onmouseleave="btnHoverEffectExit(this)">Learn more</button>
                                             </a>
                                         </div>
@@ -137,6 +150,24 @@
             </div>
         </div>
     </div>
+    <footer class="py-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+            <li class="nav-item"><a href="paintings.html" class="nav-link px-2 text-body-secondary">Paintings</a></li>
+            <li class="nav-item"><a href="sculpture.html" class="nav-link px-2 text-body-secondary">Sculpture</a></li>
+            <li class="nav-item"><a href="photography.html" class="nav-link px-2 text-body-secondary">Photography</a>
+            </li>
+        </ul>
+        <p class="text-center">&copy; 2024 Esthetique</p>
+    </footer>
+    <script>
+        var colorMode = "light";
+        function changeMode() {
+            var bodyElement = document.getElementById("body");
+            colorMode = colorMode == "dark" ? "light" : "dark";
+            bodyElement.setAttribute("data-bs-theme", colorMode);
+        }
+    </script>
     <script src="assets/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

@@ -1,14 +1,15 @@
 var isDarkMode = true;
-var bgColor;
-var textColor;
+var primaryColor;
+var secondaryColor;
+
 var accentColor = '#FFE500';
 
-if(isDarkMode){
-    bgColor = 'black';
-    textColor = 'white';
-} else{
-    bgColor = 'white';
-    textColor = 'black';
+if (isDarkMode) {
+    primaryColor = 'black';
+    secondaryColor = 'white';
+} else {
+    primaryColor = 'white';
+    secondaryColor = 'black';
 }
 
 var images = [
@@ -50,55 +51,60 @@ function grayScaleEffect(id) {
     image.style.transition = ".5s ease";
     image.style.transform = "translateY(-2px)";
     image.style.cursor = 'pointer';
-    
+
 }
 
 function noGrayScaleEffect(id) {
     var image = document.getElementById(id);
     image.style.filter = 'grayscale(100%)';
     image.style.transform = "translateY(2px)";
-   
+
 }
 
-function btnHoverEffect(btn) {
-    btn.style.backgroundColor = accentColor;
-    btn.style.color = bgColor;
-    btn.style.borderRadius = '50px';
-    btn.style.border = `2px solid transparent`;
-    btn.style.cursor = 'pointer';
-}
-
-function btnHoverEffectExit(btn) {
-    btn.style.backgroundColor = 'transparent';
-    btn.style.color = textColor;
-    btn.style.borderRadius = '50px';
-    btn.style.border = `2px solid var(--white)`;
-}
-
-const navEl = document.querySelector('.navbar');
+var navEl = document.querySelector('.navbar');
+var btnColorMode = document.getElementById('btnColorMode');
 
 window.addEventListener('scroll', () => {
-    var logo = document.getElementById('webLogo');
 
-    if (window.scrollY >= 700) {
+    if (window.scrollY >= 56) {
         navEl.classList.add('navbar-scrolled');
-        var navItems = document.getElementsByClassName('nav-item');
-        
+
         navEl.style.backgroundColor = 'rgba(255, 255, 255, 1)';
 
-        logo.src = 'assets/img/logo-dark.svg';
-       
-        for (let i = 0; i < navItems.length; i++) {
-            navItems[i].querySelector('.nav-link').style.color = 'white';
-        }
-    } else if (window.scrollY < 700) {
+    } else if (window.scrollY < 56) {
         navEl.classList.remove('navbar-scrolled');
-        const navItems = document.getElementsByClassName('nav-item');
 
-        logo.src = 'assets/img/logo-light.svg';
-
-        for (let i = 0; i < navItems.length; i++) {
-            navItems[i].querySelector('.nav-link').style.color = '';
-        }
     }
 });
+
+var mode = 'dark';
+
+function setColorMode() {
+    var root = document.documentElement;
+    var btnSeeMore = document.getElementById('btnSeeMore');
+    var logo = document.getElementById('webLogo');
+
+    if (mode === 'dark') {
+        root.style.setProperty('--black', 'white');
+        root.style.setProperty('--white', 'black');
+        root.style.setProperty('--yellow', '#FFDD00');
+        mode = 'light';
+        isDarkMode = false; 
+        
+        logo.src = 'assets/img/logo-light.svg';
+        btnSeeMore.style.color = 'black';
+
+    } else {
+        root.style.setProperty('--black', 'black');
+        root.style.setProperty('--white', 'white');
+        root.style.setProperty('--yellow', '#FFE500');
+        mode = 'dark';
+        isDarkMode = true;  
+        logo.src = 'assets/img/logo-dark.svg';
+        btnSeeMore.style.color = "white";
+    }
+}
+
+
+
+

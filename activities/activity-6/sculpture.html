@@ -17,7 +17,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Photography</title>
+    <title>Sculpture</title>
 </head>
 
 <body>
@@ -58,22 +58,27 @@
             <div class="row">
                 <div class="col">
                     <div class="photo hero">
-                        <img src="assets/img/photography-hero.jpg" alt="woman in her back" id="grayYellowHero">
+                        <img src="assets/img/david-hero.jpg" alt="woman in her back">
                         <div class="container mt-5">
-                            <h1><span class="title first">PHOTO</span><span class="title second">GRAPHY</span></h1>
-                            <p id="mainDesc">Photography, an art form that emerged in the 19th century, has evolved into
-                                a powerful means of visual expression. Initially seen as a tool for documentation, it
-                                quickly gained recognition for its artistic potential. Photographers began to experiment
-                                with composition, lighting, and perspective, using the camera not just to capture
-                                reality but to convey emotions and concepts.
+                            <h1><span class="title first">SCULP</span><span class="title second">TURE</span></h1>
+                            <p id="mainDesc">Sculpture is a dynamic art form that brings creativity to life through
+                                three-dimensional works. This ancient practice involves shaping various materials, such
+                                as stone, wood, metal, and clay, into forms that can be appreciated from multiple
+                                angles. Sculptors have the unique ability to manipulate their medium to create both
+                                realistic figures and abstract shapes, each piece inviting viewers to explore its
+                                contours and textures.
                                 <span id="moreDesc" class="hiddenDesc">
-                                    <br><br>In particular, grayscale photography emphasizes contrasts between light and
-                                    shadow, allowing viewers to focus on texture, shapes, and patterns without the
-                                    distraction of color. This monochromatic approach highlights the play of light,
-                                    creating a timeless quality that can evoke a range of feelings, from nostalgia to
-                                    introspection. Ultimately, photography has become a dynamic medium that captures the
-                                    essence of its subjects, inviting deeper reflection and appreciation of the world
-                                    around us.</span>
+                                    From classical statues that celebrate the human form to contemporary installations
+                                    that provoke thought, sculpture offers a diverse array of artistic expression.
+
+                                    <br><br>The nature of sculpture sets it apart from other art forms, as it
+                                    engages the viewer's sense of touch and space. Light and shadow play a crucial role
+                                    in how we perceive these artworks, highlighting details and creating depth.
+                                    Sculptures can serve as powerful symbols, reflecting cultural values, historical
+                                    moments, or personal narratives. By occupying physical space, they create a
+                                    connection with the environment, encouraging reflection and interaction. Through its
+                                    rich history and evolving techniques, sculpture continues to be a vital medium in
+                                    the world of visual arts.</span>
                                 <a id="seeMoreDesc" class="seeMoreDesc" onmouseenter="applyUnderline('seeMoreDesc')"
                                     onmouseleave="removeUnderline('seeMoreDesc')">See more</a>
                             </p>
@@ -98,33 +103,31 @@
     <script>
 
         window.onload = function () {
-            var photographyPics = [
-                'kissing.jpg',
-                'grayscale-male.jpg',
-                'margarita.jpg',
-                'building.jpg',
-                'sunglasses.jpg',
-                'kid.jpg',
-                'woman-smoking.jpg',
-                'flower-bgw.jpg',
-                'sassy.jpg',
-                'old-man.jpg'
+            var sculptures = [
+                'david.jpg',
+                'discobolus.jpg',
+                'the-veiled-christ.jpg',
+                'ecstasy-of-saint-teresa.jpg',
+                'samothrace.jpg',
+                'laocoon.jpg',
+                'pieta.jpg',
+                'the-thinker.jpg',
+                'venus-de-milo.jpg'
             ];
 
-            var photographyName = [
-                'Lover\'s View',
-                'Canon Male',
-                'Margarita',
-                'Heights',
-                'Noir Glasse',
-                'The Kid\'s Eye',
-                'Woman Cigarettes',
-                'Fleur Blanc',
-                'She',
-                'The Old Man'
+            var sculptureNames = [
+                'David',
+                'Discobolus',
+                'The Veiled Christ',
+                'Ecstasy of Saint Teresa',
+                'Winged Victory Of Samothrace',
+                'Laocoön And His Sons',
+                'Pieta',
+                'The Thinker',
+                'Venus De Milo',
             ];
 
-            var hiddenPics = [
+            var hiddenPicsSculpture = [
                 null,
                 null,
                 'hidden',
@@ -137,14 +140,14 @@
                 'hidden'
             ];
 
-            for (var i = 0; i < photographyPics.length; i++) {
+            for (var i = 0; i < sculptures.length; i++) {
                 var photoGallery = document.getElementById("photoGallery");
                 photoGallery.innerHTML += `
-            <div class="thumbnail" id="imgPhoto${i}" onmouseenter="grayScaleEffect('imgPhoto${i}')" onmouseleave="noGrayScaleEffect('imgPhoto${i}')">
+            <div class="thumbnail" id="imgSculptures${i}" onmouseenter="grayScaleEffect('imgSculptures${i}')" onmouseleave="noGrayScaleEffect('imgSculptures${i}')">
                 <div class="img-container">
-                    <img src="assets/img/${photographyPics[i]}" class="${hiddenPics[i]}" alt="">
+                    <img src="assets/img/${sculptures[i]}" class="${hiddenPicsSculpture[i]}" alt="${sculptureNames[i]}">
                     <div class="overlay">
-                        <p class="caption" id="picCaption">${photographyName[i]}</p>
+                        <p class="caption" id="picCaption">${sculptureNames[i]}</p>
                     </div>
                 </div>
             </div>`;
