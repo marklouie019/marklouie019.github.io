@@ -1,0 +1,128 @@
+@import url('https://fonts.cdnfonts.com/css/druk-wide-bold');
+
+:root {
+    --darkblue: #101823;
+    --red: #FF4656;
+    --white: #ECE8E1;
+    --gray: #8B978F;
+    --navFont: "Mark Pro";
+    --titleFont: 'Druk Wide Bold', sans-serif;
+    --subTitleFont: "Tungsten";
+    --paragFont: "DIN Next W1G";
+}
+
+.imgcontainer {
+    background-color: #D9D9D9;
+    border-radius: 20px;
+}
+
+.imgcontainer img {
+    width: 100%;
+}
+
+.navbar {
+    background: var(--darkblue) !important;
+    box-shadow: 0px 4px 27.5px -3px rgba(0, 0, 0, 0.20) !important;
+    backdrop-filter: blur(20px) !important;
+}
+
+.nav-item {
+    text-align: center;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-family: var(--navFont) !important;
+}
+
+.navbar-toggler {
+    border-color: var(--white) !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+.nav-link {
+    color: var(--white) !important;
+}
+
+.dropdown-item:focus {
+    background-color: var(--yellow) !important;
+    color: black !important;
+}
+
+footer {
+    background: var(--darkblue) !important;
+    color: var(--gray) !important;
+}
+
+footer .nav-link {
+    color: var(--gray) !important;
+    margin-top: 100px;
+}
+
+footer p {
+    color: var(--gray) !important;
+    margin-bottom: 50px;
+}
+
+.base {
+    padding-top: 80px;
+    background: var(--red);
+}
+
+.title {
+    font-family: var(--titleFont);
+    color: var(--white);
+    text-align: center;
+}
+
+.searchBar {
+    background: var(--darkblue);
+    padding: 5px;
+    width: auto;
+    display: flex;
+}
+
+.searchBar input {
+    background: var(--darkblue);
+    outline: none;
+    border: transparent;
+    color: var(--white);
+    margin-right:10px;
+}
+
+.searchBar input::placeholder {
+    text-align: left;
+    font-family: "Mark Pro";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--white);
+}
+
+
+.searchBar input:focus {
+    background: var(--darkblue);
+    outline: none !important;
+    color: var(--white);
+    /* border: none !important; */
+    text-align: left;
+    font-family: "Mark Pro";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 0px;
+    border: none;
+    margin-right:10px;
+}
+
+.searchBar img{
+    width:25px;
+    height:25px;
+    margin:5px;
+    
+}
