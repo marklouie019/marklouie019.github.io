@@ -29,14 +29,15 @@
                         <div class="col">
                             <div class="searchBar">
                                 <input class="form-control" type="text" placeholder="SEARCH" id="searchAgent">
-                                <a onclick="cancelSearch()"><img class="img-fluid" src="assets/img/cancel-icon.svg" alt="cancel searching"></a>       
-                                <button class="btn btn-primary d-none" type="button" onclick="searchAgent()">Search</button>
+                                <a onclick="cancelSearch()"><img class="img-fluid" src="assets/img/cancel-icon.svg"
+                                        alt="cancel searching"></a>
+                                <button class="btn btn-primary d-none" type="button"
+                                    onclick="searchAgent()">Search</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row" id="cardContainer">
-                </div>
+                <div class="row" id="cardContainer"></div>
             </div>
         </div>
     </div>
@@ -58,21 +59,42 @@
             agents.forEach(agent => {
 
                 cardContainer.innerHTML += `
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <a href="agentProfile.html?agentName=` + agent.displayName + `&UUID=` + agent.uuid + `">
-                    <div class="card rounded-5 my-3">
-                        <div class="imgcontainer">
-                        <img
-                            src="` + agent.fullPortraitV2 + `">
-                        </div>
-                        <div class="agent-name">` + agent.displayName + `</div>
-                        <div class="agent-role">` + agent.role.displayName + `</div>
-                    </div>
-                    </a>
+                    <div class="col-md-6 col-lg-4">
+                        <a href="agentProfile.html?agentName=` + agent.displayName + `&UUID=` + agent.uuid + `">
+                            <div class="agent-slot m-3">
+                                <div class="imgcontainer">
+                                    <img class="img-fluid" src="` + agent.fullPortraitV2 + `">
+                                     <div class="agent-name">
+                                        <h1>`+ agent.displayName.toUpperCase() + `</h1>
+                                        <h4>`+ agent.role.displayName.toUpperCase() + `</h4>
+                                        <p>`+ agent.description + `</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 `;
-            })
-        }
+            });
+
+            // Transition effect
+            const observerOptions = {
+                threshold: 0.1,
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe each agent card
+            document.querySelectorAll(".agent-slot").forEach(card => {
+                observer.observe(card);
+            });
+        };
 
         // Function to fetch by search term
         const fetchAgent = async (agentNameQuery) => {
@@ -88,14 +110,17 @@
 
             if (agentMatched) {
                 cardContainer.innerHTML = `
-                        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                        <div class="col-6 col-sm-6 col-md-4 visible">
                             <a href="agentProfile.html?agentName=` + agentMatched.displayName + `&UUID=` + agentMatched.uuid + `">
-                                <div class="card rounded-5 my-3">
+                                <div class="agent-slot m-3 visible">
                                     <div class="imgcontainer">
                                         <img src="` + agentMatched.fullPortraitV2 + `">
+                                        <div class="agent-name">
+                                            <h1>`+ agentMatched.displayName.toUpperCase() + `</h1>
+                                            <h4>`+ agentMatched.role.displayName.toUpperCase() + `</h4>
+                                            <p>`+ agentMatched.description + `</p>
                                     </div>
-                                    <div class="agent-name">` + agentMatched.displayName + `</div>
-                                    <div class="agent-role">` + agentMatched.role.displayName + `</div>
+                                    </div>
                                 </div>
                             </a>
                         </div>
@@ -134,6 +159,7 @@
         });
 
         fetchAllAgents();
+
 
     </script>
     <script src="assets/js/script.js"></script>

@@ -11,14 +11,91 @@
     --paragFont: "DIN Next W1G";
 }
 
-.imgcontainer {
-    background-color: #D9D9D9;
-    border-radius: 20px;
+#body {
+    background-color: var(--darkblue);
 }
 
-.imgcontainer img {
-    width: 100%;
+.agent-slot {
+    background: var(--darkblue);
+    overflow: hidden;
+    height: 500px;
+    position: relative;
+    border-radius: 2px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 1s ease;
 }
+
+.agent-slot.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+.imgcontainer img {
+    width: 400px;
+    height: 700px;
+    object-fit: cover;
+    position: absolute;
+    top: -60px;
+    left: 0;
+    transition: .5s;
+}
+
+.agent-name{
+    height: 300px;
+    width: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    position: absolute;
+    background:var(--white);
+    bottom: -228px;
+    transition: .5s;
+}
+
+.agent-name h1{
+    color: var(--darkblue);
+    font-size:30px;
+    font-family: var(--subTitleFont);
+}
+
+.agent-name h4{
+    color: var(--red);
+    font-size:15px;
+    font-family: var(--navFont);
+    opacity:0;
+    visibility: hidden;
+}
+
+.agent-name p{
+    color: #45586E;
+    font-size:15px;
+    font-family: var(--paragFont);
+    opacity:0;
+    visibility: hidden;
+}
+
+.agent-slot:hover{
+    cursor:pointer;
+}
+
+.agent-slot:hover .agent-name{
+    bottom:0;
+}
+
+.agent-slot:hover h4{
+    opacity:1;
+    visibility:visible;
+}
+
+.agent-slot:hover p{
+    opacity:1;
+    visibility:visible;
+}
+
+.agent-slot:hover img{
+    transform: scale(1.1) rotate(-3deg);
+}
+
 
 .navbar {
     background: var(--darkblue) !important;
@@ -90,17 +167,17 @@ footer p {
     outline: none;
     border: transparent;
     color: var(--white);
-    margin-right:10px;
+    margin-right: 10px;
 }
 
 .searchBar input::placeholder {
     text-align: left;
-    font-family: "Mark Pro";
+    font-family: var(--navFont);
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    color: var(--white);
+    color: var(--gray);
 }
 
 
@@ -110,19 +187,18 @@ footer p {
     color: var(--white);
     /* border: none !important; */
     text-align: left;
-    font-family: "Mark Pro";
+    font-family: var(--navFont);
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     border-radius: 0px;
     border: none;
-    margin-right:10px;
+    margin-right: 10px;
 }
 
-.searchBar img{
-    width:25px;
-    height:25px;
-    margin:5px;
-    
+.searchBar img {
+    width: 25px;
+    height: 25px;
+    margin: 5px;
 }
