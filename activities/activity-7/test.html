@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar with Collapsible Sidebar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Brand</a>
+            
+            <!-- Navbar items for larger screens -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <!-- Dropdown menu for larger screens -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Service 1</a></li>
+                            <li><a class="dropdown-item" href="#">Service 2</a></li>
+                            <li><a class="dropdown-item" href="#">Service 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Menu icon for mobile view -->
+            <button class="btn btn-outline-primary d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <span class="navbar-toggler-icon"></span> Menu
+            </button>
+        </div>
+    </nav>
+
+    <!-- Off-canvas menu for mobile view -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Sidebar menu items with collapsible accordion -->
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <!-- Accordion for dropdown alternative in mobile view -->
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#servicesCollapse" role="button" aria-expanded="false" aria-controls="servicesCollapse">
+                        Services
+                    </a>
+                    <div class="collapse" id="servicesCollapse">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Service 1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Service 2</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Service 3</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <footer class="py-4">
+        <div class="topFooter">
+            <a href="../"><p>VALORANT | SPIKEWIKI</p></a>
+        </div>
+        <div class="extLinksContainer">
+            <div class="logo1">
+                <a href=""><img src="assets/img/valorant-api-logo.svg" alt="valorant api logo link"></a>
+            </div>
+            <div class="logo2">
+                <a href=""><img src="assets/img/riot-games-logo.svg" alt="riot games logo link"></a>
+            </div>
+            <div class="logo3">
+                <a href=""><img src="assets/img/valorant-grey-logo.svg" alt="valorant logo link"></a>
+            </div>
+            
+        </div>
+        <p class="text-center">&copy; 2024 Valorant | SpikeWIKI<br>
+        Valorant | SpikeWIKI is a non-official wiki website and not endorsed by Riot Games in any way.<br>Riot Games, Valorant, and all  associated properties are trademarks or registered trademarks of Riot Games, Inc.</p>
+    </footer>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
