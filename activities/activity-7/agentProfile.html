@@ -14,25 +14,43 @@
 <body id="body">
     <div class="navBar" id="navBar"></div>
     <div class="base">
-        <div class="container">
-            <div class="row mt-5">
-                <div class="col">
-                    <div class="mx-auto" style="max-width: 400px; background-color: lightgray; border-radius: 200px"
-                        id="imgContainer">
-                        <img id="img" src="" style="width: 100%;">
+        <div class="container-fluid" id="bgGradient">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="portrait">
+                        <img src="" id="specialBg">
+                        <img src="" id="agentPortrait">
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col text-center">
-                    <h1 class="display-3" id="title"></h1>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col">
-                    <div class="card p-5 rounded-5">
-                        <div><b>Description: </b><span id="description"></span></div>
-                        <div><b>Role: </b><span id="role"></span></div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="agentInfo">
+                        <div class="row">
+                            <div class="col">
+                                <h1 id="agentName"></h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="role-container-stroke">
+                                    <div class="role-container">
+                                        <span><img src="" class="img-fluid" id="roleIcon"></span>
+                                        <span class="role" id="agentRole"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="description" id="agentDesc">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <video id="abilityDemo" autoplay loop playsinline>
+                                <source id="videoSource" src="" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -40,24 +58,55 @@
     </div>
     <div class="footer" id="footer"></div>
     <script>
-        const title = document.getElementById("title");
-        const img = document.getElementById("img");
-        const description = document.getElementById("description");
-        const role = document.getElementById("role");
+        const agentName = document.getElementById("agentName");
+        const agentPortrait = document.getElementById("agentPortrait");
+        const specialBg = document.getElementById("specialBg");
+        const roleIcon = document.getElementById("roleIcon");
+        const agentDesc = document.getElementById("agentDesc");
+        const agentRole = document.getElementById("agentRole");
+
+        var bgGradient = document.getElementById("bgGradient");
+        var abilityDemo = document.getElementById("abilityDemo");
 
         // Function to fetch agent data by UUID
         const fetchAgentByUUID = async (agentUuid) => {
-            const response = await fetch(`https://valorant-api.com/v1/agents/`+ agentUuid);
+            const response = await fetch(`https://valorant-api.com/v1/agents/` + agentUuid);
             const data = await response.json();
 
             // Check if the status is 200(not error)
             if (data.status === 200) {
                 const agent = data.data;
 
-                title.innerHTML = agent.displayName;
-                description.innerHTML = agent.description;
-                role.innerHTML = agent.role.displayName;
-                img.src = agent.fullPortrait;
+                // Dynamic background gradient based on agent's personality
+                var color1 = agent.backgroundGradientColors[2];
+                var color2 = agent.backgroundGradientColors[0];
+
+                bgGradient.style.background = `linear-gradient(286deg, #${color1} 1.34%, #${color2} 119.61%)`;
+
+                agentName.innerHTML = agent.displayName;
+                agentRole.innerHTML = agent.role.displayName.toUpperCase();
+                agentDesc.innerHTML = agent.description;
+                specialBg.src = agent.background;
+                agentPortrait.src = agent.fullPortraitV2;
+                roleIcon.src = agent.role.displayIcon;
+
+                const videoResponse = await fetch(`https://kaneketsu.github.io/skill_demo.json`);
+                const videoData = await videoResponse.json();
+
+                // Find the specific agent in the videoData
+                const agentData = videoData.data.find(a => a.displayName === agent.displayName);
+
+                if (agentData) {
+                   
+                    agentData.abilities.forEach(ability => {
+                        console.log(`Ability Name: ${ability.name}, URL: ${ability.url}`);
+                        abilityDemo.src = (ability.url);
+                    });
+                } else {
+                    console.error(`Agent ${agent.displayName} not found in video data.`);
+                }
+
+
             } else {
                 title.innerHTML = "Agent not found.";
             }
@@ -78,7 +127,7 @@
     <script src="assets/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 </html>

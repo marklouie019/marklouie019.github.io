@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" id="cardContainer"></div>
+                <div class="row mx-auto" id="cardContainer"></div>
             </div>
         </div>
     </div>
@@ -53,11 +53,11 @@
 
             // Filter only playable agents
             const agents = data.data.filter(agent => agent.isPlayableCharacter);
-
+            
             // Loop through each agents from the API
             // Pass the agent's name and uuid using URL parameters
             agents.forEach(agent => {
-
+                
                 cardContainer.innerHTML += `
                     <div class="col-md-6 col-lg-4">
                         <a href="agentProfile.html?agentName=` + agent.displayName + `&UUID=` + agent.uuid + `">
