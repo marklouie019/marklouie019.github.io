@@ -19,11 +19,11 @@
             <div class="row mt-5">
                 <div class="col">
                     <div class="title">
-                        <h1 class="display-3">AGENTS</h1>
+                        <h1 class="display-3 display-md-6 display-lg-1">AGENTS</h1>
                     </div>
                 </div>
             </div>
-            <div class="row mt-5">
+            <div class="row mt-5 mx-auto">
                 <div class="col">
                     <div class="row">
                         <div class="col">
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row mx-auto" id="cardContainer"></div>
+                <div class="row mx-auto my-lg-5" id="cardContainer"></div>
             </div>
         </div>
     </div>
@@ -59,9 +59,9 @@
             agents.forEach(agent => {
                 
                 cardContainer.innerHTML += `
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-6 col-md-6 col-lg-4">
                         <a href="agentProfile.html?agentName=` + agent.displayName + `&UUID=` + agent.uuid + `">
-                            <div class="agent-slot m-3">
+                            <div class="agent-slot my-3 my-lg-2">
                                 <div class="imgcontainer">
                                     <img class="img-fluid" src="` + agent.fullPortraitV2 + `">
                                      <div class="agent-name">

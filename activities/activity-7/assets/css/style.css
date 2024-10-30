@@ -23,9 +23,125 @@ html {
 .base {
     background: var(--red);
     overflow: hidden;
-
 }
 
+/* HOMEPAGE STYLING */
+.section-hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--darkblue);
+    overflow: hidden;
+}
+
+.section-hero .diagonal {
+    position: absolute;
+    width: 1350px;
+    height: 800px;
+    clip-path: polygon(0 0, 60% 0, 0 120%);
+    background-color: var(--red);
+    z-index: 0;
+}
+
+.hero-pic {
+    position: absolute;
+    z-index: 2;
+    top: 20%;
+    left: 5%;
+}
+
+.hero-title {
+    position: absolute;
+    top: 65%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+}
+
+.section .agents,
+.section .maps {
+    background: var(--white);
+    width: 100vw;
+    height: auto;
+    min-height:100vh;
+    max-height:100vh;
+}
+
+.section .weapons {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height:100vh;   
+    background-color: var(--red);
+    overflow: hidden;
+}
+
+.section .agents,
+.section .weapons,
+.section .maps {
+    padding: 20px;
+}
+
+.section .weapons {
+    color: var(--white);
+}
+
+.section h1 {
+    font-family: var(--subTitleFont);
+    font-size: 115.175px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 86%;
+    letter-spacing: 1.152px;
+}
+
+.section h4{
+    font-family: var(--navFont);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.24px;
+}
+
+.section p {
+    font-family: var(--navFont);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+}
+
+.section button {
+    width: 216.611px;
+    height: 58px;
+    font-family: var(--navFont);
+    font-weight: 500;
+    border: none;
+    transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+.section .agents button,
+.section .maps button {
+    background: var(--red);
+    color: var(--white);
+}
+
+.section .weapons button {
+    background: var(--darkblue);
+    color: var(--white);
+}
+
+.section .agents button:hover,
+.section .maps button:hover{
+    background: var(--darkblue);
+}
+
+.section .weapons button:hover{
+    background: var(--white);
+    color: var(--darkblue);
+}
+
+/* AGENTLIST */
 .agent-slot {
     background: var(--darkblue);
     overflow: hidden;
@@ -54,12 +170,12 @@ html {
 
 .agent-name {
     height: 300px;
-    width: auto;
+    width: 100%;
     padding: 20px;
     box-sizing: border-box;
     position: absolute;
     background: var(--white);
-    bottom: -228px;
+    bottom: -45%;
     transition: .5s;
 }
 
@@ -111,6 +227,7 @@ html {
     background: var(--darkblue) !important;
     box-shadow: 0px 4px 27.5px -3px rgba(0, 0, 0, 0.20) !important;
     backdrop-filter: blur(20px) !important;
+    z-index: 100;
 }
 
 .nav-item {
@@ -253,6 +370,7 @@ footer p {
     background: var(--darkblue) !important;
     box-shadow: 0px 4px 27.5px -3px rgba(0, 0, 0, 0.20) !important;
     backdrop-filter: blur(20px) !important;
+    z-index:;
 }
 
 .offcanvas .nav-item {
@@ -285,7 +403,7 @@ footer p {
 .searchBar {
     background: var(--darkblue);
     padding: 5px;
-    width: auto;
+    width: 100%;
     display: flex;
 }
 
@@ -329,39 +447,19 @@ footer p {
 }
 
 /* AGENT PROFILE STYLING */
-
 .portrait {
-    position: relative;
     width: auto;
-    height: 100vh;
     object-fit: cover;
-}
-
-#specialBg {
-    width:  700px;
-    height: auto;
-    opacity: 0.23;
-    mix-blend-mode: soft-light;
-    padding-left: 20px;
-    position: absolute;
-    top:-100px;
+    padding-top: 70px;
 }
 
 #agentPortrait {
-    position: absolute;
-    top: 60px;
-    left: -70px;
     width: auto;
-    height: 734px;
+    height: auto;
 }
 
 #bgGradient {
     background: linear-gradient(286deg, #3A2656 1.34%, #C7F458 119.61%);
-}
-
-.agentInfo {
-    padding-top: 80px;
-    padding-inline: 60px;
 }
 
 .agentInfo h1 {
@@ -399,7 +497,7 @@ footer p {
     gap: 10px;
 }
 
-.role-container img{
+.role-container img {
     width: 40px;
     height: 40px;
 }
@@ -409,10 +507,137 @@ footer p {
     font-family: var(--paragFont);
     font-size: 18px;
     text-align: left;
-    padding-top:20px;
-    padding-bottom:60px;
+
 }
 
-#abilityDemo{
-    margin-bottom: 60px;
+#agentDesc {
+    padding-top: 20px;
+    padding-bottom: 60px;
+}
+
+.agent-abilities {
+    padding-block: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.abilities-container h1 {
+    color: var(--beige);
+    text-align: center;
+    font-family: var(--subTitleFont);
+    font-size: 100px;
+    font-weight: 400;
+    line-height: 90.643%;
+    letter-spacing: 1.291px;
+}
+
+.abilities-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 8%;
+}
+
+.ability-icon {
+    opacity: 0.2;
+    width: 87px;
+    height: 87px;
+    transition: opacity 0.4s ease, transform 0.3s ease;
+}
+
+.ability-icon:hover {
+    transform: scale(1.2);
+}
+
+.video-container video {
+    max-width: 100%;
+    margin-right: 50px;
+}
+
+#abilityDemo {
+    width: 100vw;
+    height: 400px;
+}
+
+#abilityName {
+    color: var(--beige);
+    font-family: var(--subTitleFont);
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    text-align: start;
+}
+
+#abilityDesc {
+    padding-bottom: 20px;
+}
+
+@media (max-width: 769px) {
+
+    .content {
+        height: 50vh;
+    }
+
+    .diagonal {
+        width: 780px;
+        height: 800px;
+        clip-path: polygon(0 0, 30% 0, 0 70%);
+    }
+
+    .agent-name {
+        top: 227px;
+    }
+
+    .agent-slot:hover h4 {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .agent-slot {
+        height: 300px;
+    }
+
+    .agent-slot p{
+        display: none;
+    }
+
+    .agentInfo h1, .section h1 {
+        font-size: 60px;
+    }
+
+    .agentInfo
+
+    .role-container .role {
+        font-size: 15px;
+    }
+
+    .abilities-container h1 {
+        font-size: 50px;
+    }
+
+    #abilityName {
+        font-size: 35px;
+    }
+
+    .description, .section p{
+        font-size: 16px;
+    }
+
+    .section h4{
+        font-size: 20px;
+    }
+
+    .role-container img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .ability-icon {
+        width: 65px;
+        height: 65px;
+    }
 }
