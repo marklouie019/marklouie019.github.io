@@ -6,9 +6,9 @@ var strMapsLink = "mapList.html";
 var strWeaponsLink = "weaponList.html";
 var strAboutLink = "about.html";
 var externalLinks = [
-    'https://valorant-api.com/',
-    'https://www.riotgames.com/en',
-    'https://playvalorant.com/en-us/',
+  'https://valorant-api.com/',
+  'https://www.riotgames.com/en',
+  'https://playvalorant.com/en-us/',
 ];
 
 function generateNavBar() {
@@ -29,13 +29,13 @@ function generateNavBar() {
                   GAME INFO
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="`+strAgentsLink+`">AGENTS</a></li>
-                  <li><a class="dropdown-item" href="`+strMapsLink+`">MAPS</a></li>
-                  <li><a class="dropdown-item" href="`+strWeaponsLink+`">ARSENAL</a></li>
+                  <li><a class="dropdown-item" href="`+ strAgentsLink + `">AGENTS</a></li>
+                  <li><a class="dropdown-item" href="`+ strWeaponsLink + `">ARSENAL</a></li>
+                  <li><a class="dropdown-item" href="`+ strMapsLink + `">MAPS</a></li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="`+strAboutLink+`">ABOUT</a>
+                <a class="nav-link" href="`+ strAboutLink + `">ABOUT</a>
               </li>
             </ul>
           </div>
@@ -51,19 +51,19 @@ function generateNavBar() {
             <!-- Menu items in sidebar for mobile view -->
             <ul class="nav flex-column">
               <li class="nav-item ">
-                <a class="nav-link" href="../">HOME</a>
+                <a class="nav-link" href="index.html">HOME</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link" href="`+strAgentsLink+`">AGENTS</a>
+                <a class="nav-link" href="`+ strAgentsLink + `">AGENTS</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link" href="`+strMapsLink+`">MAPS</a>
+                <a class="nav-link" href="`+ strWeaponsLink + `">ARSENAL</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link" href="`+strWeaponsLink+`">ARSENAL</a>
+                <a class="nav-link" href="`+ strMapsLink + `">MAPS</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link" href="`+strAboutLink+`">ABOUT</a>
+                <a class="nav-link" href="`+ strAboutLink + `">ABOUT</a>
               </li>
             </ul>
         </div>
@@ -82,13 +82,13 @@ function generateFooter() {
         </div>
         <div class="extLinksContainer">
           <div class="logo1">
-                <a href="`+externalLinks[0]+`"><img src="assets/img/valorant-api-logo.svg" alt="valorant api logo link"></a>
+                <a href="`+ externalLinks[0] + `"><img src="assets/img/valorant-api-logo.svg" alt="valorant api logo link"></a>
             </div>
             <div class="logo2">
-                <a href="`+externalLinks[1]+`"><img src="assets/img/riot-games-logo.svg" alt="riot games logo link"></a>
+                <a href="`+ externalLinks[1] + `"><img src="assets/img/riot-games-logo.svg" alt="riot games logo link"></a>
             </div>
             <div class="logo3">
-                <a href="`+externalLinks[2]+`"><img src="assets/img/valorant-grey-logo.svg" alt="valorant logo link"></a>
+                <a href="`+ externalLinks[2] + `"><img src="assets/img/valorant-grey-logo.svg" alt="valorant logo link"></a>
             </div>
         </div>
         <p class="text-center">&copy; 2024 Valorant | SpikeWIKI<br>

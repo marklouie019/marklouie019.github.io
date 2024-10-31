@@ -62,15 +62,15 @@ html {
     background: var(--white);
     width: 100vw;
     height: auto;
-    min-height:100vh;
-    max-height:100vh;
+    min-height: 100vh;
+    max-height: 100vh;
 }
 
 .section .weapons {
     position: relative;
     width: 100%;
     height: auto;
-    min-height:100vh;   
+    min-height: 100vh;
     background-color: var(--red);
     overflow: hidden;
 }
@@ -94,7 +94,7 @@ html {
     letter-spacing: 1.152px;
 }
 
-.section h4{
+.section h4 {
     font-family: var(--navFont);
     font-size: 24px;
     font-style: normal;
@@ -132,17 +132,17 @@ html {
 }
 
 .section .agents button:hover,
-.section .maps button:hover{
+.section .maps button:hover {
     background: var(--darkblue);
 }
 
-.section .weapons button:hover{
+.section .weapons button:hover {
     background: var(--white);
     color: var(--darkblue);
 }
 
 /* AGENTLIST */
-.agent-slot {
+.item-slot {
     background: var(--darkblue);
     overflow: hidden;
     height: 500px;
@@ -153,7 +153,7 @@ html {
     transition: opacity 0.6s ease, transform 1s ease;
 }
 
-.agent-slot.visible {
+.item-slot.visible {
     opacity: 1;
     transform: translateY(0);
 }
@@ -201,25 +201,25 @@ html {
     visibility: hidden;
 }
 
-.agent-slot:hover {
+.item-slot:hover {
     cursor: pointer;
 }
 
-.agent-slot:hover .agent-name {
+.item-slot:hover .agent-name {
     bottom: 0;
 }
 
-.agent-slot:hover h4 {
+.item-slot:hover h4 {
     opacity: 1;
     visibility: visible;
 }
 
-.agent-slot:hover p {
+.item-slot:hover p {
     opacity: 1;
     visibility: visible;
 }
 
-.agent-slot:hover img {
+.item-slot:hover img {
     transform: scale(1.1) rotate(-3deg);
 }
 
@@ -370,7 +370,6 @@ footer p {
     background: var(--darkblue) !important;
     box-shadow: 0px 4px 27.5px -3px rgba(0, 0, 0, 0.20) !important;
     backdrop-filter: blur(20px) !important;
-    z-index:;
 }
 
 .offcanvas .nav-item {
@@ -391,7 +390,6 @@ footer p {
 
 .container {
     padding-top: 80px;
-    background: var(--red);
 }
 
 .title {
@@ -405,6 +403,7 @@ footer p {
     padding: 5px;
     width: 100%;
     display: flex;
+    border-radius: 10px;
 }
 
 .searchBar input {
@@ -576,6 +575,127 @@ footer p {
     padding-bottom: 20px;
 }
 
+/* WEAPONLIST STYLING */
+.imgcontainer .weapon img {
+    filter: grayscale(100%);
+}
+
+#searchWeapon {
+    background: transparent;
+}
+
+#weaponSearchbar {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+#weaponItemSlot {
+    background: rgba(255, 255, 255, 0.12);
+    height: 300px;
+    padding: 20px;
+}
+
+#weaponItemSlot:hover img {
+    transform: rotate(0deg) scale(1.1);
+}
+
+.weapon-imgcontainer .weapon-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weapon-imgcontainer img {
+    width: auto;
+    height: 100%;
+    max-height: 100px;
+    object-fit: cover;
+    margin-top: 10%;
+}
+
+.weapon-name h1 {
+    color: var(--white);
+    font-family: var(--navFont);
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 3.1px;
+}
+
+.weapon-name h4 {
+    color: #AEAEAE;
+    font-size: 20px;
+}
+
+.weapon-display a {
+    text-decoration: none;
+}
+
+/* MAPS STYLING */
+.maplist-bg {
+    padding-top: 120px;
+    padding-bottom: 60px;
+}
+
+.maplist-bg h1 {
+    font-family: var(--titleFont);
+    font-size: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+}
+
+.map-slot {
+    height: 260px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.map-slot img {
+    width: 100%;
+    height: 400px;
+    max-width: 100vw;
+    object-fit: cover;
+    transition: opacity 0.4s ease, transform 0.3s ease;
+}
+
+.map-slot h1 {
+    font-family: var(--subTitleFont);
+    color: var(--white);
+    text-align: center;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.97px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.screen-filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(16, 24, 35, 0.70);
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.map-slot:hover img {
+    transform: scale(1.1);
+}
+
+.map-slot:hover .screen-filter {
+    border: 5px solid var(--red);
+    background: rgba(16, 24, 35, 0.40);
+}
+
 @media (max-width: 769px) {
 
     .content {
@@ -592,26 +712,42 @@ footer p {
         top: 227px;
     }
 
-    .agent-slot:hover h4 {
+    .item-slot:hover h4 {
         opacity: 0;
         visibility: hidden;
     }
 
-    .agent-slot {
+    #weaponItemSlot {
+        height: 200px;
+    }
+
+    #weaponItemSlot h1 {
+        font-size: 20px;
+    }
+
+    #weaponItemSlot h4 {
+        font-size: 15px;
+    }
+
+    #weaponItemSlot h4 {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .item-slot {
         height: 300px;
     }
 
-    .agent-slot p{
+    .item-slot p {
         display: none;
     }
 
-    .agentInfo h1, .section h1 {
+    .agentInfo h1,
+    .section h1 {
         font-size: 60px;
     }
 
-    .agentInfo
-
-    .role-container .role {
+    .agentInfo .role-container .role {
         font-size: 15px;
     }
 
@@ -623,11 +759,12 @@ footer p {
         font-size: 35px;
     }
 
-    .description, .section p{
+    .description,
+    .section p {
         font-size: 16px;
     }
 
-    .section h4{
+    .section h4 {
         font-size: 20px;
     }
 
@@ -639,5 +776,9 @@ footer p {
     .ability-icon {
         width: 65px;
         height: 65px;
+    }
+
+    .map-slot{
+        height: 200px;
     }
 }
