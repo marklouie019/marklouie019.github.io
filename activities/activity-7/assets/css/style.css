@@ -1,3 +1,4 @@
+@import url("https://github.com/kaneketsu/kaneketsu.github.io/blob/main/fonts/fonts.css");
 @import url('https://fonts.cdnfonts.com/css/druk-wide-bold');
 
 :root {
@@ -86,7 +87,7 @@ html {
 }
 
 .section h1 {
-    font-family: var(--subTitleFont);
+    font-family: 'Tungsten', sans-serif;
     font-size: 115.175px;
     font-style: normal;
     font-weight: 400;
