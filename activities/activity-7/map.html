@@ -26,28 +26,30 @@
                                 <img src="ascent-map.png" id="mapPic">
                             </div>
                             <div class="map-content">
-                                <p id="mainDesc">Description not available</p>
-                                <ul>
-                                    <li>Location // <span id="mapLocation">N/A</span></li>
-                                    <li>Real-life coordinates // <span id="mapCoordinates">N/A</span></li>
-                                    <li>Spike sites // <span id="spikeSites">N/A</span></li>
-                                </ul>
                                 <div class="minimap-content container">
+                                    <div class="row pb-5">
+                                        <div class="top-content col p-0">
+                                            <p id="mainDesc">Description not available</p>
+                                            <ul>
+                                                <li>Location // <span id="mapLocation">N/A</span></li>
+                                                <li>Real-life coordinates // <span id="mapCoordinates">N/A</span></li>
+                                                <li>Spike sites // <span id="spikeSites">N/A</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                     <div class="row">
-                                        <div class="col-12 col-lg-6">
+                                        <div class="main-content col-12 col-lg-6 p-0">
                                             <h1><span id="mapName2">MAP NAME</span><br>MINIMAP</h1>
                                             <div class="col">
                                                 <div class="map-desc">
                                                     <p id="p1">Description not available</p>
-                                                    <br>
                                                     <p id="p2"></p>
-                                                    <br>
                                                     <p id="p3"></p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-6">
-                                            <img src="minimap.png" class="img-fluid"id="minimapPic">
+                                            <img src="minimap.png" class="img-fluid" id="minimapPic">
                                         </div>
                                     </div>
                                 </div>
@@ -68,13 +70,13 @@
         var mapCoordinates = document.getElementById("mapCoordinates");
         var spikeSites = document.getElementById("spikeSites");
         var minimapPic = document.getElementById("minimapPic");
-        
+
         var mapDesc = [
             document.getElementById("p1"),
             document.getElementById("p2"),
             document.getElementById("p3")
         ];
-    
+
         var map;
         var mapData;
 
@@ -93,10 +95,7 @@
 
                 // Find the specific map in the mapdata
                 mapData = data2.data.find(a => a.displayName === map.displayName);
-                
-                console.log(mapData.displayName);
-                console.log(mapData.wikiDescription[0].description);
-                
+
                 document.title = "Map: " + map.displayName;
                 mapName.innerHTML = map.displayName;
                 mapName2.innerHTML = map.displayName.toUpperCase();
@@ -110,17 +109,17 @@
                 let j = 0;
 
                 for (let i = 0; i < mapDesc.length; i++) {
-                   
+
                     while (j < mapData.wikiDescription.length && mapData.wikiDescription[j] == null) {
                         j++;
                     }
-                    
+
                     if (j < mapData.wikiDescription.length) {
                         mapDesc[i].innerHTML = mapData.wikiDescription[j].description;
                         j++;
                     }
                 }
-                
+
 
             } else {
                 title.innerHTML = "Map not found :<";

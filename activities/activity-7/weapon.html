@@ -24,75 +24,132 @@
 <body id="body">
     <div class="navBar" id="navBar"></div>
     <div class="weapon-profile container-fluid p-0">
-        <div class="weapon-profile bg">
-            <div class="weapon-profile layer row">
-                <div class="weapon-profile weapon-info col-12 col-lg-6">
-                    <h1 id="weaponName">VANDAL</h1>
-                    <hr>
-                    <div class="weapon-info weapon-stats">
-                        <ul>
-                            <li>TYPE // <span id="stat1">RIFLE</span></li>
-                            <li>SHOP PRICE // <span id="stat2">3200</span></li>
-                            <li>MAGAZINE SIZE // <span id="stat3">100</span></li>
-                            <li>FIRE RATE // <span id="stat4">12 rounds/s</span></li>
-                            <li>WALL PENETRATION // <span id="stat5">High</span></li>
-                        </ul>
-                    </div>
+        <div class="weapon-profile bg row">
+            <div class="weapon-profile weapon-info col-12 col-lg-6">
+                <h1 id="weaponName">WEAPON NAME</h1>
+                <hr>
+                <div class="weapon-info weapon-stats">
+                    <ul>
+                        <li>TYPE // <span id="stat1">N/A</span></li>
+                        <li>SHOP PRICE // <span id="stat2">N/A</span></li>
+                        <li>MAGAZINE SIZE // <span id="stat3">N/A</span></li>
+                        <li>FIRE RATE // <span id="stat4">N/A</span></li>
+                        <li>WALL PENETRATION // <span id="stat5">N/A</span></li>
+                        <li>SKINS // <span id="stat6">N/A</span></li>
+                    </ul>
                 </div>
-                <div class="weapon-profile display-icon col-12 col-lg-6">
-                    <img src="assets/img/vandal.png" class="img-fluid">
-                </div>
-                <div class="weapon-profile skins swiper">
-                    <hr>
-                    <div class="slider-wrapper">
-                        <div class="card-list swiper-wrapper">
-                            <div class="card-item swiper-slide">
-                                <img src="skin.png" alt="" class="skin-icon">
-                            </div>
-                            <div class="card-item swiper-slide">
-                                <img src="skin2.png" alt="" class="skin-icon">
-                            </div>
-                            <div class="card-item swiper-slide">
-                                <img src="skin3.png" alt="" class="skin-icon">
-                            </div>
-                            <div class="card-item swiper-slide">
-                                <img src="skin4.png" alt="" class="skin-icon">
-                            </div>
-                            <div class="card-item swiper-slide">
-                                <img src="skin.png" alt="" class="skin-icon">
-                            </div>
-                            <div class="card-item swiper-slide">
-                                <img src="skin2.png" alt="" class="skin-icon">
-                            </div>
-                            <div class="card-item swiper-slide">
-                                <img src="skin3.png" alt="" class="skin-icon">
-                            </div>
-                            <div class="card-item swiper-slide">
-                                <img src="skin4.png" alt="" class="skin-icon">
-                            </div>
-                            <div class="card-item swiper-slide">
-                                <img src="skin.png" alt="" class="skin-icon">
-                            </div>
-                            <div class="card-item swiper-slide">
-                                <img src="skin2.png" alt="" class="skin-icon">
-                            </div>
-                            <div class="card-item swiper-slide">
-                                <img src="skin3.png" alt="" class="skin-icon">
-                            </div>
-                            <div class="card-item swiper-slide">
-                                <img src="skin4.png" alt="" class="skin-icon">
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                        <div class="swiper-slide-button swiper-button-prev"></div>
-                        <div class="swiper-slide-button swiper-button-next"></div>
+            </div>
+            <div class="weapon-profile display-icon col-12 col-lg-6">
+                <img src="assets/img/vandal.png" class="" id="weaponPic">
+            </div>
+            <div class="weapon-profile skins swiper">
+                <h1 id="weaponSkinName">NORMAL SKIN</h1>
+                <hr>
+                <div class="slider-wrapper container">
+                    <div class="card-list swiper-wrapper" id="skinsContainer">
                     </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-slide-button swiper-button-prev"></div>
+                    <div class="swiper-slide-button swiper-button-next"></div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
     <div class="footer" id="footer"></div>
     <script>
+        var weaponName = document.getElementById("weaponName");
+        var weaponSkinName = document.getElementById("weaponSkinName");
+        var weaponPic = document.getElementById("weaponPic");
+        var skinsContainer = document.getElementById("skinsContainer");
+
+        var weaponStats = [
+            document.getElementById("stat1"),
+            document.getElementById("stat2"),
+            document.getElementById("stat3"),
+            document.getElementById("stat4"),
+            document.getElementById("stat5"),
+            document.getElementById("stat6")
+        ];
+
+        var weapon;
+        var weaponData;
+
+        // Function to fetch weapon data by UUID
+        const fetchWeaponByUUID = async (weaponUUID) => {
+            const response = await fetch(`https://valorant-api.com/v1/weapons/` + weaponUUID);
+            const data = await response.json();
+
+            // Check if the status is 200(not error)
+            if (data.status === 200) {
+
+                weapon = data.data;
+                document.title = "Weapon: " + weapon.displayName;
+                weaponName.innerHTML = weapon.displayName.toUpperCase();
+                weaponPic.src = weapon.displayIcon;
+
+                var weaponType = weapon.category.replace("EEquippableCategory::", "").toUpperCase();
+                weaponStats[0].innerHTML = weaponType;
+                weaponStats[5].innerHTML = weapon.skins.length;
+
+                if (weapon.displayName !== 'Melee') {
+                    var wallPenetFiltered = weapon.weaponStats.wallPenetration.replace("EWallPenetrationDisplayType::", "").toUpperCase();
+                    weaponStats[1].innerHTML = weapon.shopData.cost;
+                    weaponStats[2].innerHTML = weapon.weaponStats.magazineSize;
+                    weaponStats[3].innerHTML = weapon.weaponStats.fireRate + " ROUNDS/s";
+                    weaponStats[4].innerHTML = wallPenetFiltered;
+                }
+
+                var chosenSkin;
+                for (var i = 0; i < weapon.skins.length; i++) {
+                    var weaponSkinIcon = weapon.skins[i].displayIcon;
+                    var weaponDisplayName = weapon.displayName;
+                    var skinDisplayName = weapon.skins[i].displayName;
+                    var standardWeaponName = "Standard " + weaponDisplayName;
+
+                    // Skip skins with "Random Favorite Skin" or "Standard [Weapon Name]"
+                    if (weaponSkinIcon !== null &&
+                        skinDisplayName !== "Random Favorite Skin" &&
+                        skinDisplayName !== standardWeaponName) {
+
+                        // Remove the weapon name if it appears at the end of the skin name
+                        var modifiedSkinDisplayName = skinDisplayName.replace(new RegExp(weaponDisplayName + '$'), '').trim();
+                        skinsContainer.innerHTML += `
+                            <a class="card-item swiper-slide" onclick="applySkin('${weaponSkinIcon}', '${modifiedSkinDisplayName.toUpperCase()}', 'skinIcon${i}')">
+                                <div>
+                                    <img src="` + weaponSkinIcon + `" alt="` + modifiedSkinDisplayName + `" class="skin-icon">
+                                </div>
+                            </a>
+                        `;
+                    }
+                }
+            } else {
+                title.innerHTML = "Weapon not found";
+            }
+        };
+
+        // Get the weapon UUID from the URL parameters
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+
+        // Check if 'uuid' parameter exists in the URL
+        if (urlParams.has('UUID')) {
+            const weaponUUID = urlParams.get('UUID');
+            fetchWeaponByUUID(weaponUUID);
+        } else {
+            title.innerHTML = "Invalid Weapon";
+        }
+
+        // Function to apply the chosen skin from the swiper
+        function applySkin(skinIcon, displayName, id) {
+            weaponPic.src = skinIcon;
+            weaponSkinName.innerHTML = displayName;
+
+            var skinCard = document.getElementById(id);
+            if (skinCard) {
+                skinCard.style.border = "1px solid #B8B6B6";
+            }
+        }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/js/script.js"></script>

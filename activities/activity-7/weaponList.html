@@ -62,10 +62,10 @@
 
             // Loop through each weapons from the API
             // Pass the weapons's name and uuid using URL parameters
-            weapons.forEach(weapon => {
+            weapons.forEach((weapon) => {
 
                 // Remove "EquippableCategory::" from the category and convert to uppercase
-                var weaponDesc = weapon.category.replace("EEquippableCategory::", "").toUpperCase();
+                var weaponType = weapon.category.replace("EEquippableCategory::", "").toUpperCase();
 
                 cardContainer.innerHTML += `
                     <div class="weapon-display col-6 col-md-6 col-lg-4">
@@ -74,7 +74,7 @@
                                 <div class="weapon-imgcontainer">
                                     <div class="weapon-name">
                                         <h1>`+ weapon.displayName.toUpperCase() + `</h1>
-                                        <h4>TYPE // `+ weaponDesc + `</h4>
+                                        <h4>TYPE // `+ weaponType + `</h4>
                                     </div>
                                     <div class="weapon-pic">
                                         <img class="img-fluid" src="` + weapon.displayIcon + `">
@@ -88,13 +88,14 @@
 
             // Transition effect
             const observerOptions = {
-                threshold: 0.1,
+                threshold: 0.5,
             };
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("visible");
+                        entry.target.style.transitionDelay = index * 200 + 'ms';
                         observer.unobserve(entry.target);
                     }
                 });
@@ -118,7 +119,7 @@
 
             if (weaponMatched) {
                 // Remove "EquippableCategory::" from the category and convert to uppercase
-                var weaponDesc = weaponMatched.category.replace("EEquippableCategory::", "").toUpperCase();
+                var weaponType = weaponMatched.category.replace("EEquippableCategory::", "").toUpperCase();
 
                 console.log("You searched for:" + weaponMatched.displayName);
                 cardContainer.innerHTML = `
@@ -128,7 +129,7 @@
                                     <div class="weapon-imgcontainer" id="weaponImgContainer">
                                         <div class="weapon-name">
                                             <h1>`+ weaponMatched.displayName.toUpperCase() + `</h1>
-                                            <h4>TYPE // `+ weaponDesc + `</h4>
+                                            <h4>TYPE // `+ weaponType + `</h4>
                                         </div>
                                         <div class="weapon-pic">
                                             <img class="img-fluid" src="` + weaponMatched.displayIcon + `">

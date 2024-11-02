@@ -57,7 +57,7 @@
             
             // Loop through each agents from the API
             // Pass the agent's name and uuid using URL parameters
-            agents.forEach(agent => {
+            agents.forEach((agent) => {
                 
                 cardContainer.innerHTML += `
                     <div class="col-6 col-md-6 col-lg-4">
@@ -79,13 +79,14 @@
 
             // Transition effect
             const observerOptions = {
-                threshold: 0.1,
+                threshold: 0.5,
             };
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("visible");
+                        entry.target.style.transitionDelay = index * 200 + 'ms';
                         observer.unobserve(entry.target);
                     }
                 });
