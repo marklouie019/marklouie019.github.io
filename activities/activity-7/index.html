@@ -130,7 +130,7 @@
 
   <script>
 
-    // Animation & Transition effects IntersectionObserver
+    // Animation & Transition effects using IntersectionObserver
     const animatedElements = document.querySelectorAll('.animate');
 
     const options = {
@@ -139,22 +139,22 @@
       threshold: 0.5
     };
 
-    const assignDelays = (elements) => {
+    // Define assignDelays as a regular function
+    function assignDelays(elements) {
       elements.forEach((element, index) => {
         const delay = index * 200;
-        element.style.transitionDelay = `${delay}ms`;
+        element.style.transitionDelay = + delay + 'ms';
       });
-    };
+    }
 
-    
-    const handleIntersection = (entries, observer) => {
-      entries.forEach(entry => {
+    function handleIntersection(entries, observer) {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target); 
+          observer.unobserve(entry.target);
         }
       });
-    };
+    }
 
     const observer = new IntersectionObserver(handleIntersection, options);
 
@@ -164,11 +164,11 @@
       maps: document.querySelectorAll('.maps .animate'),
     };
 
-    Object.values(sections).forEach(section => assignDelays(section));
+    // (Apply delays to each section)
+    Object.values(sections).forEach((section) => assignDelays(section));
 
-    animatedElements.forEach(element => {
-      observer.observe(element);
-    });
+    // Then observe each animated element
+    animatedElements.forEach((element) => observer.observe(element));
 
   </script>
   <script src="assets/js/script.js"></script>

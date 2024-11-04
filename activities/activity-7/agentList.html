@@ -77,20 +77,24 @@
                 `;
             });
 
-            // Transition effect
+            // Function for transition and animation effect
             const observerOptions = {
                 threshold: 0.5,
             };
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                        entry.target.style.transitionDelay = index * 200 + 'ms';
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
+            function handleEntries(entries) {
+                entries.forEach(handleEntry);
+            }
+
+            function handleEntry(entry, index) {
+                if(entry.isIntersecting){
+                    entry.target.classList.add("visible");
+                    entry.target.style.transitionDelay = index * 200 + 'ms';
+                    observer.unobserve(entry.target);
+                }
+            }
+            
+            const observer = new IntersectionObserver(handleEntries, observerOptions);
 
             // Observe each agent card
             document.querySelectorAll(".item-slot").forEach(card => {

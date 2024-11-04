@@ -50,13 +50,13 @@
 
         // Function to convert PNG images to WebP for optimization
         // (the PNG images from the API causes slowdown)
-        const convertToWebP = (pngUrl) => {
-            return new Promise((resolve) => {
+        function convertToWebP(pngUrl) {
+            return new Promise(function (resolve) {
                 const img = new Image();
                 img.crossOrigin = "Anonymous";
                 img.src = pngUrl;
 
-                img.onload = () => {
+                img.onload = function () {
                     const canvas = document.createElement('canvas');
                     canvas.width = img.width;
                     canvas.height = img.height;
@@ -65,11 +65,11 @@
                     resolve(canvas.toDataURL('image/webp', 0.8));
                 };
 
-                img.onerror = () => {
+                img.onerror = function () {
                     resolve(pngUrl);
                 };
             });
-        };
+        }
 
         // Fetch and load maps data from the API
         const fetchAllMaps = async () => {

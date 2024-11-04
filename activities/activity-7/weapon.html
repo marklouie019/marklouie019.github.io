@@ -115,7 +115,7 @@
                         // Remove the weapon name if it appears at the end of the skin name
                         var modifiedSkinDisplayName = skinDisplayName.replace(new RegExp(weaponDisplayName + '$'), '').trim();
                         skinsContainer.innerHTML += `
-                            <a class="card-item swiper-slide" onclick="applySkin('${weaponSkinIcon}', '${modifiedSkinDisplayName.toUpperCase()}', 'skinIcon${i}')">
+                            <a class="card-item swiper-slide" onclick="applySkin('`+ weaponSkinIcon + `', '` + modifiedSkinDisplayName.toUpperCase() + `', 'skinIcon` + i + `')">
                                 <div>
                                     <img src="` + weaponSkinIcon + `" alt="` + modifiedSkinDisplayName + `" class="skin-icon">
                                 </div>
@@ -144,12 +144,8 @@
         function applySkin(skinIcon, displayName, id) {
             weaponPic.src = skinIcon;
             weaponSkinName.innerHTML = displayName;
-
-            var skinCard = document.getElementById(id);
-            if (skinCard) {
-                skinCard.style.border = "1px solid #B8B6B6";
-            }
         }
+        
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/js/script.js"></script>
