@@ -1,0 +1,191 @@
+/* CSS VARIABLES */
+:root {
+    --titleFont: 'Studio Feixen Variable';
+    --subTitleFont: '';
+    --paragFont: 'Studio Feixen Lahti';
+    --white: white;
+    --black: #222222;
+    --green: #8EC861;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html{
+    background: var(--black);
+    padding: 0;
+    max-width: 100vw;
+}
+
+/* HOMEPAGE STYLING */
+.cursor{
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--white);
+    transition: transform 0.3s ease;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    mix-blend-mode: difference;
+}
+
+.base {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    color: var(--white);
+    background-image: url('assets/img/colorful-shapes-bg2.png');
+    background-repeat: repeat;
+    background-size: cover;
+}
+
+.base video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blur {
+    background: rgba(62, 62, 62, 0.04);
+    backdrop-filter: blur(24px);
+    height: 100vh;
+}
+
+h1 {
+    margin: 0;
+    text-align: left;
+}
+
+.greet, .menu{
+    --font-weight: 1000;
+    --font-width: 125;
+    font-family: var(--titleFont);
+    font-size: 45px;
+    font-variation-settings:
+        'wght' var(--font-weight),
+        'wdth' var(--font-width);
+    transition:
+        font-variation-settings 500ms;
+        pointer-events: none;
+}
+
+.greet .greetings:hover{
+    --font-width: 75;
+}
+
+.greet h1{
+    padding-top: 100px;
+    padding-bottom: 20px;
+}
+
+.greet h1, .greet h4{
+    margin-left: 100px;
+    display: inline-block;
+    pointer-events: auto;
+}
+
+.greet .greetings, .greet .name{
+    font-size: 72px;
+}
+
+.greet h1:hover ~ .cursor,
+.greet h4:hover ~ .cursor {
+    transform: scale(4);
+    transition: transform 0.3s ease-in-out;
+}
+
+.greet .name,.greet .skill1,
+.greet .skill2{
+    color: var(--green);
+}
+
+.actions {
+    font-family: var(--titleFont);
+    padding-right: 100px;
+    padding-top: 100px;
+}
+
+.actions a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 600;
+}
+
+.actions ul {
+    list-style-type: none;
+    text-align: end;
+    color: var(--white);
+}
+
+.actions li{
+    padding-bottom: 5px;
+}
+
+ul li a{
+    position: relative;
+    text-decoration: none;
+    padding-bottom: 5px; 
+    transition: color 0.3s ease;
+}
+
+ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--white);
+    transition: width 0.3s ease-in-out; 
+}
+
+ul li a:hover::after {
+    width: 100%; 
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+    animation-delay: 0.5s; 
+}
+
+h4:nth-of-type(1) {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+    animation-delay: 0.7s;
+}
+
+h4:nth-of-type(2) {
+    opacity: 0;
+    animation: fadeIn 500ms ease-in forwards;
+    animation-delay: 0.8s;
+}
+
+/* MENU STYLING */
+.home:hover {
+    --font-width: 75;
+}
+
+.menu a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.menu ul {
+    list-style: none;
+}
