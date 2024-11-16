@@ -1,3 +1,11 @@
+// NAVBAR
+var customNavbar = document.getElementById('customNavbar');
+customNavbar.innerHTML = `
+                    <a class="nav-logo" href="../" onclick="displayMenu()" onmouseenter="applyCursorEffect()"
+                        onmouseleave="revertCursorEffect()"><img src="assets/img/lo-logo-stroke.svg"></a>
+                    <div class="menu-icon" id="menuIcon" onclick="displayMenu()" onmouseenter="applyCursorEffect()"
+                        onmouseleave="revertCursorEffect()"></div>`;
+
 // CUSTOM CURSOR
 const cursor = document.getElementById('cursor');
 document.addEventListener('mousemove', (e) => {
@@ -24,7 +32,8 @@ function revertCursorEffect() {
 var isMenuVisible = false;
 var menuIcon = document.getElementById('menuIcon');
 var menuDisplay = document.getElementById('menuDisplay');
-var homeDisplay = document.getElementById('homeDisplay');
+var mainDisplay = document.getElementById('mainDisplay');
+
 
 menuIcon.innerHTML = `<svg class="ham hamRotate ham8" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
         <path class="line top"
@@ -38,10 +47,10 @@ function displayMenu() {
 
     if (!isMenuVisible) {
         menuDisplay.style.display = 'block';
-        homeDisplay.style.display = 'none';
+        mainDisplay.style.display = 'none';
     } else {
         menuDisplay.style.display = 'none';
-        homeDisplay.style.display = 'block';
+        mainDisplay.style.display = 'block';
     }
     isMenuVisible = !isMenuVisible;
 }
@@ -53,11 +62,107 @@ if (!isMenuVisible) {
 function displayHomePage() {
     isMenuVisible = false;
     menuDisplay.style.display = 'none';
-    homeDisplay.style.display = 'block';
+    mainDisplay.style.display = 'block';
 
     // RESET TOGGLER
     const menuToggler = document.querySelector('.ham');
     if (menuToggler.classList.contains('active')) {
         menuToggler.classList.remove('active');
     }
+}
+
+// MENU DISPLAY GENERATOR
+menuDisplay.innerHTML = `<ul>
+                        <li class="menu-display option">
+                            <a href="v2-index.html" onclick="displayHomePage()"><span class="menu num">01</span><span
+                                    class="menu opt" onmouseenter="applyCursorEffect()"
+                                    onmouseleave="revertCursorEffect()">HOME</span></a>
+                        </li>
+                        <li class="menu-display option">
+                            <a href="projects.html"><span class="menu num">02</span><span
+                                    class="menu opt" onmouseenter="applyCursorEffect()"
+                                    onmouseleave="revertCursorEffect()">PROJECTS</span></a>
+                        </li>
+                        <li class="menu-display option">
+                            <a href="about.html"><span class="menu num">03</span><span
+                                    class="menu opt" onmouseenter="applyCursorEffect()"
+                                    onmouseleave="revertCursorEffect()">ABOUT</span></a>
+                        </li>
+                        <li class="menu-display option">
+                            <a href="contact.html"><span class="menu num">04</span><span
+                                    class="menu opt" onmouseenter="applyCursorEffect()"
+                                    onmouseleave="revertCursorEffect()">CONTACT</span></a>
+                        </li>
+                    </ul>`;
+
+// GENERATE PROJECT LIST
+const projectList = [
+    {
+        "name": "THE NEW IPHONE 16",
+        "url": "act4.html",
+        "activityNum": "4",
+        "thumbnail": "iphone16-thumbnail.png",
+        "description": "DEVICE SHOWCASE"
+    },
+    {
+        "name": "EXPLORE JAPAN",
+        "url": "index.html",
+        "activityNum": "5",
+        "thumbnail": "explorejapan-thumbnail.png",
+        "description": "PLACE SHOWCASE"
+    },
+    {
+        "name": "ESTHETIQUE",
+        "url": "index.html",
+        "activityNum": "6",
+        "thumbnail": "esthetique-thumbnail.png",
+        "description": "WEB GALLERY"
+    },
+    {
+        "name": "VALORANT SPIKE | WIKI",
+        "url": "index.html",
+        "activityNum": "7",
+        "thumbnail": "valo-thumbnail.png",
+        "description": "REST API INTEGRATION"
+    }
+];
+
+var projListContainer = document.getElementById('projListContainer');
+var projectsCount = document.getElementById('projectsCount');
+projectsCount.innerHTML = projectList.length;
+
+for (var i = 0; i < projectList.length; i++) {
+
+    var endingLine;
+    if (i == projectList.length - 1) {
+        endingLine = `<div class="line"></div><span class="ending-line fontTheme">nothing follows</span><div class="line"></div>`;
+    } else {
+        endingLine = `<div class="line"></div>`;
+    }
+
+    projListContainer.innerHTML += `<div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="project-title">
+                                        <h4 class="fontTheme">`+ projectList[i].name + `</h4>
+                                        <div class="project-desc">
+                                            <p>`+ projectList[i].description + `</p>
+                                            <div class="button mt-5 mb-4 text-center col-6">
+                                                <a href="activities/activity-`+ projectList[i].activityNum + `/` + projectList[i].url + `">
+                                                    <div class="btn-redirect2 fontTheme"
+                                                        onmouseenter="applyCursorEffect()"
+                                                        onmouseleave="revertCursorEffect()">VISIT</div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <a href="activities/activity-`+ projectList[i].activityNum + `/` + projectList[i].url + `"><img src="assets/img/` + projectList[i].thumbnail + `"
+                                            class="project-thumbnail img-fluid" onmouseenter="applyCursorEffect()"
+                                            onmouseleave="revertCursorEffect()"></a>
+                                </div>
+                            </div>
+                            <div class="divider d-flex">
+                            `+ endingLine + `
+                            </div>`;
 }

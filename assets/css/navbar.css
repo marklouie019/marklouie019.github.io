@@ -1,11 +1,11 @@
 /* NAV BAR STYLING */
-.custom-navbar{
+.custom-navbar {
     display: flex;
     padding: 50px 100px 0px 100px;
     align-items: center;
 }
 
-.custom-navbar img{
+.custom-navbar img {
     width: 52px;
     height: 52px;
 }
@@ -68,16 +68,112 @@
     stroke-dasharray: 40 160;
 }
 
-.ham8:hover .line.top{
+.ham8:hover .line.top {
     stroke-dasharray: 40 160;
     transition: stroke-dasharray 400ms ease-in-out;
 }
 
-.ham8:hover .line.bottom{
+.ham8:hover .line.bottom {
     stroke-dasharray: 40 160;
     transition: stroke-dasharray 400ms ease-in-out;
 }
 
-.ham8.active:hover{
+.ham8.active:hover {
     transform: rotate(225deg);
+}
+
+/* MENU STYLING */
+.menu-display {
+    display: block;
+    padding-left: 35px;
+}
+
+.menu-display a {
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.menu-display ul {
+    list-style: none;
+}
+
+.menu-display .num {
+    transform: rotate(90deg);
+    font-size: 15px;
+}
+
+.menu-display .opt {
+    font-size: 60px;
+}
+
+.menu-display .option:hover {
+    cursor: pointer;
+    display: inline-block;
+    --font-width: 75;
+    --font-weight: 75;
+}
+
+.menu-display {
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slideIn 500ms ease-in-out forwards;
+}
+
+.menu-display.option:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.menu-display.option:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.menu-display.option:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.menu-display.option:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 769px) {
+    .custom-navbar {
+        padding: 30px 30px 0px 30px;
+    }
+
+    .menu-display{
+        padding-inline: 30px;
+    }
+
+    .menu-display .num {
+        font-size: 14px;
+    }
+    
+    .menu-display .opt {
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 576px) {
+    .menu-display .opt {
+        font-size: 35px;
+    }
+
+    .menu-display{
+        padding-inline: 2px;
+    }
 }
