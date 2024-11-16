@@ -39,28 +39,13 @@
                     <div class="message">
                         <h4 class="message error">ERROR</h4>
                         <h1 class="message error-404 text-center">404</h1>
-                        <p>THIS PAGE FELL INTO A BLACKHOLE</p>
+                        <p onmouseenter="applyCursorEffect()" onmouseleave="revertCursorEffect()">THIS PAGE FELL INTO A BLACKHOLE</p>
                     </div>
                     <div class="go-back">
                         <p>The page you requested may have been moved, or it just doesn't exist.</p>
-                        <a href="index.html" class="linkHome">go back home</a>
+                        <a href="index.html" class="linkHome" onmouseenter="applyCursorEffect()"
+                            onmouseleave="revertCursorEffect()">go back home</a>
                     </div>
-                </div>
-                <div class="menu d-none">
-                    <ul>
-                        <li class="menu home">
-                            <a onclick="displayHomePage">01<span class="menu opt1">HOME</span></a>
-                        </li>
-                        <li class="menu projects">
-                            <a href="projects.html">02<span class="menu opt2">PROJECTS</span></a>
-                        </li>
-                        <li class="menu about">
-                            <a href="about.html">03<span class="menu opt3">ABOUT</span></a>
-                        </li>
-                        <li class="menu contact">
-                            <a href="contact.html">04<span class="menu opt4">CONTACT</span></a>
-                        </li>
-                    </ul>
                 </div>
             </div>
             <div class="cursor" id="cursor"></div>

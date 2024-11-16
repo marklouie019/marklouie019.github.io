@@ -114,7 +114,7 @@ h1 {
     text-align: left;
 }
 
-.greet, .menu{
+.greet, .menu-display{
     --font-weight: 1000;
     --font-width: 125;
     font-family: var(--titleFont);
@@ -124,10 +124,10 @@ h1 {
         'wdth' var(--font-width);
     transition:
         font-variation-settings 500ms;
-        pointer-events: none;
 }
 
-.greet .greetings:hover{
+.greet .name:hover, .greet .skill:hover{
+    --font-weight: 75;
     --font-width: 75;
 }
 
@@ -146,14 +146,7 @@ h1 {
     font-size: 72px;
 }
 
-.greet h1:hover ~ .cursor,
-.greet h4:hover ~ .cursor {
-    transform: scale(4);
-    transition: transform 0.3s ease-in-out;
-}
-
-.greet .name,.greet .skill1,
-.greet .skill2{
+.greet .name,.greet .skill{
     color: var(--green);
 }
 
@@ -232,20 +225,72 @@ h4:nth-of-type(2) {
 }
 
 /* MENU STYLING */
-.menu{
+.menu-display{
     display: block;
     padding-left: 35px;
 }
 
-.home:hover {
-    --font-width: 75;
-}
-
-.menu a {
+.menu-display a {
     color: var(--white);
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap:35px;
 }
 
-.menu ul {
+.menu-display ul {
     list-style: none;
 }
+
+.menu-display .num{
+    transform: rotate(90deg);
+    font-size: 15px;
+}
+
+.menu-display .opt{
+    font-size: 60px;
+}
+
+.menu-display .option:hover{
+    cursor: pointer;
+    display: inline-block;
+    --font-width: 75;
+    --font-weight: 75;
+}
+
+.menu-display {
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slideIn 500ms ease-in-out forwards;
+}
+
+.menu-display.option:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.menu-display.option:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.menu-display.option:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.menu-display.option:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
+

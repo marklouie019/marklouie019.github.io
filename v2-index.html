@@ -29,18 +29,24 @@
         <div class="blur">
             <div class="noise">
                 <div class="custom-navbar d-flex justify-content-between">
-                    <a class="nav-logo" href="../"><img src="assets/img/lo-logo-stroke.svg"></a>
-                    <div class="menu-icon" id="menuIcon" onclick="displayMenu()"></div>
+                    <a class="nav-logo" href="../" onclick="displayMenu()" onmouseenter="applyCursorEffect()"
+                        onmouseleave="revertCursorEffect()"><img src="assets/img/lo-logo-stroke.svg"></a>
+                    <div class="menu-icon" id="menuIcon" onclick="displayMenu()" onmouseenter="applyCursorEffect()"
+                        onmouseleave="revertCursorEffect()"></div>
                 </div>
                 <div class="homepage-display" id="homeDisplay">
                     <div class="row">
                         <div class="col">
                             <div class="greet">
-                                <h1 class="greet greetings">Hey, it's <span class="greet name">LOUIE.</span></h1>
+                                <h1 class="greet greetings">Hey, it's <span class="greet name"
+                                        onmouseenter="applyCursorEffect()"
+                                        onmouseleave="revertCursorEffect()">LOUIE.</span></h1>
                                 <br>
-                                <h4>i'm a <span class="greet skill1">CODER</span></h4>
+                                <h4>i'm a <span class="greet skill" onmouseenter="applyCursorEffect()"
+                                        onmouseleave="revertCursorEffect()">CODER</span></h4>
                                 <br>
-                                <h4>slash <span class="greet skill2">DESIGNER</span></h4>
+                                <h4>slash <span class="greet skill" onmouseenter="applyCursorEffect()"
+                                        onmouseleave="revertCursorEffect()">DESIGNER</span></h4>
                             </div>
                         </div>
                     </div>
@@ -49,10 +55,14 @@
                             <div class="actions">
                                 <ul>
                                     <li>
-                                        <a href="profile.html">SEE MY PROFILE</a>
+                                        <a href="profile.html" onmouseenter="applyCursorEffect()"
+                                            onmouseleave="revertCursorEffect()">SEE
+                                            MY PROFILE</a>
                                     </li>
                                     <li>
-                                        <a href="projects.html">SEE MY PROJECTS</a>
+                                        <a href="projects.html" onmouseenter="applyCursorEffect()"
+                                            onmouseleave="revertCursorEffect()">SEE
+                                            MY PROJECTS</a>
                                     </li>
                                 </ul>
                             </div>
@@ -61,17 +71,25 @@
                 </div>
                 <div class="menu-display" id="menuDisplay">
                     <ul>
-                        <li class="menu-display home">
-                            <a onclick="displayHomePage">01<span class="menu opt1">HOME</span></a>
+                        <li class="menu-display option">
+                            <a onclick="displayHomePage()" onmouseenter="applyCursorEffect()"
+                                onmouseleave="revertCursorEffect()"><span class="menu num">01</span><span
+                                    class="menu opt">HOME</span></a>
                         </li>
-                        <li class="menu-display projects">
-                            <a href="projects.html">02<span class="menu opt2">PROJECTS</span></a>
+                        <li class="menu-display option">
+                            <a href="projects.html" onmouseenter="applyCursorEffect()"
+                                onmouseleave="revertCursorEffect()"><span class="menu num">02</span><span
+                                    class="menu opt">PROJECTS</span></a>
                         </li>
-                        <li class="menu-display about">
-                            <a href="about.html">03<span class="menu opt3">ABOUT</span></a>
+                        <li class="menu-display option">
+                            <a href="about.html" onmouseenter="applyCursorEffect()"
+                                onmouseleave="revertCursorEffect()"><span class="menu num">03</span><span
+                                    class="menu opt">ABOUT</span></a>
                         </li>
-                        <li class="menu-display contact">
-                            <a href="contact.html">04<span class="menu opt4">CONTACT</span></a>
+                        <li class="menu-display option">
+                            <a href="contact.html" onmouseenter="applyCursorEffect()"
+                                onmouseleave="revertCursorEffect()"><span class="menu num">04</span><span
+                                    class="menu opt">CONTACT</span></a>
                         </li>
                     </ul>
                 </div>
