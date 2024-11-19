@@ -1,0 +1,15 @@
+/*PUT YOUR CUSTOM STYLE HERE*/
+
+/*!This style is important, do not override!*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	color: #3B0017;
+}
+
+.main-content{
+	color: #3B0017;
+}
