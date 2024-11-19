@@ -1,7 +1,7 @@
 /* NAV BAR STYLING */
 .custom-navbar {
     display: flex;
-    padding: 50px 100px 0px 100px;
+    padding: 50px 80px 0px 100px;
     align-items: center;
 }
 
@@ -152,7 +152,7 @@
 
 @media (max-width: 769px) {
     .custom-navbar {
-        padding: 30px 30px 0px 30px;
+        padding: 30px 10px 0px 30px;
     }
 
     .menu-display{

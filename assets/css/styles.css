@@ -116,6 +116,7 @@ html {
     background-image: url('assets/img/colorful-shapes-bg2.png');
     background-repeat: repeat;
     background-size: cover;
+    background: var(--black);
 }
 
 .base video {
@@ -130,7 +131,6 @@ html {
     backdrop-filter: blur(24px);
     height: 100vh;
 }
-
 
 .greet,
 .menu-display {
@@ -270,13 +270,19 @@ ul li a:hover::after {
 .title .name {
     color: var(--green);
     font-size: 60px;
+}
+
+.title .projects-title{
     text-align: end;
 }
 
 .main-display {
     overflow: hidden;
-    margin-inline: 100px;
     display: block;
+}
+
+.main-projects{
+    margin-inline: 100px;
 }
 
 .main-display .line {
@@ -303,14 +309,18 @@ ul li a:hover::after {
     background-color: var(--white);
 }
 
-.project-list {
-    height: 400px;
+.project-list, .about-page {
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
-.project-list::-webkit-scrollbar {
+.project-list::-webkit-scrollbar,
+.about-page::-webkit-scrollbar {
     display: none;
+}
+
+.project-list{
+    height: calc(100vh - 250px);
 }
 
 .project-thumbnail {
@@ -365,11 +375,32 @@ ul li a:hover::after {
     background-color: var(--green);
     color: var(--black);
     border-radius: 50px;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
 }
 
 .button a {
     text-decoration: none;
+}
+
+/* ABOUT PAGE STYLING */
+.profile-pic{
+    height: 440px;
+    width: auto;
+    border-radius: 0 0 45px 45px;
+}
+
+.about-page{
+    height: 100vh;
+    padding-right: 170px;
+}
+
+.menu-about{
+    padding-top: 130px;
+}
+
+.title-about{
+    text-align: start;
+    padding-top: 180px;
 }
 
 @media (max-width: 769px) {
@@ -382,7 +413,7 @@ ul li a:hover::after {
         margin-left: 30px;
     }
 
-    .main-display {
+    .main-projects{
         margin-inline: 30px;
     }
 
