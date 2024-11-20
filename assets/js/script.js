@@ -147,7 +147,7 @@ for (var i = 0; i < projectList.length; i++) {
                                         <div class="project-desc">
                                             <p>`+ projectList[i].description + `</p>
                                             <div class="button mt-5 mb-4 text-center col-6">
-                                                <a href="activities/activity-`+ projectList[i].activityNum + `/` + projectList[i].url + `">
+                                                <a target="_blank" href="activities/activity-`+ projectList[i].activityNum + `/` + projectList[i].url + `">
                                                     <div class="btn-redirect2 fontTheme"
                                                         onmouseenter="applyCursorEffect()"
                                                         onmouseleave="revertCursorEffect()">VISIT</div>

@@ -25,68 +25,48 @@
 
 <body>
     <div class="base-lanerole">
+        <!-- <div class="custom-navbar" id="customNavbar"></div> -->
         <div class="content-overlay2 scrollable-page px-lg-5 px-3">
             <div class="lane-role">
-                <h1 class="">HOW TO: <span class="role-title">EXP LANER</span></h1>
-                <p>The EXP Laner is a key solo role focused on dominating one-on-one matchups in the side lane, gaining
-                    experience quickly to become a powerful presence during mid and late-game team fights. Positioned on
-                    the top lane (or bottom lane in certain map orientations), the EXP Laner’s primary goal is to
-                    out-level opponents, control their lane, and transition into a potent frontline force that can
-                    absorb damage and disrupt the enemy team.</p>
+                <h1 class="">HOW TO: <span class="role-title" id="roleName"></span></h1>
+                <p id="topDesc"></p>
                 <div class="respo-list">
                     <h4>KEY RESPONSIBILITIES</h4>
-                    <ul>
-                        <li><i class="check-bullet fa-solid fa-check"></i>&nbsp;&nbsp;<i><u>Securing Experience:</u></i>
-                            Focus on last-hitting minions and
-                            controlling the lane to gain a level
-                            advantage over your opponent.</li>
-                        <li><i class="check-bullet fa-solid fa-check"></i>&nbsp;&nbsp;<i><u>Securing Experience:</u></i>
-                            Focus on last-hitting minions and
-                            controlling the lane to gain a level
-                            advantage over your opponent.</li>
-                        <li><i class="check-bullet fa-solid fa-check"></i>&nbsp;&nbsp;<i><u>Securing Experience:</u></i>
-                            Focus on last-hitting minions and
-                            controlling the lane to gain a level
-                            advantage over your opponent.</li>
+                    <u id="keyRespoContainer">
+                        <li><i class="check-bullet fa-solid fa-check"></i>
+                            &nbsp;&nbsp;
+                            <i><u></u><span id="keySubTitle"></span>:</u></i>
+                            <span id="keyDesc"></span>
+                        </li>
                     </ul>
                 </div>
                 <p class="p-2">Here's some useful YouTube tutorials for you to improve your understanding with the role:
                 </p>
-                <iframe class="rounded-4" width="672" height="378"
-                    src="https://www.youtube.com/embed/ynHKtvmJzhw" title="A COMPLETE Guide on Playing EXP LANE"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <p class="py-3">The EXP Laner is a key solo role focused on dominating one-on-one matchups in the side lane, gaining
-                    experience quickly to become a powerful presence during mid and late-game team fights. Positioned on
-                    the top lane (or bottom lane in certain map orientations), the EXP Laner’s primary goal is to
-                    out-level opponents, control their lane,</p>
+                <div class="video-embed">
+                    <iframe id="vid1" class="rounded-4" width="200" height="400" src="" title="" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
                 <div class="respo-list">
-                    <h4>KEY RESPONSIBILITIES</h4>
-                    <ul>
-                        <li><i class="check-bullet fa-solid fa-check"></i>&nbsp;&nbsp;<i><u>Securing Experience:</u></i>
-                            Focus on last-hitting minions and
-                            controlling the lane to gain a level
-                            advantage over your opponent.</li>
-                        <li><i class="check-bullet fa-solid fa-check"></i>&nbsp;&nbsp;<i><u>Securing Experience:</u></i>
-                            Focus on last-hitting minions and
-                            controlling the lane to gain a level
-                            advantage over your opponent.</li>
-                        <li><i class="check-bullet fa-solid fa-check"></i>&nbsp;&nbsp;<i><u>Securing Experience:</u></i>
-                            Focus on last-hitting minions and
-                            controlling the lane to gain a level
-                            advantage over your opponent.</li>
-                    </ul>
+                    <h4>TIPS AND STRATEGIES</h4>
+                    <ol id="tipsContainer">
+                        <li>&nbsp;&nbsp;
+                            <i><u><span id="tipsSubTitle"></span>:</u></i>
+                            <span id="tipsDesc"></span>
+                        </li>
+                    </ol>
                 </div>
                 <p class="p-2">Also, here's a hero recommendation guide:</p>
-                <iframe class="rounded-4" width="672" height="378"
-                    src="https://www.youtube.com/embed/Mn4tx0e1znA"
-                    title="BEST EXP LANE HEROES SEASON 34 NEW UPDATE 2024" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="video-embed">
+                    <iframe id="vid2" class="rounded-4" width="672" height="378" src="" title="" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+                </div>
             </div>
         </div>
     </div>
+    <script src="assets/js/script.js"></script>
     <script src="https://kit.fontawesome.com/49a3347974.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

@@ -189,11 +189,26 @@ body {
     width: auto;
 }
 
-.lane-role iframe{
+/* .lane-role iframe{
     width: 100vw;
-    /* height: 100%; */
     padding-inline:20px;
     padding-bottom: 50px;
+} */
+
+.video-embed {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100vw;
+    padding-inline:50px;
+    /* padding-bottom: 50px; */
+}
+
+.video-embed iframe {
+    width: 100%;                         
+    height: auto;                        
+    aspect-ratio: 16 / 9;                
+    max-width: 1050px;                 
 }
 
 .respo-list {
