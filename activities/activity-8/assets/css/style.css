@@ -3,7 +3,6 @@
     --mustard: #CE9C62;
     --white: #CFCFCF;
     --titleFont: 'Tungsten-C', sans-serif;
-    ;
     --paragFont: "League Spartan", sans-serif;
     --navFont: "Mark Pro-C", sans-serif;
 }
@@ -54,6 +53,52 @@ body {
     justify-content: start;
     flex-direction: column;
 }
+
+.custom-navbar {
+    border: 0.56px solid #4F4C48;
+    background: linear-gradient(90deg, rgba(213, 117, 5, 0.14) 0.04%, rgba(65, 36, 3, 0.14) 99.96%);
+    backdrop-filter: blur(35px);
+}
+
+.custom-navbar button {
+    background: transparent !important;
+    border: none;
+    height: 80px;
+    width: 80px;
+}
+
+.custom-navbar i {
+    font-size: 30px;
+}
+
+.lane-role {
+    margin-top: 85px;
+}
+
+.nav-icon:hover i {
+    color: var(--mustard);
+}
+
+.list-unstyled a,
+h5 {
+    color: var(--white);
+    font-family: var(--navFont);
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.list-unstyled a:hover {
+    color: var(--mustard);
+}
+
+.offcanvas {
+    background: var(--darkBlue);
+}
+
+.btn-close {
+    color: white !important;
+}
+
 
 .hero-title h1,
 .lane-role h1 {
@@ -109,10 +154,6 @@ body {
 }
 
 .card-container {
-    /* display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap; */
     gap: 40px;
     padding: 20px;
 }
@@ -185,30 +226,23 @@ body {
     flex-direction: column;
 }
 
-.lane-role p{
+.lane-role p {
     width: auto;
 }
-
-/* .lane-role iframe{
-    width: 100vw;
-    padding-inline:20px;
-    padding-bottom: 50px;
-} */
 
 .video-embed {
     display: flex;
     align-items: center;
     justify-content: start;
-    width: 100vw;
-    padding-inline:50px;
-    /* padding-bottom: 50px; */
+    width: 78vw;
+    padding-inline: 50px;
 }
 
 .video-embed iframe {
-    width: 100%;                         
-    height: auto;                        
-    aspect-ratio: 16 / 9;                
-    max-width: 1050px;                 
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-width: 1050px;
 }
 
 .respo-list {
@@ -226,7 +260,6 @@ body {
     overflow: hidden;
     transition: ease-in-out 200ms;
     padding: 10px;
-    /* margin-inline: 20px; */
 }
 
 .respo-list h4 {
@@ -263,7 +296,6 @@ body {
 
     .card-item img {
         height: auto;
-        /* width: 50px; */
     }
 
     .hero-title h1 {
@@ -290,6 +322,12 @@ body {
     .card-item p {
         font-size: 12px;
     }
+
+    .video-embed {
+        width: 100vw;
+        padding-left: 0;
+        padding-right: 32px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -306,4 +344,5 @@ body {
     .hero-title h1 {
         font-size: 65px;
     }
+
 }

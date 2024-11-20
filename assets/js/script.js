@@ -64,7 +64,6 @@ function displayHomePage() {
     menuDisplay.style.display = 'none';
     mainDisplay.style.display = 'block';
 
-    // RESET TOGGLER
     const menuToggler = document.querySelector('.ham');
     if (menuToggler.classList.contains('active')) {
         menuToggler.classList.remove('active');
@@ -74,7 +73,7 @@ function displayHomePage() {
 // MENU DISPLAY GENERATOR
 menuDisplay.innerHTML = `<ul>
                         <li class="menu-display option">
-                            <a href="v2-index.html" onclick="displayHomePage()"><span class="menu num">01</span><span
+                            <a href="./" onclick="displayHomePage()"><span class="menu num">01</span><span
                                     class="menu opt" onmouseenter="applyCursorEffect()"
                                     onmouseleave="revertCursorEffect()">HOME</span></a>
                         </li>
@@ -99,31 +98,45 @@ menuDisplay.innerHTML = `<ul>
 const projectList = [
     {
         "name": "THE NEW IPHONE 16",
-        "url": "act4.html",
+        "url": "./",
         "activityNum": "4",
         "thumbnail": "iphone16-thumbnail.png",
         "description": "DEVICE SHOWCASE"
     },
     {
         "name": "EXPLORE JAPAN",
-        "url": "index.html",
+        "url": "./",
         "activityNum": "5",
         "thumbnail": "explorejapan-thumbnail.png",
         "description": "PLACE SHOWCASE"
     },
     {
         "name": "ESTHETIQUE",
-        "url": "index.html",
+        "url": "./",
         "activityNum": "6",
         "thumbnail": "esthetique-thumbnail.png",
         "description": "WEB GALLERY"
     },
     {
         "name": "VALORANT SPIKE | WIKI",
-        "url": "index.html",
+        "url": "./",
         "activityNum": "7",
         "thumbnail": "valo-thumbnail.png",
         "description": "REST API INTEGRATION"
+    },
+    {
+        "name": "MLBB | INTROPLAY",
+        "url": "./",
+        "activityNum": "8",
+        "thumbnail": "introplay-thumbnail.png",
+        "description": "VIDEO WEBPAGE"
+    },
+    {
+        "name": "ARIZONA",
+        "url": "./",
+        "activityNum": "9",
+        "thumbnail": "arizona-thumbnail.png",
+        "description": "PARALLAX"
     }
 ];
 

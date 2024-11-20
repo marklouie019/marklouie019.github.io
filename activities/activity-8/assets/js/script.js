@@ -1,43 +1,10 @@
-var customNavbar = document.getElementById('customNavbar');
-customNavbar.innerHTML = `
-                    v<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>`;
-
-// GENERATE CONTENT DYNAMICALLY
+// GENERATE VIDEO TUTORIAL CONTENT DYNAMICALLY
+// ARRAY OF OBJECTS DATA
 const laningRoleData = [
     {
         "laningRole": "EXP LANER",
         "description": "The EXP Laner is a key solo role focused on dominating one-on-one matchups in the side lane, gaining experience quickly to become a powerful presence during mid and late-game team fights. Positioned on the top lane (or bottom lane in certain map orientations), the EXP Laner’s primary goal is to out-level opponents, control their lane, and transition into a potent frontline force that can absorb damage and disrupt the enemy team.",
-        "keyRespo": [
+        "responsibilities": [
             {
                 "subTitle": "Securing Experience",
                 "description": "Focus on last-hitting minions and controlling the lane to gain a level advantage over your opponent"
@@ -91,7 +58,7 @@ const laningRoleData = [
     {
         "laningRole": "MID LANER",
         "description": "The midlane role is crucial for controlling the pace of the game in Mobile Legends: Bang Bang. As a midlaner, you hold the strategic core of the battlefield, making rapid rotations, applying pressure, and dealing significant damage in team fights. This role often demands high map awareness, quick reflexes, and excellent positioning.",
-        "keyRespo": [
+        "responsibilities": [
             {
                 "subTitle": "Wave Clearing",
                 "description": "Quickly clear minion waves to free yourself for rotations and ganks."
@@ -150,7 +117,7 @@ const laningRoleData = [
     {
         "laningRole": "JUNGLER",
         "description": "The jungler plays a pivotal role in controlling the game's tempo, securing objectives, and setting up team fights. As a jungler, your primary tasks are farming efficiently, dominating the jungle, and ganking lanes to create advantages for your team. A skilled jungler can snowball the game by making the right plays at the right time.",
-        "keyRespo": [
+        "responsibilities": [
             {
                 "subTitle": "Efficient Farming",
                 "description": "Prioritize farming jungle monsters to level up quickly and gain gold for essential items."
@@ -208,7 +175,7 @@ const laningRoleData = [
     {
         "laningRole": "GOLD LANER",
         "description": "The Gold Laner focuses on farming gold efficiently to become the team's primary damage dealer in the late game. Positioned in the lane closest to the gold crab, the Gold Laner plays a crucial role in carrying the team by dealing consistent damage to enemies and objectives.",
-        "keyRespo": [
+        "responsibilities": [
             {
                 "subTitle": "Farm Gold Efficiently",
                 "description": "Focus on last-hitting minions and farming gold crab to maximize your item progression."
@@ -266,7 +233,7 @@ const laningRoleData = [
     {
         "laningRole": "ROAMER",
         "description": "The Roamer is the team's playmaker, responsible for creating opportunities through vision control, ganks, and crowd control. This role focuses on protecting teammates and disrupting the enemy team, often sacrificing farm and kills for the greater good.",
-        "keyRespo": [
+        "responsibilities": [
             {
                 "subTitle": "Vision Control",
                 "description": "Place wards and control key areas of the map to provide vision for your team."
@@ -330,19 +297,62 @@ var vid1 = document.getElementById('vid1');
 var vid2 = document.getElementById('vid2');
 var tipsContainer = document.getElementById('tipsContainer');
 
-// function generatePage(role) {
-//     for (var i = 0; i < laningRoleData.length; i++) {
-//         roleName.innerHTML = 
-//         switch (role) {
-//             case 'EXP LANER':
+// FUNCTION TO DISPLAY DATA AND VIDEOS
+function generatePage(role) {
 
-//                 break;
-//             case value2:
+    roleName.innerHTML = "";
+    topDesc.innerHTML = "";
+    keyRespoContainer.innerHTML = "";
+    tipsContainer.innerHTML = "";
 
-//                 break;
+    const selectedRole = laningRoleData.find(item => item.laningRole === role);
 
-//             default:
+    roleName.innerHTML = selectedRole.laningRole;
+    topDesc.innerHTML = selectedRole.description;
 
-//         }
-//     }
-// }
+    selectedRole.responsibilities.forEach((item) => {
+        keyRespoContainer.innerHTML += `
+            <li><i class="check-bullet fa-solid fa-check"></i>
+                &nbsp;&nbsp;
+                <i><u>`+ item.subTitle + `:</u></i>
+                <span>`+ item.description + `</span>
+            </li>
+        `;
+    });
+
+    selectedRole.tipsStrategies.forEach((item2) => {
+        tipsContainer.innerHTML += `
+            <li>&nbsp;&nbsp;
+                <i><u>`+ item2.subtitle + `:</u></i>
+                <span>`+ item2.description + `</span>
+            </li>
+        `;
+    });
+
+    if (selectedRole.videoGuide.length > 0) {
+        vid1.title = selectedRole.videoGuide[0].title;
+        vid1.src = selectedRole.videoGuide[0].src;
+
+        if (selectedRole.videoGuide[1]) {
+            vid2.title = selectedRole.videoGuide[1].title;
+            vid2.src = selectedRole.videoGuide[1].src;
+        } else {
+            vid2.title = "";
+            vid2.src = "";
+        }
+    }
+}
+
+// GET THE CHOSEN ROLE FROM THE LANINGS.HTML
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+if (urlParams.has('chosenRole')) {
+    const chosenRole = urlParams.get('chosenRole');
+    generatePage(chosenRole);
+} else {
+    title.innerHTML = "Invalid Role";
+}
+
+
+
