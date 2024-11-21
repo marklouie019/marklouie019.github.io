@@ -272,7 +272,7 @@ ul li a:hover::after {
     font-size: 60px;
 }
 
-.title .projects-title{
+.title .projects-title {
     text-align: end;
 }
 
@@ -281,7 +281,7 @@ ul li a:hover::after {
     display: block;
 }
 
-.main-projects{
+.main-projects {
     margin-inline: 100px;
 }
 
@@ -309,7 +309,8 @@ ul li a:hover::after {
     background-color: var(--white);
 }
 
-.project-list, .about-page {
+.project-list,
+.about-page {
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -319,7 +320,7 @@ ul li a:hover::after {
     display: none;
 }
 
-.project-list{
+.project-list {
     height: calc(100vh - 250px);
 }
 
@@ -383,24 +384,42 @@ ul li a:hover::after {
 }
 
 /* ABOUT PAGE STYLING */
-.profile-pic{
+.profile-pic {
     height: 440px;
     width: auto;
     border-radius: 0 0 45px 45px;
 }
 
-.about-page{
+.about-top {
+    padding-left: 170px;
+}
+
+.about-page {
     height: 100vh;
     padding-right: 170px;
 }
 
-.menu-about{
+.menu-about {
     padding-top: 130px;
 }
 
-.title-about{
+.title-about {
     text-align: start;
     padding-top: 180px;
+}
+
+.description-about p {
+    font-family: var(--paragFont);
+    /* font-weight:     100; */
+}
+
+.name-about,
+.nickname-about, .subtitle-about {
+    color: var(--green);
+}
+
+.subtitle-about {
+    font-size: 45px;
 }
 
 @media (max-width: 769px) {
@@ -413,7 +432,7 @@ ul li a:hover::after {
         margin-left: 30px;
     }
 
-    .main-projects{
+    .main-projects {
         margin-inline: 30px;
     }
 
