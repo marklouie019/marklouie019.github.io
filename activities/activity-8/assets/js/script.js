@@ -305,7 +305,9 @@ function generatePage(role) {
     keyRespoContainer.innerHTML = "";
     tipsContainer.innerHTML = "";
 
-    const selectedRole = laningRoleData.find(item => item.laningRole === role);
+    const selectedRole = laningRoleData.find(function(item) {
+        return item.laningRole === role;
+    });    
 
     roleName.innerHTML = selectedRole.laningRole;
     topDesc.innerHTML = selectedRole.description;

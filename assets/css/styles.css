@@ -105,6 +105,7 @@ html {
     transform: translate(-50%, -50%);
     pointer-events: none;
     mix-blend-mode: difference;
+    z-index: 1000;
 }
 
 .base {
@@ -385,18 +386,25 @@ ul li a:hover::after {
 
 /* ABOUT PAGE STYLING */
 .profile-pic {
-    height: 440px;
+    height: 660px;
     width: auto;
-    border-radius: 0 0 45px 45px;
+    border-radius: 0px 0px 45px 0px;
 }
 
 .about-top {
-    padding-left: 170px;
+    padding-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
 }
 
 .about-page {
     height: 100vh;
-    padding-right: 170px;
+}
+
+.line-skills {
+    padding-inline: 170px;
+    padding-top: 50px;
 }
 
 .menu-about {
@@ -408,18 +416,164 @@ ul li a:hover::after {
     padding-top: 180px;
 }
 
+.description-about {
+    padding-right: 170px;
+    padding-top: 18px;
+}
+
 .description-about p {
-    font-family: var(--paragFont);
-    /* font-weight:     100; */
+    font-family: var(--titleFont);
+    font-weight: 400;
+    font-size: 18px;
 }
 
 .name-about,
-.nickname-about, .subtitle-about {
+.nickname-about,
+.subtitle-about {
     color: var(--green);
 }
 
 .subtitle-about {
     font-size: 45px;
+}
+
+.card-container {
+    height: 300px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.skill-card {
+    border: 0.4px solid #5b4f4f;
+    background: rgba(35, 35, 35, 0.30);
+    backdrop-filter: blur(20px) !important;
+    font-family: var(--titleFont);
+    backdrop-filter: blur(100px);
+    height: 300px;
+    width: 300px;
+}
+
+.skill-name img {
+    height: 75px;
+}
+
+.skill-name p {
+    font-weight: 700;
+    font-size: 24px;
+    font-family: inherit;
+}
+
+.skill-desc {
+    font-size: 14px;
+    overflow: hidden;
+}
+
+.skill-level {
+    color: var(--green);
+    font-weight: 500;
+}
+
+.skills {
+    padding-inline: 170px;
+}
+
+/* CONTACTS STYLING */
+.contacts-page {
+    margin: 150px;
+}
+
+.contacts ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    font-size: 30px;
+    list-style-type: none;
+}
+
+.contacts li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    display: inline-block;
+}
+
+
+.contacts li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--white);
+    transition: width 0.3s ease-in-out;
+}
+
+.contacts li:hover::after {
+    width: 100%;
+}
+
+.contacts a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.contact-text {
+    font-size: 24px;
+    font-family: var(--titleFont);
+}
+
+.title-contacts {
+    color: var(--green);
+    font-size: 65px;
+}
+
+
+
+@media (max-width: 991px) {
+    .about-top {
+        flex-direction: column;
+        align-items: center;
+        padding-inline: 20px;
+        padding-bottom: 0px;
+    }
+
+    .profile-pic {
+        margin-top: 120px;
+        border-radius: 45px 45px 45px 45px;
+    }
+
+    .title-about {
+        padding-top: 0;
+    }
+
+    .description-about {
+        padding-inline: 70px;
+    }
+
+    .line-skills {
+        padding-inline: 140px;
+    }
+
+    .skills {
+        padding-inline: 140px;
+    }
+
+    .subtitle-about {
+        font-size: 30px;
+    }
+
+    .contacts-page {
+        margin: 150px;
+    }
+
+    .title-contacts {
+        font-size: 40px;
+    }
+
 }
 
 @media (max-width: 769px) {
@@ -466,5 +620,52 @@ ul li a:hover::after {
 
     .btn-redirect2 {
         border: 1px solid var(--white);
+    }
+
+    .description-about {
+        padding-inline: 50px;
+    }
+
+    .line-skills {
+        padding-inline: 120px;
+    }
+
+    .skills {
+        padding-inline: 120px;
+    }
+
+    .subtitle-about {
+        font-size: 30px;
+    }
+
+    .contacts-page {
+        margin: 100px;
+    }
+
+    .contact-text {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    .profile-pic {
+        height: auto;
+    }
+
+    .description-about {
+        padding-inline: 20px;
+    }
+
+    .line-skills {
+        padding-inline: 20px;
+        font-size: 18px;
+    }
+
+    .skills {
+        padding-inline: 90px;
+    }
+
+    .contacts-page {
+        margin: 120px 50px 20px 20px;
     }
 }

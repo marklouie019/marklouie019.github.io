@@ -8,7 +8,7 @@ customNavbar.innerHTML = `
 
 // CUSTOM CURSOR
 const cursor = document.getElementById('cursor');
-document.addEventListener('mousemove', (e) => {
+document.addEventListener('mousemove', function (e) {
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
 });
@@ -142,18 +142,20 @@ const projectList = [
 
 var projListContainer = document.getElementById('projListContainer');
 var projectsCount = document.getElementById('projectsCount');
-projectsCount.innerHTML = projectList.length;
 
-for (var i = 0; i < projectList.length; i++) {
+function generateProjects() {
+    projectsCount.innerHTML = projectList.length;
 
-    var endingLine;
-    if (i == projectList.length - 1) {
-        endingLine = `<div class="line"></div><span class="ending-line fontTheme">nothing follows</span><div class="line"></div>`;
-    } else {
-        endingLine = `<div class="line"></div>`;
-    }
+    for (var i = 0; i < projectList.length; i++) {
 
-    projListContainer.innerHTML += `<div class="row">
+        var endingLine;
+        if (i == projectList.length - 1) {
+            endingLine = `<div class="line"></div><span class="ending-line fontTheme">nothing follows</span><div class="line"></div>`;
+        } else {
+            endingLine = `<div class="line"></div>`;
+        }
+
+        projListContainer.innerHTML += `<div class="row">
                                 <div class="col-12 col-md-6">
                                     <div class="project-title">
                                         <h4 class="fontTheme">`+ projectList[i].name + `</h4>
@@ -178,4 +180,9 @@ for (var i = 0; i < projectList.length; i++) {
                             <div class="divider d-flex">
                             `+ endingLine + `
                             </div>`;
+    }
 }
+
+generateProjects();
+
+
