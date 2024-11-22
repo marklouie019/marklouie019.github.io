@@ -48,58 +48,25 @@
         var mapsContainer = document.getElementById('mapsContainer');
         var loadingScreen = document.getElementById('loadingScreen');
 
-        // Function to convert PNG images to WebP for optimization
-        // (the PNG images from the API causes slowdown)
-        function convertToWebP(pngUrl) {
-            return new Promise(function (resolve) {
-                const img = new Image();
-                img.crossOrigin = "Anonymous";
-                img.src = pngUrl;
-
-                img.onload = function () {
-                    const canvas = document.createElement('canvas');
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(img, 0, 0);
-                    resolve(canvas.toDataURL('image/webp', 0.8));
-                };
-
-                img.onerror = function () {
-                    resolve(pngUrl);
-                };
-            });
-        }
-
         // Fetch and load maps data from the API
         const fetchAllMaps = async () => {
-
             const response = await fetch('https://valorant-api.com/v1/maps');
             const data = await response.json();
-            const maps = data.data.filter(map => map.tacticalDescription != null);
+            const maps = data.data.filter(function (map) {
+                return map.tacticalDescription != null;
+            });
 
-            // Load each map image in small chunks to avoid freezing
-            const loadImagesInChunks = async (chunk) => {
-                for (let map of chunk) {
-                    const webpImage = await convertToWebP(map.splash);
-                    mapsContainer.innerHTML += `
-                            <a href="map.html?mapName=`+ map.displayName + `&UUID=` + map.uuid + `">
-                                <div class="map-slot">
-                                    <div class="screen-filter"></div>
-                                    <h1>`+ map.displayName + `</h1>
-                                    <img src="`+ webpImage + `" alt="` + map.displayName + ` Image" loading="lazy">
-                                </div>
-                            </a>
-                        `;
-                }
-            };
-
-            const chunkSize = 2;
-            for (let i = 0; i < maps.length; i += chunkSize) {
-                const chunk = maps.slice(i, i + chunkSize);
-                await loadImagesInChunks(chunk);
-                await new Promise(requestAnimationFrame);
-            }
+            maps.forEach(map => {
+                mapsContainer.innerHTML += `
+                    <a href="map.html?mapName=`+ map.displayName + `&UUID=` + map.uuid + `">
+                        <div class="map-slot">
+                            <div class="screen-filter"></div>
+                            <h1>`+ map.displayName + `</h1>
+                            <img src="`+ map.splash + `" alt="` + map.displayName + ` Image" loading="lazy">
+                        </div>
+                    </a>
+                `;
+            });
 
             loadingScreen.style.display = 'none';
             mapsContainer.style.display = 'block';
@@ -107,6 +74,7 @@
 
         fetchAllMaps();
     </script>
+
     <script src="assets/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

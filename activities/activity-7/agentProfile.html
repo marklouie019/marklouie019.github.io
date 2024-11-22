@@ -164,7 +164,9 @@
                 const videoData = await videoResponse.json();
 
                 // Find the specific agent in the videoData
-                agentData = videoData.data.find(a => a.displayName === agent.displayName);
+                agentData = videoData.data.find(function (a) {
+                    return a.displayName === agent.displayName;
+                });
 
                 // Load ability 1 initially
                 if (agentData) {

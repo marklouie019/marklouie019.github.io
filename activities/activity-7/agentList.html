@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 
-<body id="body">
+<body id="body" onkeypress="searchByEnterKey()">
     <div class="navBar" id="navBar"></div>
     <div class="base">
         <div class="container">
@@ -54,11 +54,11 @@
 
             // Filter only playable agents
             const agents = data.data.filter(agent => agent.isPlayableCharacter);
-            
+
             // Loop through each agents from the API
             // Pass the agent's name and uuid using URL parameters
             agents.forEach((agent) => {
-                
+
                 cardContainer.innerHTML += `
                     <div class="col-6 col-md-6 col-lg-4">
                         <a href="agentProfile.html?agentName=` + agent.displayName + `&UUID=` + agent.uuid + `">
@@ -87,13 +87,13 @@
             }
 
             function handleEntry(entry, index) {
-                if(entry.isIntersecting){
+                if (entry.isIntersecting) {
                     entry.target.classList.add("visible");
                     entry.target.style.transitionDelay = index * 200 + 'ms';
                     observer.unobserve(entry.target);
                 }
             }
-            
+
             const observer = new IntersectionObserver(handleEntries, observerOptions);
 
             // Observe each agent card
@@ -109,10 +109,15 @@
             const data = await response.json();
 
             // Filter only playable agents
-            const agents = data.data.filter(agent => agent.isPlayableCharacter);
+            const agents = data.data.filter(function (agent) {
+                return agent.isPlayableCharacter;
+            });
 
-            // Find agend matching the search term (case sensitive)
-            const agentMatched = agents.find(agent => agent.displayName.toLowerCase() === agentNameQuery.toLowerCase());
+            // Find agent matching the search term (case insensitive)
+            const agentMatched = agents.find(function (agent) {
+                return agent.displayName.toLowerCase() === agentNameQuery.toLowerCase();
+            });
+
 
             if (agentMatched) {
                 cardContainer.innerHTML = `
@@ -163,15 +168,13 @@
         }
 
         // Function to handle Enter key press
-        document.getElementById('searchAgent').addEventListener('keypress', function (event) {
+        function searchByEnterKey(){
             if (event.key === "Enter") {
                 searchAgent();
             }
-        });
+        }
 
         fetchAllAgents();
-
-
     </script>
     <script src="assets/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

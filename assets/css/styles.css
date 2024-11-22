@@ -500,7 +500,6 @@ ul li a:hover::after {
     display: inline-block;
 }
 
-
 .contacts li::after {
     content: '';
     position: absolute;
@@ -530,8 +529,6 @@ ul li a:hover::after {
     color: var(--green);
     font-size: 65px;
 }
-
-
 
 @media (max-width: 991px) {
     .about-top {

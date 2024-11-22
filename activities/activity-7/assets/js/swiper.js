@@ -14,6 +14,7 @@ const swiper = new Swiper('.slider-wrapper', {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
+    
     // Responsive breakpoints
     breakpoints: {
         300: {

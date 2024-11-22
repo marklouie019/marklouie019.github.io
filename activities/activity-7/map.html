@@ -94,7 +94,9 @@
                 const data2 = await response2.json();
 
                 // Find the specific map in the mapdata
-                mapData = data2.data.find(a => a.displayName === map.displayName);
+                mapData = data2.data.find(function (a) {
+                    return a.displayName === map.displayName;
+                })
 
                 document.title = "Map: " + map.displayName;
                 mapName.innerHTML = map.displayName;

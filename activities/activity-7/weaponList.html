@@ -20,7 +20,7 @@
     }
 </style>
 
-<body id="body">
+<body id="body" onkeypress="searchByEnterKey()">
     <div class="navBar" id="navBar"></div>
     <div class="weaponlist-bg">
         <div class="container">
@@ -119,7 +119,9 @@
             const weapons = data.data;
 
             // Find weapon matching the search term (case sensitive)
-            const weaponMatched = weapons.find(weapon => weapon.displayName.toLowerCase() === weaponNameQuery.toLowerCase());
+            const weaponMatched = weapons.find(function (weapon) {
+                return weapon.displayName.toLowerCase() === weaponNameQuery.toLowerCase();
+            });
 
             if (weaponMatched) {
                 // Remove "EquippableCategory::" from the category and convert to uppercase
@@ -177,11 +179,11 @@
         }
 
         // Function to handle Enter key press
-        document.getElementById('searchWeapon').addEventListener('keypress', function (event) {
+        function searchByEnterKey() {
             if (event.key === "Enter") {
                 searchWeapon();
             }
-        });
+        }
 
         fetchAllWeapons();
     </script>
