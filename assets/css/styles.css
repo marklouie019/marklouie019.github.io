@@ -677,8 +677,4 @@ ul li a:hover::after {
     .card-container{
         height: 200px;
     }
-
-    .btn-redirect2{
-        width: 100%;
-    }
 }

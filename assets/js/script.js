@@ -163,7 +163,7 @@ function generateProjects() {
                                             <p>`+ projectList[i].description + `</p>
                                             <div class="button mt-5 mb-4 col-6">
                                                 <a target="_blank" href="activities/activity-`+ projectList[i].activityNum + `/` + projectList[i].url + `">
-                                                    <div class="btn-redirect2 fontTheme mx-auto"
+                                                    <div class="btn-redirect2 fontTheme"
                                                         onmouseenter="applyCursorEffect()"
                                                         onmouseleave="revertCursorEffect()">VISIT</div>
                                                 </a>
