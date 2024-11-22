@@ -344,7 +344,7 @@ ul li a:hover::after {
     border: 1px solid var(--white);
     background-color: transparent;
     color: var(--white);
-    padding: 5px 50px;
+    padding: 10px 50px;
     font-size: 16px;
     transition: background-color 0.3s ease, color 0.3s ease;
     border-radius: 50px;
@@ -357,7 +357,7 @@ ul li a:hover::after {
 }
 
 .btn-redirect2 {
-    border: 2px solid var(--white);
+    border: 1px solid var(--white);
     background-color: transparent;
     color: var(--white);
     padding: 10px 50px;
@@ -377,7 +377,7 @@ ul li a:hover::after {
     background-color: var(--green);
     color: var(--black);
     border-radius: 50px;
-    border: 2px solid transparent;
+    border: 1px solid transparent;
 }
 
 .button a {
@@ -664,5 +664,9 @@ ul li a:hover::after {
 
     .contacts-page {
         margin: 120px 50px 20px 20px;
+    }
+
+    .actions2{
+        padding-block:auto;
     }
 }
