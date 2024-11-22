@@ -452,7 +452,7 @@ ul li a:hover::after {
     font-family: var(--titleFont);
     backdrop-filter: blur(100px);
     height: 300px;
-    width: 300px;
+    width: 100%;
 }
 
 .skill-name img {
@@ -659,7 +659,7 @@ ul li a:hover::after {
     }
 
     .skills {
-        padding-inline: 90px;
+        padding-inline: 20px;
     }
 
     .contacts-page {
@@ -668,5 +668,17 @@ ul li a:hover::after {
 
     .actions2{
         padding-block:auto;
+    }
+
+    .skill-card{
+        height: 200px;
+    }
+
+    .card-container{
+        height: 200px;
+    }
+
+    .btn-redirect2{
+        width: 100%;
     }
 }

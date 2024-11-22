@@ -161,9 +161,9 @@ function generateProjects() {
                                         <h4 class="fontTheme">`+ projectList[i].name + `</h4>
                                         <div class="project-desc">
                                             <p>`+ projectList[i].description + `</p>
-                                            <div class="button mt-5 mb-4 text-center col-6">
+                                            <div class="button mt-5 mb-4 col-6">
                                                 <a target="_blank" href="activities/activity-`+ projectList[i].activityNum + `/` + projectList[i].url + `">
-                                                    <div class="btn-redirect2 fontTheme"
+                                                    <div class="btn-redirect2 fontTheme mx-auto"
                                                         onmouseenter="applyCursorEffect()"
                                                         onmouseleave="revertCursorEffect()">VISIT</div>
                                                 </a>
