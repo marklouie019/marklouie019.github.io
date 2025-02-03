@@ -156,22 +156,24 @@ function generateProjects() {
         }
 
         projListContainer.innerHTML += `<div class="row">
-                                <div class="col-12 col-md-6">
-                                    <div class="project-title">
-                                        <h4 class="fontTheme">`+ projectList[i].name + `</h4>
-                                        <div class="project-desc">
-                                            <p>`+ projectList[i].description + `</p>
-                                            <div class="button mt-5 mb-4 col-6">
+                                <div class="col-12 col-md-6 order-md-1 order-2">
+                                    <div class="col-12 col-md-6 mt-3 d-flex align-items-center justify-content-center justify-content-md-start">
+                                        <div class="project-title">
+                                            <h4 class="fontTheme">`+ projectList[i].name + `</h4>
+                                            <div class="project-desc">
+                                                <p>`+ projectList[i].description + `</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="button mt-md-5 mt-2 mb-4 col-12 order-md-2 order-3">
                                                 <a target="_blank" href="activities/activity-`+ projectList[i].activityNum + `/` + projectList[i].url + `">
                                                     <div class="btn-redirect2 fontTheme"
                                                         onmouseenter="applyCursorEffect()"
                                                         onmouseleave="revertCursorEffect()">VISIT</div>
                                                 </a>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-6">
+                                <div class="col-12 col-md-6 order-md-2 order-1 d-flex justify-content-center justify-content-md-start">
                                     <a href="activities/activity-`+ projectList[i].activityNum + `/` + projectList[i].url + `"><img src="assets/img/` + projectList[i].thumbnail + `"
                                             class="project-thumbnail img-fluid" onmouseenter="applyCursorEffect()"
                                             onmouseleave="revertCursorEffect()"></a>

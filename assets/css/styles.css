@@ -131,6 +131,7 @@ html {
     background: rgba(62, 62, 62, 0.04);
     backdrop-filter: blur(24px);
     height: 100vh;
+    position: relative;
 }
 
 .greet,
@@ -176,8 +177,10 @@ html {
 
 .actions {
     font-family: var(--titleFont);
+    position: absolute;
     padding-right: 100px;
-    padding-top: 100px;
+    bottom: 20%;
+    right: 0;
 }
 
 .actions a {
@@ -220,9 +223,15 @@ ul li a:hover::after {
 }
 
 .actions2 {
-    margin-top: 150px;
     display: none;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: max-content;
 }
+
 
 .actions2 ul {
     list-style: none;
@@ -235,7 +244,6 @@ ul li a:hover::after {
 .actions2 a {
     text-decoration: none;
 }
-
 
 @keyframes fadeIn {
     0% {
@@ -351,9 +359,8 @@ ul li a:hover::after {
     text-align: center;
     font-style: normal;
     line-height: normal;
-    width: max-content;
+    width: 100%;
     font-weight: 200;
-
 }
 
 .btn-redirect2 {
@@ -369,7 +376,6 @@ ul li a:hover::after {
     font-weight: 400;
     line-height: normal;
     width: max-content;
-
 }
 
 .btn-redirect:hover,
@@ -617,6 +623,7 @@ ul li a:hover::after {
 
     .btn-redirect2 {
         border: 1px solid var(--white);
+        width: 100%;
     }
 
     .description-about {
