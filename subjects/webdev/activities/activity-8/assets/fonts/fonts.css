@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'Tungsten-C';
+    src: url('Tungsten-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mark Pro-C';
+    src: url('FontFont_FF.Mark.Pro.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mark Pro-C';
+    src: url('FontFont_FF.Mark.Pro.Medium.otf') format('opentype');
+    font-weight: medium;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mark Pro-C';
+    src: url('FontFont_FF.Mark.Pro.Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Druk Wide Bold-C';
+    src: url('DrukWideBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DIN Next W1G-D';
+    src: url('dinnextw1g.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+

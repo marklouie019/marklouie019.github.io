@@ -14,7 +14,7 @@ var skillList = [
             {
                 "name": "HTML",
                 "description": "Webpage layout and structure.",
-                "skillLevel": "Advanced",
+                "skillLevel": "Intermediate",
                 "displayIcon": "html-logo.svg"
             },
             {
@@ -26,7 +26,7 @@ var skillList = [
             {
                 "name": "Java",
                 "description": "General-purpose programming and backend systems.",
-                "skillLevel": "Advanced",
+                "skillLevel": "Intermediate",
                 "displayIcon": "java-logo.svg"
             },
             {

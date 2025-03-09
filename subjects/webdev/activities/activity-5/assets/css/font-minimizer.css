@@ -1,0 +1,49 @@
+@media (max-width: 768px) {
+
+    footer p{
+        font-size: 14px !important;
+    }
+
+    .title-logo {
+        font-size: 50px;
+    }
+
+    #culture h3 {
+        font-size: 30px;
+    }
+
+    .btnLearnMore {
+        font-size: 16px;/
+    }
+
+    .image-slider .img-list .image{
+        object-fit: cover;
+        width:738px;
+        height:300px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    footer p{
+        font-size: 12px !important;
+    }
+
+    .title-logo {
+        font-size: 40px;
+    }
+
+    #culture h3 {
+        font-size: 24px;
+    }
+
+    .btnLearnMore {
+        font-size: 14px;
+    }
+
+    .image-slider .img-list .image{
+        object-fit: cover;
+        width:85vw;
+        height:200px;
+    }
+}

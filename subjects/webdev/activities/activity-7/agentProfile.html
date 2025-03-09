@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="icon" href="assets/img/valorant-fav-logo.svg" type="image/svg+xml">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body id="body">
+    <div class="navBar" id="navBar"></div>
+    <div class="base">
+        <div class="container-fluid" id="bgGradient">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="portrait">
+                        <img src="" id="specialBg" class="d-none img-fluid">
+                        <img src="" id="agentPortrait" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="agentInfo pt-lg-5 px-3 pe-lg-5 p-lg-0">
+                        <div class="row">
+                            <div class="col">
+                                <h1 id="agentName" class="pt-lg-5"></h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="role-container-stroke">
+                                    <div class="role-container">
+                                        <span><img src="" class="img-fluid" id="roleIcon"></span>
+                                        <span class="role" id="agentRole"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="description" id="agentDesc">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="abilities-container">
+                            <h1 class="ability-title">SPECIAL ABILITIES</h1>
+                            <div class="agent-abilities">
+                                <div class="abilities-options">
+                                    <a onclick="chooseSkillDemo('ability1')"><span><img src=""
+                                                class="ability-icon img-fluid" id="ability1"></span></a>
+                                    <a onclick="chooseSkillDemo('ability2')"><span><img src=""
+                                                class="ability-icon img-fluid" id="ability2"></span></a>
+                                    <a onclick="chooseSkillDemo('ability3')"><span><img src=""
+                                                class="ability-icon img-fluid" id="ability3"></span></a>
+                                    <a onclick="chooseSkillDemo('ability4')"><span><img src=""
+                                                class="ability-icon img-fluid" id="ability4"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="video-container px-3">
+                                <video id="abilityDemo" class="py-1 pb-lg-5" autoplay loop playsinline>
+                                    <source id="videoSource" src="" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="abilityInfo">
+                                <h4 id="abilityName" class="text-center text-md-center text-lg-start">ABILITY NAME</h4>
+                                <p id="abilityDesc" class="description px-3 pe-lg-5 p-lg-0"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer" id="footer"></div>
+    <script>
+        const agentName = document.getElementById("agentName");
+        const agentPortrait = document.getElementById("agentPortrait");
+        const specialBg = document.getElementById("specialBg");
+        const roleIcon = document.getElementById("roleIcon");
+        const agentDesc = document.getElementById("agentDesc");
+        const agentRole = document.getElementById("agentRole");
+
+        var bgGradient = document.getElementById("bgGradient");
+        var abilityDemo = document.getElementById("abilityDemo");
+        var abilityName = document.getElementById("abilityName");
+        var abilityDesc = document.getElementById("abilityDesc");
+
+        var abilityIcons = [];
+
+        abilityIcons[0] = document.getElementById("ability1");
+        abilityIcons[1] = document.getElementById("ability2");
+        abilityIcons[2] = document.getElementById("ability3");
+        abilityIcons[3] = document.getElementById("ability4");
+
+        var chosenAbility;
+        var agent;
+        var agentData;
+
+        // Preload the video URLs
+        let preloadedVideos = [];
+
+        function preloadVideos() {
+            if (!agentData) {
+                console.error("Agent data not available for preloading.");
+                return;
+            }
+
+            agentData.abilities.forEach((ability, index) => {
+                const video = document.createElement('video');
+                video.src = ability.url;
+                video.preload = 'auto';
+                preloadedVideos[index] = video;
+            });
+        }
+
+        // Function to fetch agent data by UUID
+        const fetchAgentByUUID = async (agentUuid) => {
+            const response = await fetch(`https://valorant-api.com/v1/agents/` + agentUuid);
+            const data = await response.json();
+
+            const videoResponse = await fetch(`https://kaneketsu.github.io/skill_demo.json`);
+            const videoData = await videoResponse.json();
+
+            // Check if the status is 200(not error)
+            if (data.status === 200) {
+                agent = data.data;
+
+                // Dynamic background gradient based on agent's personality
+                var color1 = agent.backgroundGradientColors[2];
+                var color2 = agent.backgroundGradientColors[0];
+
+                bgGradient.style.background = `linear-gradient(286deg, #` + color1 + ` 1.34%, #` + color2 + ` 119.61%)`;
+
+                document.title = agent.displayName;
+                agentName.innerHTML = agent.displayName.toUpperCase();;
+                agentRole.innerHTML = agent.role.displayName.toUpperCase();
+                agentDesc.innerHTML = agent.description;
+                specialBg.src = agent.background;
+                agentPortrait.src = agent.fullPortraitV2;
+                roleIcon.src = agent.role.displayIcon;
+
+                for (var i = 0; i < 4; i++) {
+                    abilityIcons[i].src = agent.abilities[i].displayIcon;
+                }
+
+                const videoResponse = await fetch(`https://kaneketsu.github.io/skill_demo.json`);
+                const videoData = await videoResponse.json();
+
+                // Find the specific agent in the videoData
+                agentData = videoData.data.find(function (a) {
+                    return a.displayName === agent.displayName;
+                });
+
+                // Load ability 1 initially
+                if (agentData) {
+                    preloadVideos();
+                    chooseSkillDemo('ability1');
+                } else {
+                    console.error("Agent video data not found.");
+                }
+
+            } else {
+                title.innerHTML = "Agent not found.";
+            }
+        };
+
+        function chooseSkillDemo(abilityNum) {
+            chosenAbility = abilityNum;
+
+            if (!agentData) {
+                console.error("Agent data not loaded yet.");
+                return;
+            }
+
+            // Reset opacity for all icons
+            abilityIcons.forEach(icon => icon.style.opacity = "0.5");
+
+            var skillIndex;
+            var iconOpacity;
+
+            switch (chosenAbility) {
+                case 'ability1':
+                    skillIndex = 0;
+                    iconOpacity = "1";
+                    break;
+                case 'ability2':
+                    skillIndex = 1;
+                    iconOpacity = "1";
+                    break;
+                case 'ability3':
+                    skillIndex = 2;
+                    iconOpacity = "1";
+                    break;
+                case 'ability4':
+                    skillIndex = 3;
+                    iconOpacity = "1";
+                    break;
+                default:
+                    skillIndex = 0;
+                    iconOpacity = "1";
+            }
+
+            abilityDemo.src = agentData.abilities[skillIndex].url;
+            abilityIcons[skillIndex].style.opacity = iconOpacity;
+            abilityName.innerHTML = agent.abilities[skillIndex].displayName;
+            abilityDesc.innerHTML = agent.abilities[skillIndex].description;
+
+            // Set the main video source to the preloaded video
+            if (preloadedVideos[skillIndex]) {
+                abilityDemo.src = preloadedVideos[skillIndex].src;
+            }
+        }
+
+        chooseSkillDemo('ability1');
+
+        // Get the agent UUID from the URL parameters
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+
+        // Check if 'uuid' parameter exists in the URL
+        if (urlParams.has('UUID')) {
+            const agentUuid = urlParams.get('UUID');
+            fetchAgentByUUID(agentUuid);
+        } else {
+            title.innerHTML = "Invalid Agent";
+        }
+    </script>
+    <script src="assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

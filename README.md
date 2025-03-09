@@ -1,13 +1,11 @@
-# Web Development Project Portfolio
+# Project Portfolio
 
-This repository contains a collection of my **Web Development projects** and activities created for the _Web Development_ subject. It serves as a portfolio showcasing various tasks, assignments, and projects completed throughout the course.
+This repository contains a collection of my **Web Development and AppDev projects** and activities created for the _Web Development_ _AppDev_ subject. It serves as a portfolio showcasing various tasks, assignments, and projects completed throughout the course.
 
 ## Contents
 
-- HTML, CSS, and JavaScript activities
-- Web design and layout exercises
-- Responsive web design implementations
-- Other web-related tasks and projects
+- Web Development Projects
+- Application Development & Emerging Technologies Projects
 
 # 
 Mark Louie P. Villanueva  
