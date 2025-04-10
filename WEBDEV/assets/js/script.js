@@ -1,7 +1,7 @@
 // NAVBAR
 var customNavbar = document.getElementById('customNavbar');
 customNavbar.innerHTML = `
-                    <a class="nav-logo" href="./" onclick="displayMenu()" onmouseenter="applyCursorEffect()"
+                    <a class="nav-logo" href="../" onclick="displayMenu()" onmouseenter="applyCursorEffect()"
                         onmouseleave="revertCursorEffect()"><img src="assets/img/lo-logo-stroke.svg"></a>
                     <div class="menu-icon" id="menuIcon" onclick="displayMenu()" onmouseenter="applyCursorEffect()"
                         onmouseleave="revertCursorEffect()"></div>`;
@@ -73,42 +73,70 @@ function displayHomePage() {
 // MENU DISPLAY GENERATOR
 menuDisplay.innerHTML = `<ul>
                         <li class="menu-display option">
-                            <a href="./" onclick="displayHomePage()"><span class="menu num">01</span><span
+                            <a href="../" onclick="displayHomePage()"><span class="menu num">01</span><span
                                     class="menu opt" onmouseenter="applyCursorEffect()"
                                     onmouseleave="revertCursorEffect()">HOME</span></a>
                         </li>
                         <li class="menu-display option">
-                            <a href="subjects.html"><span class="menu num">02</span><span
+                            <a href="../subjects.html"><span class="menu num">02</span><span
                                     class="menu opt" onmouseenter="applyCursorEffect()"
                                     onmouseleave="revertCursorEffect()">SUBJECTS</span></a>
                         </li>
                         <li class="menu-display option">
-                            <a href="about.html"><span class="menu num">03</span><span
+                            <a href="../about.html"><span class="menu num">03</span><span
                                     class="menu opt" onmouseenter="applyCursorEffect()"
                                     onmouseleave="revertCursorEffect()">ABOUT</span></a>
                         </li>
                         <li class="menu-display option">
-                            <a href="contact.html"><span class="menu num">04</span><span
+                            <a href="../contact.html"><span class="menu num">04</span><span
                                     class="menu opt" onmouseenter="applyCursorEffect()"
                                     onmouseleave="revertCursorEffect()">CONTACT</span></a>
                         </li>
                     </ul>`;
 
-// GENERATE SUBJECT LIST
+// GENERATE PROJECT LIST
 const projectList = [
     {
-        "name": "WEBDEV",
-        "url": "WEBDEV",
-        "subNum": "1",
-        "thumbnail": "webdev-thumbnail.png",
-        "description": "Web Development Projects"
+        "name": "THE NEW IPHONE 16",
+        "url": "./",
+        "activityNum": "4",
+        "thumbnail": "iphone16-thumbnail.png",
+        "description": "DEVICE SHOWCASE"
     },
     {
-        "name": "ADET",
-        "url": "ADET",
-        "subNum": "2",
-        "thumbnail": "appdev-thumbnail.png",
-        "description": "App Development & Emerging Tech Projects"
+        "name": "EXPLORE JAPAN",
+        "url": "./",
+        "activityNum": "5",
+        "thumbnail": "explorejapan-thumbnail.png",
+        "description": "PLACE SHOWCASE"
+    },
+    {
+        "name": "ESTHETIQUE",
+        "url": "./",
+        "activityNum": "6",
+        "thumbnail": "esthetique-thumbnail.png",
+        "description": "WEB GALLERY"
+    },
+    {
+        "name": "VALORANT SPIKE | WIKI",
+        "url": "./",
+        "activityNum": "7",
+        "thumbnail": "valo-thumbnail.png",
+        "description": "REST API INTEGRATION"
+    },
+    {
+        "name": "MLBB | INTROPLAY",
+        "url": "./",
+        "activityNum": "8",
+        "thumbnail": "introplay-thumbnail.png",
+        "description": "VIDEO WEBPAGE"
+    },
+    {
+        "name": "ARIZONA",
+        "url": "./",
+        "activityNum": "9",
+        "thumbnail": "arizona-thumbnail.png",
+        "description": "PARALLAX"
     }
 ];
 
@@ -138,7 +166,7 @@ function generateProjects() {
                                         </div>
                                     </div>
                                     <div class="button mt-md-5 mt-2 mb-4 col-12 order-md-2 order-3">
-                                                <a href="`+ projectList[i].url + `">
+                                                <a target="_blank" href="activities/activity-`+ projectList[i].activityNum + `/` + projectList[i].url + `">
                                                     <div class="btn-redirect2 fontTheme"
                                                         onmouseenter="applyCursorEffect()"
                                                         onmouseleave="revertCursorEffect()">VISIT</div>
@@ -146,7 +174,7 @@ function generateProjects() {
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6 order-md-2 order-1 d-flex justify-content-center justify-content-md-start">
-                                    <a href="`+ projectList[i].url + `"><img src="assets/img/` + projectList[i].thumbnail + `"
+                                    <a href="activities/activity-`+ projectList[i].activityNum + `/` + projectList[i].url + `"><img src="assets/img/` + projectList[i].thumbnail + `"
                                             class="project-thumbnail img-fluid" onmouseenter="applyCursorEffect()"
                                             onmouseleave="revertCursorEffect()"></a>
                                 </div>
