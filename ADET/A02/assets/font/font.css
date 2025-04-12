@@ -1,0 +1,14 @@
+/* FONT HOSTING */
+@font-face {
+    font-family: 'Minecraft Pixel';
+    src: url('1_Minecraft-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Minecraft Pixel';
+    src: url('3_Minecraft-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
