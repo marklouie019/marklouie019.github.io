@@ -9,13 +9,14 @@
 }
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 html,
 body {
     background: var(--black);
-    padding: 0;
 }
 
 .navbar {
@@ -89,7 +90,6 @@ input[type="radio"] {
     cursor: pointer;
     width: 300px;
     line-height: 33.467px;
-    /* overflow: scroll; */
 }
 
 .mc-tab {
@@ -154,6 +154,76 @@ input[type="radio"] {
     color: var(--green);
 }
 
+/* ACCORDION */
+.accordion {
+    display: none;
+    width: 600px;
+}
+
+.accordion ul{
+    padding: 0;
+}
+
+.accordion .acc-item {
+    font-family: var(--titleFont);
+    color: var(--white);
+    list-style: none;
+    width: 100%;
+    padding: 10px;
+    background: #262423;
+    box-shadow:
+        inset -2px 0px rgba(217, 217, 217, 0.26),
+        inset 4px 0px rgba(27, 25, 24, 0.54),
+        inset 0 2px #51504F,
+        inset 0 -2px black; 
+    
+}
+
+.accordion .acc-item label {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.accordion label::before{
+    content: '+';
+    color: var(--green);
+    margin-right: 10px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+input[type="radio"]{
+    display:none;
+}
+
+.accordion .content{
+    color: var(--white);
+    padding: 0 10px;
+    line-height: 26px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s, padding 0.5s;
+}
+
+.accordion input[type="radio"]:checked + label + .content{
+    max-height: 700px;
+    padding: 10px 10px 20px;
+
+}
+
+.accordion input[type="radio"]:checked + label::before{
+    content: '-';
+    color: var(--green);
+}
+
+.content img{
+    height: 200px;
+}
+
 @media(max-width:1199px){
     .tab{
         padding: 10px 50px;
@@ -168,7 +238,7 @@ input[type="radio"] {
     }
 
     .feat-pic {
-        height: 240px;
+        height: 230px;
     }
 }
 
@@ -178,7 +248,7 @@ input[type="radio"] {
     }
 
     .options-tab{
-        display: block;
+        display: none;
         width: 450px;
     }
 
@@ -189,6 +259,10 @@ input[type="radio"] {
         inset -4px 0px rgba(217, 217, 217, 0.26),
         inset 0 4px rgba(217, 217, 217, 0.26),
         inset 0 -4px #292726;
+    }
+
+    .accordion{
+        display: block;
     }
 }
 
@@ -204,5 +278,15 @@ input[type="radio"] {
 
     .feat-pic{
         height: 180px;
+    }
+
+    .accordion{
+        width: 100%;
+    }
+}
+
+@media(max-width:425px){
+    .accordion{
+        width: 300px;
     }
 }

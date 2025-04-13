@@ -5,7 +5,7 @@ include("shared/structures-data.php");
 include("shared/caves-data.php");
 
 $page = "biomes";
-$subPage = isset($_GET['tab']) ? (int)$_GET['tab'] : "0";
+$subPage = isset($_GET['tab']) ? $_GET['tab'] : "0";
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
@@ -61,11 +61,8 @@ if (isset($_GET['page'])) {
             <input type="radio" id="biomes" name="page" value="biomes" <?php echo $page == "biomes" ? "checked" : "" ?>
                 onchange="this.form.submit()">
             <label for="biomes" class="tab">BIOMES</label>
-
-            <input type="radio" id="structures" name="page" value="structures" <?php echo $page == "structures" ? "checked" : "" ?>
-                onchange="this.form.submit()">
+            <input type="radio" id="structures" name="page" value="structures" <?php echo $page == "structures" ? "checked" : "" ?> onchange="this.form.submit()">
             <label for="structures" class="tab">STRUCTURES</label>
-
             <input type="radio" id="caves" name="page" value="caves" <?php echo $page == "caves" ? "checked" : "" ?>
                 onchange="this.form.submit()">
             <label for="caves" class="tab">CAVES</label>
@@ -78,6 +75,7 @@ if (isset($_GET['page'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous">
         </script>
+
 </body>
 
 </html>

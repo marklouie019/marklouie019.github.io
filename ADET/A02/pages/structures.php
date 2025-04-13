@@ -41,5 +41,38 @@
                     </span></li>
             </ul>
         </div>
+
+        <ul class="accordion p-0">
+            <?php foreach ($structures as $structure) { ?>
+                <li class="acc-item">
+                    <input type="radio" name="accordion" id="acc-<?php echo $structure['id'] ?>"
+                        value="<?php echo $structure['id'] ?>" <?php echo $subPage == $structure['id'] ? "checked" : "" ?>>
+                    <label for="acc-<?php echo $structure['id'] ?>"><?php echo $structure['name'] ?></label>
+                    <div class="content">
+                        <img src="assets/img/<?php echo $structure['displayPicture'] ?>">
+                        <p class="pt-2"><?php echo $structure['description'] ?></p>
+                        <ul class="attributes">
+                            <li>Biome: <span>
+                                    <?php
+                                    $biome = $structure['biome'];
+                                    $biomeList = implode(", ", $biome);
+                                    echo $biomeList;
+                                    ?>
+                                </span></li>
+                            <li>Rarity: <span><?php echo $structure['rarity']; ?></span></li>
+                            <li>Dimension: <span><?php echo $structure['dimension']; ?></span></li>
+                            <li>Mobs: <span>
+                                    <?php
+                                    $mobs = $structure['mobs'];
+                                    $mobList = implode(", ", $mobs);
+                                    echo $mobList;
+                                    ?>
+                                </span></li>
+                        </ul>
+                    </div>
+                </li>
+            <?php } ?>
+        </ul>
+
     </div>
 </form>

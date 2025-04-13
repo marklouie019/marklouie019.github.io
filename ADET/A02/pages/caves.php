@@ -33,5 +33,31 @@
                     </span></li>
             </ul>
         </div>
+
+        <ul class="accordion p-0">
+            <?php foreach ($caves as $cave) { ?>
+                <li class="acc-item">
+                    <input type="radio" name="accordion" id="acc-<?php echo $cave['id'] ?>"
+                        value="<?php echo $cave['id'] ?>" <?php echo $subPage == $cave['id'] ? "checked" : "" ?>>
+                    <label for="acc-<?php echo $cave['id'] ?>"><?php echo $cave['name'] ?></label>
+                    <div class="content">
+                        <img src="assets/img/<?php echo $cave['displayPicture'] ?>">
+                        <p class="pt-2"><?php echo $cave['description'] ?></p>
+                        <ul class="attributes">
+                            <li>Category: <span><?php echo $cave['category']; ?></span></li>
+                            <li>Rarity: <span><?php echo $cave['rarity']; ?></span></li>
+                            <li>Dimension: <span><?php echo $cave['dimension']; ?></span></li>
+                            <li>Mobs: <span>
+                                    <?php
+                                    $mobs = $cave['mobs'];
+                                    $mobList = implode(", ", $mobs);
+                                    echo $mobList;
+                                    ?>
+                                </span></li>
+                        </ul>
+                    </div>
+                </li>
+            <?php } ?>
+        </ul>
     </div>
 </form>
