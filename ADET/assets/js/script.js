@@ -97,11 +97,11 @@ menuDisplay.innerHTML = `<ul>
 // GENERATE PROJECT LIST
 const projectList = [
     {
-        "name": "MVC",
+        "name": "Minecraft: Explore",
         "url": "../ADET/A02",
         "activityNum": "2",
-        "thumbnail": null,
-        "description": "Model-View-Container"
+        "thumbnail": "../assets/img/mc-exp-thumbnail.png",
+        "description": "Model-View-Container, Exploration Guide"
     }
 ];
 
@@ -139,7 +139,7 @@ function generateProjects() {
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6 order-md-2 order-1 d-flex justify-content-center justify-content-md-start">
-                                    <a href="activities/activity-`+ projectList[i].activityNum + `/` + projectList[i].url + `"><img src="assets/img/` + projectList[i].thumbnail + `"
+                                    <a href="`+ projectList[i].url + `"><img src="` + projectList[i].thumbnail + `"
                                             class="project-thumbnail img-fluid" onmouseenter="applyCursorEffect()"
                                             onmouseleave="revertCursorEffect()"></a>
                                 </div>
