@@ -1,0 +1,120 @@
+/* ERROR 404 PAGE */
+:root {
+    --titleFont: "Geist", sans-serif;
+    --bodyFont: "Geist Mono", monospace;
+}
+
+.base {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    color: var(--white);
+    background-image: url('assets/img/colorful-shapes-bg2.png');
+    background-repeat: repeat;
+    background-size: cover;
+    background: var(--black);
+}
+
+.base video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blur {
+    background: rgba(62, 62, 62, 0.04);
+    backdrop-filter: blur(24px);
+    height: 100vh;
+    position: relative;
+}
+
+.message {
+    --font-weight: 1000;
+    --font-width: 125;
+    font-family: var(--bodyFont);
+    font-size: 30px;
+}
+
+.message p {
+    font-family: var(--titleFont);
+    font-weight: 600;
+    font-size: 50px;
+}
+
+.error {
+    font-size: 50px;
+}
+
+.error-404 {
+    font-size: 80px;
+    color: #8EC861;
+}
+
+.go-back {
+    font-family: var(--bodyFont);
+    font-size: 22px;
+}
+
+.go-back a {
+    text-decoration: none;
+    color: white;
+    --font-weight: 1000;
+    --font-width: 125;
+    font-variation-settings:
+        'wght' var(--font-weight),
+        'wdth' var(--font-width);
+    position: relative;
+    padding: 10px 30px;
+    border: 0.5px solid white;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.go-back a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--white);
+    transition: width 0.3s ease-in-out;
+}
+
+.go-back a:hover::after {
+    width: 100%;
+}
+
+.linkHome:hover{
+    background: white;
+    border: white;
+    color: black;
+}
+
+@media(max-width:576px) {
+    .message {
+        font-size: 50px;
+    }
+
+    .message p{
+        font-size: 26px;
+    }
+
+    .error {
+        font-size: 30px;
+    }
+
+    .error-404 {
+        font-size: 60px;
+    }
+
+    .go-back p {
+        font-size: 16px;
+    }
+
+    .linkHome{
+        font-size: 16px;
+    }
+}

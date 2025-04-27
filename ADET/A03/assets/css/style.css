@@ -1,0 +1,643 @@
+:root {
+    --titleFont: "Geist", sans-serif;
+    --bodyFont: "Geist Mono", monospace;
+    --border-radius: 10px;
+    --bg-theme: black;
+    --textColor: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    padding: 0;
+    max-width: 100vw;
+    background: var(--bg-theme);
+    transition: background-color 0.3s ease;
+}
+
+body {
+    background: var(--bg-theme);
+    color: var(--textColor);
+    transition: background-color 0.3s ease;
+}
+
+.nav-bar {
+    margin: 20px 50px;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border-color: 1px white;
+    transition: background-color 0.3s ease;
+}
+
+#customNavbar {
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+#customNavbar.scrolled {
+    border: 0.5px solid #2F2E2E;
+    background: rgba(0, 0, 0, 0.64);
+    box-shadow: 0px 4px 41.6px -12px rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(51.849998474121094px);
+}
+
+#customNavbar.scrolled-light {
+    border: 1px solid #B0B0B0;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 41.6px -12px rgba(0, 0, 0, 0.25);
+}
+
+.branding img {
+    height: 40px;
+}
+
+.theme img {
+    height: 30px;
+}
+
+.nav-bar .buttons {
+    gap: 50px;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.nav-bar a,
+.off-nav a {
+    color: var(--textColor);
+    text-decoration: none;
+    font-family: var(--bodyFont);
+    font-size: 20px;
+}
+
+.theme img:hover,
+.theme2 img:hover {
+    cursor: pointer;
+}
+
+.menu {
+    display: none;
+}
+
+.off-nav {
+    background: var(--bg-theme);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    display: none;
+}
+
+.off-nav .buttons {
+    padding: 70px 40px;
+}
+
+.off-nav a {
+    font-family: var(--titleFont);
+    font-weight: 800;
+    font-size: 32px;
+}
+
+.theme2 {
+    margin-block: 20px;
+}
+
+.theme2 img {
+    height: 30px;
+}
+
+/* HOME */
+.container {
+    margin-top: 100px;
+    background: var(--bg-theme);
+    transition: background-color 0.3s ease;
+}
+
+.background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hero h3 {
+    font-family: var(--titleFont);
+    font-weight: 800;
+    font-size: 72px;
+}
+
+.hero p {
+    font-family: var(--bodyFont);
+    font-size: 22px;
+    padding-inline: 250px;
+}
+
+.hero a,
+.booking-sect a,
+.card-item a {
+    text-decoration: none;
+    background-color: transparent;
+    width: max-content;
+    padding: 4px;
+    border-radius: 12px;
+    border: 0.5px solid rgba(255, 255, 255, 0.40);
+    transition: all 0.3s ease;
+}
+
+.card-item a {
+    border: transparent;
+    transition: none;
+}
+
+.hero .hero-cta,
+.booking-sect .hero-cta,
+.btn-offer {
+    background: var(--textColor);
+    color: var(--bg-theme);
+    font-family: var(--bodyFont);
+    font-weight: 600;
+    width: fit-content;
+    padding: 15px 50px;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.hero a:hover,
+.booking-sect a:hover {
+    border: 0.5px solid var(--textColor);
+}
+
+.rocket-sect,
+.destinations-sect,
+.booking-sect {
+    padding-bottom: 100px;
+}
+
+.booking-sect {
+    margin-top: 50px;
+}
+
+.container h3 {
+    font-family: var(--titleFont);
+    font-size: 45px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.container p {
+    font-family: var(--bodyFont);
+    font-size: 22px;
+    text-align: center;
+}
+
+.pricing,
+.destinations {
+    margin-top: 100px;
+}
+
+.booking-sect h3,
+.booking-sect p,
+.pricing h3,
+.pricing p,
+.destinations h3,
+.destinations p {
+    text-align: start;
+}
+
+/* BENTO */
+.bento-tile p {
+    font-family: var(--titleFont);
+    font-weight: 600;
+    text-align: start;
+}
+
+.box-1,
+.box-2,
+.box-3,
+.box-4,
+.box-5,
+.box-6,
+.box-7 {
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.box-1 {
+    height: 195px;
+    background: linear-gradient(173deg, #141414 6.43%, #D99432 269.28%);
+    display: flex;
+    justify-content: center;
+}
+
+.box-1 img {
+    height: auto;
+    width: 200px;
+    object-fit: cover;
+}
+
+.box-2 {
+    height: 307px;
+    position: relative;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-2 img {
+    padding: 0;
+    position: absolute;
+    object-fit: cover;
+    height: 100%;
+    width: auto;
+    opacity: 0.5;
+}
+
+.box-2 p {
+    text-align: center;
+    z-index: 5;
+}
+
+.box-3 {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(0deg, #FF007B -310.6%, #141414 100%);
+}
+
+.box-3 p {
+    font-family: var(--titleFont);
+    font-size: 24px;
+    font-weight: 100;
+    margin-bottom: 0;
+}
+
+.box-3 span {
+    font-weight: 600;
+}
+
+.box-4 {
+    height: 310px;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(140deg, #141414 36.81%, #5C5B5B 190.83%);
+}
+
+.box-4 img {
+    height: auto;
+    width: 300px;
+    object-fit: cover;
+}
+
+.box-5 {
+    height: 288px;
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: end;
+    background: linear-gradient(140deg, #141414 36.81%, #5C5B5B 190.83%);
+}
+
+.box-5 img {
+    position: absolute;
+    transform: translateX(30%);
+    height: 400px;
+    object-fit: cover;
+}
+
+.box-5 p {
+    position: absolute;
+    padding-left: 28px;
+}
+
+.box-6 {
+    height: 70px;
+}
+
+.box-6 img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.box-7 {
+    padding: 0;
+    height: 700px;
+}
+
+.box-7 img {
+    padding: 0;
+    margin-top: 20px;
+    object-fit: cover;
+    height: 100%;
+    width: auto;
+}
+
+.booking-ofr {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* PRICING */
+.card-set {
+    height: 600px;
+}
+
+.card-item {
+    background: #141414;
+    border-radius: var(--border-radius);
+    padding: 30px;
+    height: 100%;
+}
+
+.card-item .title {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+    width: 100%;
+}
+
+.card-item h5 {
+    font-family: var(--bodyFont);
+}
+
+.card-item p {
+    font-family: var(--titleFont);
+    font-weight: 600;
+    font-size: 45px;
+}
+
+.inclusion {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.inclusion h5 {
+    font-family: var(--titleFont);
+    font-weight: 600;
+    font-size: 28px;
+}
+
+.inclusion ul {
+    font-family: var(--bodyFont);
+    font-size: 16px;
+    font-weight: 300;
+    list-style: none;
+    padding-left: 0;
+    overflow: hidden;
+}
+
+.inclusion li::before {
+    content: "✓";
+    margin-right: 8px;
+}
+
+.card-set .price-1 {
+    background: linear-gradient(155deg, #131313 44%, #022271 106.82%);
+}
+
+.card-set .price-2 {
+    background: linear-gradient(155deg, #131313 44%, #464343 106.82%);
+}
+
+.card-set .price-3 {
+    background: linear-gradient(155deg, #131313 44%, #93351A 106.82%);
+}
+
+.inclusion {
+    height: 300px;
+}
+
+.price-1,
+.price-2,
+.price-3 {
+    height: 100%;
+}
+
+/* DESTINATIONS */
+.destinations,
+.pricing {
+    margin-bottom: 100px;
+}
+
+.top img {
+    border-radius: var(--border-radius);
+}
+
+.carousel-inner {
+    border-radius: var(--border-radius);
+    background: black;
+    height: 550px;
+    overflow: hidden;
+}
+
+.carousel-inner img {
+    border-radius: var(--border-radius);
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+@media(max-width:992px) {
+
+    .box-1 p,
+    .box-2 p,
+    .box-4 p,
+    .box-5 p {
+        line-height: 1.1;
+        font-weight: 400;
+    }
+}
+
+@media(max-width:768px) {
+
+    .nav-bar {
+        padding: 0px;
+        margin: 10px 20px;
+        border-radius: calc(var(--border-radius)/2);
+    }
+
+    .branding img {
+        height: 30px;
+    }
+
+    .theme img {
+        padding: 10px;
+    }
+
+    .nav-bar .buttons {
+        display: none;
+    }
+
+    .nav-bar .theme {
+        display: none;
+    }
+
+    .nav-bar .menu {
+        display: block;
+    }
+
+    .hero h3 {
+        padding-inline: 10px;
+        font-size: 50px;
+    }
+
+    .hero p {
+        font-size: 16px;
+        padding-inline: 75px;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+    .rocket-sect,
+    .destinations-sect,
+    .booking-sect {
+        padding-bottom: 20px;
+    }
+
+    .booking-sect h3,
+    .booking-sect p {
+        text-align: center;
+    }
+
+    .booking-sect a {
+        margin-inline: auto;
+    }
+
+    .carousel-inner {
+        height: 300px;
+    }
+
+    .box-1 p,
+    .box-2 p,
+    .box-4 p,
+    .box-5 p {
+        line-height: 1.1;
+    }
+
+    .pricing h3,
+    .pricing p {
+        text-align: center;
+    }
+
+    .inclusion {
+        height: 200px;
+    }
+
+    .card-item p {
+        text-align: start;
+        font-size: 30px;
+    }
+}
+
+@media(max-width:576px) {
+
+    .background {
+        justify-content: start;
+        padding-top: 100px;
+    }
+
+    .hero {
+        height: 100vh;
+    }
+
+    .hero a {
+        width: 90%;
+    }
+
+    .hero h3 {
+        font-size: 35px;
+    }
+
+    .hero p {
+        padding-inline: 50px;
+    }
+
+    .hero .hero-cta,
+    .btn-offer {
+        width: 100%;
+    }
+
+    .container h3 {
+        font-size: 30px;
+    }
+
+    .container p {
+        font-size: 16px;
+    }
+
+    .booking-sect img {
+        height: 200px;
+    }
+
+    .booking-sect h3,
+    .booking-sect p {
+        text-align: center;
+        margin-inline: auto;
+    }
+
+    .booking-sect a {
+        margin-inline: auto;
+    }
+
+    .hero .hero-cta,
+    .booking-sect .hero-cta,
+    .btn-offer {
+        font-size: 14px;
+    }
+
+    .box-1,
+    .box-2,
+    .box-3,
+    .box-4,
+    .box-5,
+    .box-6,
+    .box-7 {
+        padding: 10px 0px;
+    }
+
+    .box-5 p {
+        padding-left: 12px;
+    }
+
+    .box-5 img {
+        transform: translateY(20%);
+    }
+
+    .card-item a {
+        width: 100%;
+    }
+
+    .card-item .btn-offer {
+        text-align: center;
+    }
+
+    .card-item p {
+        font-size: 30px;
+    }
+
+}
