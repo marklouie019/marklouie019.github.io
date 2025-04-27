@@ -89,7 +89,7 @@
 }
 
 .menu-display a {
-    color: var(--white);
+    /* color: var(--white); */
     text-decoration: none;
     display: flex;
     align-items: center;

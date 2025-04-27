@@ -102,6 +102,13 @@ const projectList = [
         "activityNum": "2",
         "thumbnail": "../assets/img/mc-exp-thumbnail.png",
         "description": "Model-View-Container, Exploration Guide"
+    },
+    {
+        "name": "Ad Astra",
+        "url": "../ADET/A03",
+        "activityNum": "3",
+        "thumbnail": "../assets/img/ad-astra-thumbnail.png",
+        "description": "Bento Layout"
     }
 ];
 
