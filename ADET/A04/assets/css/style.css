@@ -1,0 +1,166 @@
+:root {
+    --titleFont: "Geist", sans-serif;
+    --bodyFont: "Geist Mono", monospace;
+}
+
+body {
+    font-family: var(--titleFont);
+}
+
+.container-row {
+    height: 100vh;
+}
+
+.main-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+/* PRODUCTS */
+.categories {
+    height: 20%;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-direction: row;
+}
+
+.categories .scroll-container {
+    overflow-x: auto;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+}
+
+.categories .card {
+    height: 100px;
+    width: 100px;
+    transition: background-color 0.3s;
+}
+
+.categories img {
+    height: 100%;
+    width: fit-content;
+}
+
+.catalog {
+    height: 80%;
+    display: flex;
+}
+
+.catalog .menu,
+.catalog .sizes {
+    height: 100%;
+}
+
+.menu .scroll-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.menu .item {
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    transition: background-color 0.3s;
+}
+
+.categories .card:hover,
+.menu .item:hover,
+.sizes .card:hover,
+.quantity button:hover {
+    cursor: pointer;
+    border: transparent;
+    background-color: #d9d9d9;
+}
+
+.menu .icon {
+    height: 150px;
+    width: fit-content;
+    overflow: hidden;
+}
+
+.icon img {
+    height: 100%;
+    object-fit: cover;
+}
+
+/* SIZES */
+.sizes .card {
+    height: 100px;
+    text-align: center;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+/* RECEIPT */
+.receipt {
+    height: 80vh;
+
+}
+
+.receipt .scroll-container {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.receipt .top-label,
+.receipt .receipt-item {
+    border-bottom: 0.5px solid #d5d5d5;
+    justify-content: space-between;
+}
+
+.quantity button {
+    border-radius: 500px;
+    background: transparent;
+    border: 0.5px solid gray;
+    color: gray;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.quantity button:hover {
+    font-weight: 500;
+    background-color: #967259;
+    color: white;
+    border-color: transparent;
+}
+
+.receipt-item .fa-trash {
+    color: red;
+}
+
+.receipt-item .fa-trash:hover {
+    cursor: pointer;
+}
+
+.controls-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.controls-right button {
+    height: 100%;
+}
+
+.total {
+    display: flex;
+    height: 100%;
+}
