@@ -109,6 +109,13 @@ const projectList = [
         "activityNum": "3",
         "thumbnail": "../assets/img/ad-astra-thumbnail.png",
         "description": "Bento Layout"
+    },
+    {
+        "name": "Switch Café | POS",
+        "url": "../ADET/A04",
+        "activityNum": "4",
+        "thumbnail": "../assets/img/switch-cafe-thumbnail.png",
+        "description": "Simple Point Of Sale"
     }
 ];
 
