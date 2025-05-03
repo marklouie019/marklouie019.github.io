@@ -1,10 +1,5 @@
-:root {
-    --titleFont: "Geist", sans-serif;
-    --bodyFont: "Geist Mono", monospace;
-}
-
 body {
-    font-family: var(--titleFont);
+    font-family: "Geist", sans-serif;
 }
 
 .container-row {
@@ -14,6 +9,10 @@ body {
 .main-panel {
     display: flex;
     flex-direction: column;
+}
+
+* {
+    text-overflow: ellipsis;
 }
 
 /* PRODUCTS */
@@ -37,11 +36,14 @@ body {
     height: 100px;
     width: 100px;
     transition: background-color 0.3s;
+    overflow: hidden;
 }
 
 .categories img {
+    object-fit: cover;
+    object-position: center;
     height: 100%;
-    width: fit-content;
+    width: 100%;
 }
 
 .catalog {
@@ -49,7 +51,12 @@ body {
     display: flex;
 }
 
-.catalog .menu,
+.catalog .menu {
+    height: 78vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .catalog .sizes {
     height: 100%;
 }
@@ -65,6 +72,7 @@ body {
 .menu .item {
     height: 200px;
     width: 200px;
+    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,13 +81,19 @@ body {
     transition: background-color 0.3s;
 }
 
-.categories .card:hover,
+.categories .card:hover {
+    cursor: pointer;
+    border: 1px solid #634832;
+    background-color: #DBC1AC;
+}
+
 .menu .item:hover,
 .sizes .card:hover,
 .quantity button:hover {
     cursor: pointer;
-    border: transparent;
-    background-color: #d9d9d9;
+    border: 1px solid #634832;
+    background-color: #DBC1AC;
+    color: #38220F;
 }
 
 .menu .icon {
@@ -103,23 +117,29 @@ body {
     transition: background-color 0.3s;
 }
 
+.size-label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 /* RECEIPT */
 .receipt {
-    height: 80vh;
-
+    height: 75vh;
+    overflow-x: auto;
 }
 
 .receipt .scroll-container {
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
+    height: 100%;
 }
 
 .receipt .top-label,
 .receipt .receipt-item {
     border-bottom: 0.5px solid #d5d5d5;
-    justify-content: space-between;
+    width: 100%;
+    min-width: 400px;
 }
 
 .quantity button {
@@ -144,23 +164,92 @@ body {
 }
 
 .receipt-item .fa-trash {
-    color: red;
+    color: #634832;
 }
 
 .receipt-item .fa-trash:hover {
     cursor: pointer;
 }
 
+.order-name {
+    width: 100px;
+}
+
 .controls-right {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .controls-right button {
-    height: 100%;
+    /* height: 100%; */
+    width: 100%;
 }
 
 .total {
     display: flex;
     height: 100%;
+    font-size: 1.5rem;
+}
+
+.lbl-total {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #38220F;
+}
+
+.btn-clear {
+    background: #DBC1AC;
+    color: #634832;
+    border: none;
+    height: 50px;
+}
+
+.btn-complete {
+    background: #967259;
+    color: white;
+    border: none;
+    height: 50px;
+}
+
+@media(max-width:768px) {
+
+    .categories .card{
+        height: 80px;
+    }
+
+    .menu .item{
+        height: 150px;
+    }
+
+    .sizes .card{
+        height: 50px;
+        font-size: small;
+    }
+
+    .lbl-total {
+        font-size: 22px;
+    }
+
+    .btn-clear {
+        height: 40px;
+    }
+
+    .btn-complete {
+        height: 40px;
+    }
+
+}
+
+@media(max-width:568px){
+    .categories .card{
+        height: 50px;
+    }
+
+    .menu .item{
+        height: 120px;
+    }
 }

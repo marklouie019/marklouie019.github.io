@@ -17,50 +17,57 @@
 <body data-bs-theme="light">
     <div class="container-fluid">
         <div class="row p-2 container-row">
-            <div class="col-12 col-md-6 col-lg-8 main-panel">
+            <div class=" col-6 col-lg-8 main-panel">
                 <div class="row card categories mb-2 shadow">
                     <div class="scroll-container p-2 gap-2">
                         <div class="card">
-                            <img src="assets/img/ui/coffee.png" alt="" onclick="loadProducts(0)">
+                            <img src="assets/img/ui/coffee.svg" alt="" onclick="loadProducts(0)">
                         </div>
                         <div class="card">
-                            <img src="assets/img/ui/tea.png" alt="" onclick="loadProducts(1)">
+                            <img src="assets/img/ui/tea.svg" alt="" onclick="loadProducts(1)">
                         </div>
                         <div class="card">
-                            <img src="assets/img/ui/pastries.png" alt="" onclick="loadProducts(2)">
+                            <img src="assets/img/ui/pastries.svg" alt="" onclick="loadProducts(2)">
                         </div>
 
                     </div>
                 </div>
                 <div class="row catalog">
-                    <div class="col-10 px-0">
-                        <div class="card menu shadow">
+                    <div class=" col-8 col-lg-10 px-0">
+                        <div class="card menu overflow-auto shadow">
                             <div class="scroll-container p-2 gap-2" id="menuScrollCard"></div>
                         </div>
                     </div>
-                    <div class="col-2 px-0 ps-2">
-                        <div class="card sizes shadow p-2 gap-2" id="sizeChoicesContainer"></div>
+                    <div class=" col-4 col-lg-2 px-0 ps-2">
+                        <div class="card sizes shadow p-1 p-md-2 gap-2" id="sizeChoicesContainer"></div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4 receipt-container ps-0 pt-2 pt-md-0 pt-lg-0">
-                <div class="receipt card ms-0 ms-md-2 ms-lg-2 shadow p-2 px-3">
+            <div class=" col-6 col-lg-4 receipt-container ps-0 pt-0 pe-1">
+                <div class="receipt card ms-2 shadow p-2 px-3">
                     <div class="top-label d-flex py-3">
-                        <span class="me-5">Item</span>
-                        <span class="px-5 text-end">Qty</span>
-                        <span class="ms-5 pe-3">Subtotal</span>
+                        <span class="me-auto">Item</span>
+                        <span class="text-end me-auto">Qty</span>
+                        <span class="">Subtotal</span>
                     </div>
                     <div class="scroll-container" id="receiptContainer"></div>
                 </div>
                 <div class="row controls ms-0 ms-md-2 ms-lg-2 ms-lg-2">
                     <div class="col-12 controls-right">
-                        <div class="row card my-2">
+                        <div class="row my-2 me-md-0">
                             <div class="total p-2">
-                                <span class="me-auto">Total:</span>
-                                <span class="lbl-total" id="labelTotal">P0.00</span>
+                                <span class="me-auto d-none d-md-block">Total:</span>
+                                <span class="lbl-total" id="labelTotal">₱0.00</span>
                             </div>
                         </div>
-                        <div class="row"><button type="button" class="btn btn-primary">Complete Purchase</button></div>
+                        <div class="row">
+                            <div class="col-12 col-md-3 ps-2 ps-md-0 mt-2 mt-md-0 pe pe-md-2 order-2 order-md-1">
+                                <button type="button" class=" btn-clear rounded" onclick="clearAllItems()">Clear All</button>
+                            </div>
+                            <div class="col-12 col-md-9 ps-2 ps-md-0  order-1 order-md-2">
+                                <button type="button" class="btn-complete rounded" onclick="completePurchase()">Complete Purchase</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
