@@ -1,23 +1,111 @@
+let categories = [];
+let products = [];
+let sizes = [];
+const receipt = [];
+const categoryScrollCard = document.getElementById("categoryScrollCard");
 const menuScrollCard = document.getElementById("menuScrollCard");
 const sizeChoicesContainer = document.getElementById("sizeChoicesContainer");
 const receiptContainer = document.getElementById("receiptContainer");
 const labelTotal = document.getElementById("labelTotal");
-const receipt = [];
+
+// FETCH METHODS
+const getAllCategories = async () => {
+
+    // CATEGORIES ENDPOINT
+    const url = 'http://localhost/Academics/APPDEV/marklouie019.github.io/ADET/A06/categories.php';
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            categories = data;
+            categoryScrollCard.innerHTML = '';
+            loadCategories();
+            getProductsByCategory(1);
+        });
+}
+
+const getProductsByCategory = async (categoryID) => {
+
+    // PRODUCTS BY CATEGORY ENDPOINT
+    const url = 'http://localhost/Academics/APPDEV/marklouie019.github.io/ADET/A06/products.php';
+
+    const categoryData = {
+        categoryID: categoryID
+    };
+
+    menuScrollCard.innerHTML = `
+        <div class="loader-wrapper">
+            <span class="loader"></span>
+        </div>`;
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(categoryData)
+    })
+        .then(response => response.json())
+        .then(data => {
+            products = data;
+            loadProducts(categoryID);
+        });
+}
+
+const getSizesByProduct = async (productID) => {
+
+    // SIZES BY PRODUCT ENDPOINT
+    const url = 'http://localhost/Academics/APPDEV/marklouie019.github.io/ADET/A06/sizes.php';
+
+    const productData = {
+        productID: productID
+    };
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(productData)
+    })
+        .then(response => response.json())
+        .then(data => {
+            sizes = data;
+            console.log(sizes);
+            loadSelectedItemSizes(productID, data);
+        });
+}
+
+// LOAD METHODS
+function loadCategories() {
+
+    categories.forEach(category => {
+        categoryScrollCard.innerHTML += `
+            <div class="card">
+                <img src="assets/img/ui/`+ category.displayIcon + `" alt="` + category.name + `" onclick="getProductsByCategory(` + category.categoryID + `)">
+            </div>`;
+    });
+}
 
 function loadProducts(categoryIndex) {
     menuScrollCard.innerHTML = '';
 
-    const category = products[categoryIndex];
-    const items = category.contents;
+    let category = null;
+    for (let i = 0; i < categories.length; i++) {
+        if (categories[i].categoryID == categoryIndex) {
+            category = categories[i];
+            break;
+        }
+    }
 
-    items.forEach((item, index) => {
+    products.forEach((product, index) => {
         menuScrollCard.innerHTML += `
             <div class="card item">
                 <div class="icon">
-                    <img src="assets/img/`+ category.category + `/` + item.displayIcon + `" alt="` + item.name + `"
-                    onclick="loadSelectedItemSizes(`+ categoryIndex + `,` + index + `)">
+                    <img src="assets/img/`+ category.name + `/` + product.displayIcon + `" alt="` + product.name + `"
+                    onclick="getSizesByProduct(` + product.productID + `)">
                 </div>
-                <p class="product-name">`+ item.name + `</p>
+                <p class="product-name">`+ product.name + `</p>
             </div>
             `;
     });
@@ -25,26 +113,35 @@ function loadProducts(categoryIndex) {
     clearSizeSelection();
 }
 
-function loadSelectedItemSizes(categoryIndex, itemIndex) {
-
-    const sizes = products[categoryIndex].contents[itemIndex].sizes;
+function loadSelectedItemSizes(productID, sizesData) {
     clearSizeSelection();
 
-    sizes.forEach((size, sizeIndex) => {
+    sizesData.forEach((size, sizeIndex) => {
         sizeChoicesContainer.innerHTML += `
-            <div class="card" onclick="addToReceipt('`+ categoryIndex + `','` + itemIndex + `',` + sizeIndex + `)">
+            <div class="card" onclick="addToReceipt('` + productID + `',` + sizeIndex + `)">
             <p class="size-label p-2">` + size.name + `</p></div>
         `
     });
 
+    sizes = sizesData;
 }
 
-function addToReceipt(categoryIndex, itemIndex, sizeIndex) {
-    const category = products[categoryIndex];
-    const item = category.contents[itemIndex];
-    const size = item.sizes[sizeIndex];
-    const orderName = item.code + '-' + size.code;
-    const subtotal = size.price.toFixed(2);
+// MAIN POS METHODS 
+function addToReceipt(productID, sizeIndex) {
+    const size = sizes[sizeIndex];
+
+    let product = null;
+    for (let i = 0; i < products.length; i++) {
+        if (products[i].productID == productID) {
+            product = products[i];
+            break;
+        }
+    }
+
+    if (!product) return;
+
+    const orderName = product.code + '-' + size.code;
+    const subtotal = parseFloat(size.price).toFixed(2);
     let orderExists = false;
 
     for (let i = 0; i < receipt.length; i++) {
@@ -61,7 +158,7 @@ function addToReceipt(categoryIndex, itemIndex, sizeIndex) {
             price: subtotal,
             size: size,
             quantity: 1
-        }
+        };
 
         receipt.push(orderedItem);
     }
@@ -137,4 +234,4 @@ function completePurchase() {
     clearAllItems();
 }
 
-loadProducts(0);
+getAllCategories();
