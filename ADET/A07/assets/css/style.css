@@ -8,10 +8,6 @@
     --navFont: "Mark Pro-C", sans-serif;
 }
 
-body {
-    background: #0F1923;
-}
-
 .base {
     position: relative;
     height: 100vh;
