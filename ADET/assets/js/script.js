@@ -116,6 +116,13 @@ const projectList = [
         "activityNum": "4",
         "thumbnail": "../assets/img/switch-cafe-thumbnail.png",
         "description": "Simple Point Of Sale"
+    },
+    {
+        "name": "Introplay",
+        "url": "../ADET/A07",
+        "activityNum": "7",
+        "thumbnail": "../assets/img/introplay-thumbnail.png",
+        "description": "Introplay with embedded mlbb ranking system"
     }
 ];
 
